@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatInside — Coming Soon</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f7f8fa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    form {
+      margin-top: 1rem;
+    }
+    input[type="email"] {
+      padding: 0.75rem;
+      width: 250px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #007aff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .success-message {
+      color: green;
+      margin-top: 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    .socials a {
+      margin: 0 0.5rem;
+      color: #007aff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>WatInside — Never Forget What’s in Your Boxes Again.</h1>
+  <p>Scan handwritten or printed labels. Instantly see what’s inside. Smart. Simple. Private.</p>
+
+  <!-- Custom Mailchimp Form (New Business Account) -->
+  <form id="custom-mailchimp-form" action="https://icloud.us2.list-manage.com/subscribe/post?u=296934fcaf28fa145cedb8800&amp;id=27b3e0ff0a" method="POST" novalidate onsubmit="handleSubmit(event)">
+    <input type="email" name="EMAIL" placeholder="Enter your email" required>
+    <button type="submit">Notify Me</button>
+    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+      <input type="text" name="b_296934fcaf28fa145cedb8800_27b3e0ff0a" tabindex="-1" value="">
+    </div>
+  </form>
+  <div id="success-message" class="success-message hidden">🎉 Thank you! You’re on the list.</div>
+
+  <footer>
+    <div class="socials">
+      <a href="https://reddit.com/r/watinside">Reddit</a>
+      <a href="https://instagram.com/watinside">Instagram</a>
+      <a href="https://twitter.com/watinside">X</a>
+      <a href="https://youtube.com/@watinside">YouTube</a>
+    </div>
+    <p>&copy; 2025 WatInside</p>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const url = form.action;
+      const formData = new FormData(form);
+
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        document.getElementById('custom-mailchimp-form').reset();
+        document.getElementById('success-message').classList.remove('hidden');
+      }).catch(() => {
+        alert('Something went wrong. Please try again.');
+      });
+    }
+  </script>
+</body>
+</html>
+s

@@ -1,0 +1,23 @@
+/*------------------------------------*\
+  #CLASSIC SKIN
+\*------------------------------------*/
+
+//- Overrides and new variables
+$classic-brand-color:         #2a7ae2 !default;
+$classic-brand-color-light:   lighten($classic-brand-color, 25%) !default;
+$classic-brand-color-dark:    darken($classic-brand-color, 15%) !default;
+$classic-text-color:          #111 !default;
+$classic-background-color:    #fdfdfd !default;
+$classic-grey-color:          #828282 !default;
+$classic-grey-color-light:    lighten($classic-grey-color, 40%) !default;
+$classic-grey-color-dark:     darken($classic-grey-color, 25%) !default;
+
+//- General
+$brand-color:                 $classic-brand-color;
+$brand-color-light:           $classic-brand-color-light;
+$brand-color-dark:            $classic-brand-color-dark;
+$text-color:                  $classic-text-color;
+$background-color:            $classic-background-color;
+$grey-color:                  $classic-grey-color;
+$grey-color-light:            $classic-grey-color-light;
+$grey-color-dark:             $classic-grey-color-dark;

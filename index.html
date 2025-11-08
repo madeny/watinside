@@ -1,91 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WatInside — Coming Soon</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background-color: #f7f8fa;
-      color: #222;
-      margin: 0;
-      padding:  0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
-    }
-    form {
-      margin-top: 1rem;
-    }
-    input[type="email"] {
-      padding: 0.75rem;
-      width: 250px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 0.75rem 1.5rem;
-      margin-left: 0.5rem;
-      font-size: 1rem;
-      border: none;
-      background-color: #007aff;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .hidden {
-      display: none;
-    }
-    .success-message {
-      color: green;
-      margin-top: 1rem;
-    }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      padding: 1rem;
-    }
-    .socials a {
-      margin: 0 0.5rem;
-      color: #007aff;
-      text-decoration: none;
-    }
-    .footer-info {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #555;
-    }
-    .copyright {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #999;
-    }
-  </style>
-  <!-- 100% privacy-first analytics -->
-  <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WatInside — Know what’s inside</title>
+  <meta name="description" content="Know what's inside — without opening every box. Get WatInside on the App Store.">
+  <meta property="og:title" content="WatInside — Know what’s inside">
+  <meta property="og:description" content="Know what’s inside — without opening every box.">
+  <meta property="og:image" content="/assets/og-image.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: { light: '#F9FAFB', dark: '#0B1D3B' },
+            text: { light: '#0B1D3B', dark: '#F9FAFB' },
+            accent: '#FFCC00',
+            cardBg: { light: '#FFFFFF', dark: '#132B54' }
+          }
+        }
+      }
+    };
+  </script>
+  <script defer src="theme-switch.js"></script>
+  <!-- Plausible Analytics -->
+  <script async defer data-domain="watinside.com" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body>
-  <h1>WatInside — Never Forget What’s in Your Boxes Again.</h1>
-  <p>Scan handwritten or printed labels. Instantly see what’s inside. Smart. Simple. Private.</p>
+<body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors duration-300">
+  <div class="min-h-screen flex flex-col">
 
+    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center">
+        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10 mr-3">
+        <span class="text-2xl font-semibold">WatInside</span>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
+        </svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
+        </svg>
+      </button>
+    </header>
+
+    <main class="flex-grow">
+      <section id="hero" class="container mx-auto px-6 py-20 text-center">
+        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Know what’s inside — without opening every box.</h1>
+        <p class="text-lg mb-8">Stay organized and never miss a thing with WatInside.</p>
+        <a href="https://apps.apple.com/app/idYourAppID" class="inline-flex items-center px-6 py-3 bg-background-dark text-white dark:bg-accent dark:text-background-dark rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-shadow duration-300">
+          <img src="/assets/app-store-badge.svg" alt="Get it on the App Store" class="h-8 mr-3">
+          Get it on the App Store
+        </a>
+        <div class="mt-12 mx-auto w-64 sm:w-80 md:w-96">
+          <img src="/assets/hero-mockup.webp" alt="WatInside App Preview" class="w-full rounded-2xl shadow-lg">
+        </div>
+      </section>
+
+      <section id="features" class="bg-background-light dark:bg-background-dark py-16">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
+              <img src="/assets/icons/smart-search.svg" alt="Smart Search Icon" class="h-8 w-8 mr-4">
+              <div>
+                <h3 class="text-xl font-medium mb-2">Smart Search</h3>
+                <p>Find exactly what you need in seconds.</p>
+              </div>
+            </article>
+            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
+              <img src="/assets/icons/qr-labeling.svg" alt="QR Labeling Icon" class="h-8 w-8 mr-4">
+              <div>
+                <h3 class="text-xl font-medium mb-2">QR Labeling</h3>
+                <p>Print and scan QR labels for effortless tracking.</p>
+              </div>
+            </article>
+            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
+              <img src="/assets/icons/ai-tagging.svg" alt="AI Tagging Icon" class="h-8 w-8 mr-4">
+              <div>
+                <h3 class="text-xl font-medium mb-2">AI Tagging</h3>
+                <p>Auto-tag contents using smart AI predictions.</p>
+              </div>
+            </article>
+            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
+              <img src="/assets/icons/return-reminders.svg" alt="Return Reminders Icon" class="h-8 w-8 mr-4">
+              <div>
+                <h3 class="text-xl font-medium mb-2">Return Reminders</h3>
+                <p>Never forget borrowed items again.</p>
+              </div>
+            </article>
+            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
+              <img src="/assets/icons/icloud-sync.svg" alt="iCloud Sync Icon" class="h-8 w-8 mr-4">
+              <div>
+                <h3 class="text-xl font-medium mb-2">iCloud Sync</h3>
+                <p>Keep your data synced across all devices.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="py-16 container mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-center mb-12">App Gallery</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="w-40 sm:w-52 md:w-64 lg:w-72">
+            <img src="/assets/gallery1-light.webp" alt="App screenshot in light mode" class="rounded-3xl shadow-xl">
+          </div>
+          <div class="w-40 sm:w-52 md:w-64 lg:w-72 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-4">
+            <img src="/assets/gallery2-dark.webp" alt="App screenshot in dark mode" class="rounded-2xl">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="sidebar" class="fixed right-0 top-0 h-full w-80 bg-background-light dark:bg-background-dark shadow-lg p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 z-50">
+      <button id="sidebar-close" aria-label="Close sidebar" class="mb-4 text-2xl focus:outline-none">&times;</button>
+      <h2 class="text-2xl font-semibold mb-4">Latest Posts</h2>
+      <ul id="posts-list" class="space-y-4"></ul>
+    </aside>
+    <button id="sidebar-open" aria-label="Open sidebar" class="fixed right-6 bottom-6 bg-accent p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
+      <svg class="w-6 h-6 text-background-light dark:text-background-dark" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5h12v2H4V5zm0 6h12v2H4v-2zm0 6h12v2H4v-2z"/>
+      </svg>
+    </button>
+
+    <footer class="bg-background-light dark:bg-background-dark py-8">
+      <div class="container mx-auto px-6 text-center space-y-4">
+        <h2 class="text-xl font-semibold">Join our Beta Test</h2>
+        <form action="#" class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <input type="email" name="email" placeholder="Your email" aria-label="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-auto bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm">
+          <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">Subscribe</button>
+        </form>
+        <div class="flex justify-center space-x-6 mt-6">
+          <a href="https://twitter.com/watinside" aria-label="Twitter" class="hover:text-accent">
+            <img src="/assets/icons/twitter.svg" alt="Twitter" class="h-6 w-6">
+          </a>
+          <a href="https://www.tiktok.com/@watinside" aria-label="TikTok" class="hover:text-accent">
+            <img src="/assets/icons/tiktok.svg" alt="TikTok" class="h-6 w-6">
+          </a>
+          <a href="https://instagram.com/watinside" aria-label="Instagram" class="hover:text-accent">
+            <img src="/assets/icons/instagram.svg" alt="Instagram" class="h-6 w-6">
+          </a>
+          <a href="https://youtube.com/watinside" aria-label="YouTube" class="hover:text-accent">
+            <img src="/assets/icons/youtube.svg" alt="YouTube" class="h-6 w-6">
+          </a>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    fetch('/posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const list = document.getElementById('posts-list');
+        posts.forEach(post => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${post.url}" class="flex items-start space-x-3">
+            <img src="${post.thumbnail}" alt="${post.title}" class="h-12 w-12 rounded-md object-cover">
+            <div>
+              <h3 class="font-medium">${post.title}</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">${post.description}</p>
+            </div>
+          </a>`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
+---
+layout: default
+---
+
+<div class="hero-section">
+  <h1>Find your things, faster.</h1>
+  <p class="hero-subtitle">The smartest way to organize your physical world.</p>
+  <a href="#" class="cta-button">Download on the App Store</a>
+</div>
+
+<section id="features" class="features-section">
+  <h2>Features</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+      <h3>Scan Anything</h3>
+      <p>Scan handwritten or printed labels with ease.</p>
+    </div>
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <h3>Instant Search</h3>
+      <p>Instantly see what’s inside your boxes.</p>
+    </div>
+    <div class="feature">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+      </svg>
+      <h3>Smart Organization</h3>
+      <p>Find items quickly and manage your personal inventory.</p>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots" class="screenshots-section">
+  <h2>Screenshots</h2>
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.02.heic" alt="Screenshot 1">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.06.heic" alt="Screenshot 2">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.18.heic" alt="Screenshot 3">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.29.heic" alt="Screenshot 4">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.39.heic" alt="Screenshot 5">
+      <img src="/Template/Screenshot 2025-11-02 at 09.31.54.heic" alt="Screenshot 6">
+      <img src="/Template/Screenshot 2025-11-02 at 09.32.03.heic" alt="Screenshot 7">
+    </div>
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+</section>
+
+<section id="testimonials" class="testimonials-section">
+  <h2>What people are saying</h2>
+  <div class="testimonial">
+    <blockquote>
+      <p>"This app is a lifesaver! I can finally find all my stuff without tearing my house apart."</p>
+    </blockquote>
+    <p class="author">- A Happy User</p>
+  </div>
+</section>
+
+<section id="cta" class="cta-form-section">
+  <h2>Stay Updated!</h2>
+  <p>Be the first to know when WatInside launches on the App Store.</p>
   <!-- Custom Mailchimp Form (New Business Account) -->
   <form id="custom-mailchimp-form" action="https://icloud.us2.list-manage.com/subscribe/post?u=296934fcaf28fa145cedb8800&amp;id=27b3e0ff0a" method="POST" novalidate onsubmit="handleSubmit(event)">
     <input type="email" name="EMAIL" placeholder="Enter your email" required>
@@ -95,40 +250,64 @@
     </div>
   </form>
   <div id="success-message" class="success-message hidden">🎉 Thank you! You’re on the list.</div>
+</section>
 
-  <footer>
-    <div class="socials">
-      <a href="https://reddit.com/r/watinside">Reddit</a>
-      <a href="https://instagram.com/watinside">Instagram</a>
-      <a href="https://twitter.com/watinside">X</a>
-      <a href="https://youtube.com/@watinside">YouTube</a>
-      <a href="https://tiktok.com/@.watinside">TikTok</a>
-      <a href="https://facebook.com/watinsid">Facebook</a>
-    </div>
-    <div class="footer-info">
-      Watinside is in active development and coming soon to the App Store. Our AI-powered storage organization app helps you scan boxes, find items, and manage your personal inventory with ease. Whether you're decluttering your home, packing for a move, or organizing kids clothes — WatInside makes it easy to never lose things again.
-    </div>
-    <div class="copyright">&copy; 2025 WatInside </div>
-  </footer>
+<script>
+  const carousel = document.querySelector('.carousel');
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  let currentIndex = 0;
 
-  <script>
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const url = form.action;
-      const formData = new FormData(form);
-
-      fetch(url, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      }).then(() => {
-        document.getElementById('custom-mailchimp-form').reset();
-        document.getElementById('success-message').classList.remove('hidden');
-      }).catch(() => {
-        alert('Something went wrong. Please try again.');
-      });
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < carousel.children.length - 1) {
+      currentIndex++;
+      updateCarousel();
     }
-  </script>
-</body>
-</html>
+  });
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
+  const body = document.body;
+
+  darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+      body.classList.add('dark-mode');
+    } else {
+      body.classList.remove('dark-mode');
+    }
+  });
+
+  // Check for system preference
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const url = form.action;
+    const formData = new FormData(form);
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).then(() => {
+      document.getElementById('custom-mailchimp-form').reset();
+      document.getElementById('success-message').classList.remove('hidden');
+    }).catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
+  }
+</script>

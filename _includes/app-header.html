@@ -1,17 +1,17 @@
-<header class="sticky top-0 z-50 bg-white/80 dark:bg-[#0B1D3B]/80 backdrop-blur border-b border-black/5 dark:border-white/10">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-[#0B1D3B]/80 backdrop-blur border-b border-black/5 dark:border-white/10">
+  <div class="container mx-auto px-6 py-5 flex justify-between items-center">
     <a href="/" class="flex items-center space-x-3">
       <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
       <span class="text-2xl font-semibold">WatInside</span>
     </a>
     <div class="flex items-center space-x-4">
       <nav class="hidden md:block">
-        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-white/30 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+        <ul class="flex items-center gap-2 text-base font-medium bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-white/30 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
           <li>
             <a href="/"
                class="px-4 py-2 rounded-full transition-colors
                {% if page.url == '/' or page.url == '/index.html' %}
-                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+                 bg-white/80 dark:bg-white/20 text-background-dark dark:text-white ring-1 ring-white/50
                {% else %}
                  text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
                {% endif %}"
@@ -23,7 +23,7 @@
             <a href="/tutorial.html"
                class="px-4 py-2 rounded-full transition-colors
                {% if page.url == '/tutorial.html' %}
-                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+                 bg-white/80 dark:bg-white/20 text-background-dark dark:text-white ring-1 ring-white/50
                {% else %}
                  text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
                {% endif %}"
@@ -35,7 +35,7 @@
             <a href="/blog.html"
                class="px-4 py-2 rounded-full transition-colors
                {% if page.url == '/blog.html' %}
-                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+                 bg-white/80 dark:bg-white/20 text-background-dark dark:text-white ring-1 ring-white/50
                {% else %}
                  text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
                {% endif %}"
@@ -47,7 +47,7 @@
             <a href="/contact.html"
                class="px-4 py-2 rounded-full transition-colors
                {% if page.url == '/contact.html' %}
-                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+                 bg-white/80 dark:bg-white/20 text-background-dark dark:text-white ring-1 ring-white/50
                {% else %}
                  text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
                {% endif %}"
@@ -73,7 +73,8 @@
     </div>
   </div>
 </header>
-<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
+<div aria-hidden="true" class="h-16 md:h-20"></div>
+<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
   <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
     <li>
       <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors

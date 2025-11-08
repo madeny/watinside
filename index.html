@@ -256,6 +256,11 @@
       let animating = false;
       let touchStartX = null;
 
+      const resetImg = (el) => {
+        if (!el) return;
+        el.classList.remove('translate-x-full','-translate-x-full');
+      };
+
       const open = (startIdx=0) => {
         idx = startIdx;
         updateCurrent();

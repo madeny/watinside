@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="antialiased scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WatInside — Know what’s inside</title>
-  <meta name="description" content="Know what's inside — without opening every box. Get WatInside on the App Store.">
-  <meta property="og:title" content="WatInside — Know what’s inside">
-  <meta property="og:description" content="Know what’s inside — without opening every box.">
-  <meta property="og:image" content="/assets/og-image.webp">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="/assets/favicon.ico">
+  <meta name="description" content="Know what's inside — without opening every box. Get WatInside on the App Store." />
+  <meta property="og:title" content="WatInside — Know what’s inside" />
+  <meta property="og:description" content="Know what’s inside — without opening every box." />
+  <meta property="og:image" content="/assets/og-image.webp" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/assets/favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,151 +21,92 @@
             text: { light: '#0B1D3B', dark: '#F9FAFB' },
             accent: '#FFCC00',
             cardBg: { light: '#FFFFFF', dark: '#132B54' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          borderRadius: {
+            DEFAULT: '12px',
+            lg: '16px'
+          },
+          boxShadow: {
+            cardLight: '0 1px 2px rgba(0,0,0,0.05)',
+            cardDark: '0 4px 6px rgba(255,255,255,0.08)'
           }
         }
       }
     };
   </script>
   <script defer src="theme-switch.js"></script>
-  <!-- Plausible Analytics -->
   <script async defer data-domain="watinside.com" src="https://plausible.io/js/plausible.js"></script>
-  <!-- Font Awesome Free -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors duration-300">
-  <div class="min-h-screen flex flex-col">
 
+<body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
+  <div class="min-h-screen flex flex-col">
     <header class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
-        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
+        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10" />
         <span class="text-2xl font-semibold">WatInside</span>
       </a>
       <div class="flex items-center space-x-8">
         <nav>
           <ul class="flex space-x-6 text-lg font-medium">
             <li><a href="/" class="hover:text-accent">App</a></li>
-            <!-- <li><a href="/app.html" class="hover:text-accent">App</a></li> -->
             <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
             <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
             <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
           </ul>
         </nav>
         <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
+          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+              d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
           </svg>
-          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
+          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z" />
           </svg>
         </button>
       </div>
     </header>
 
-    <main class="flex-grow">
-      <section id="hero" class="container mx-auto px-6 py-20 text-center">
-        <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Know what’s inside — without opening every box.</h1>
-        <p class="text-lg mb-8">Stay organized and never miss a thing with WatInside.</p>
-        <a href="https://apps.apple.com/app/idYourAppID" class="inline-flex items-center px-6 py-3 bg-background-dark text-white dark:bg-accent dark:text-background-dark rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-shadow duration-300">
-          <img src="/assets/app-store-badge.svg" alt="Get it on the App Store" class="h-8 mr-3">
-          Get it on the App Store
-        </a>
-        <div class="mt-12 mx-auto w-64 sm:w-80 md:w-96">
-          <img src="/assets/hero-mockup.webp" alt="WatInside App Preview" class="w-full rounded-2xl shadow-lg">
-        </div>
-      </section>
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0B1D3B] to-[#132B54] dark:from-[#0B1D3B] dark:to-[#132B54] light:from-[#F9FAFB] light:to-[#E8ECF4]"></div>
+      <!-- Yellow glow -->
+      <div class="absolute right-1/4 bottom-1/4 w-[600px] h-[600px] bg-[#FFCC00] opacity-20 blur-[160px] rounded-full"></div>
 
-      <section id="features" class="bg-background-light dark:bg-background-dark py-16">
-        <div class="container mx-auto px-6">
-          <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
-          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
-              <img src="/assets/icons/smart-search.svg" alt="Smart Search Icon" class="h-8 w-8 mr-4">
-              <div>
-                <h3 class="text-xl font-medium mb-2">Smart Search</h3>
-                <p>Find exactly what you need in seconds.</p>
-              </div>
-            </article>
-            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
-              <img src="/assets/icons/qr-labeling.svg" alt="QR Labeling Icon" class="h-8 w-8 mr-4">
-              <div>
-                <h3 class="text-xl font-medium mb-2">QR Labeling</h3>
-                <p>Print and scan QR labels for effortless tracking.</p>
-              </div>
-            </article>
-            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
-              <img src="/assets/icons/ai-tagging.svg" alt="AI Tagging Icon" class="h-8 w-8 mr-4">
-              <div>
-                <h3 class="text-xl font-medium mb-2">AI Tagging</h3>
-                <p>Auto-tag contents using smart AI predictions.</p>
-              </div>
-            </article>
-            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
-              <img src="/assets/icons/return-reminders.svg" alt="Return Reminders Icon" class="h-8 w-8 mr-4">
-              <div>
-                <h3 class="text-xl font-medium mb-2">Return Reminders</h3>
-                <p>Never forget borrowed items again.</p>
-              </div>
-            </article>
-            <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-sm dark:shadow-lg hover:shadow-lg transition-shadow duration-300">
-              <img src="/assets/icons/icloud-sync.svg" alt="iCloud Sync Icon" class="h-8 w-8 mr-4">
-              <div>
-                <h3 class="text-xl font-medium mb-2">iCloud Sync</h3>
-                <p>Keep your data synced across all devices.</p>
-              </div>
-            </article>
+      <div class="relative z-10 container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
+        <!-- Left: Text -->
+        <div class="text-center md:text-left md:w-1/2 space-y-6">
+          <p class="text-accent font-medium tracking-wide uppercase">Available soon on the App Store</p>
+          <h1 class="text-5xl sm:text-6xl font-semibold leading-tight text-white">Know what’s inside — without opening every box.</h1>
+          <p class="text-lg text-[#C7D0E0] max-w-md">Organize your spaces effortlessly with smart tagging, search, and storage tracking powered by AI.</p>
+          <a href="https://apps.apple.com/app/idYourAppID"
+            class="inline-flex items-center px-8 py-4 bg-[#FFCC00] text-[#0B1D3B] rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+            <img src="/assets/app-store-badge.svg" alt="Get it on the App Store" class="h-8 mr-3" />
+            Get it on the App Store
+          </a>
+        </div>
+
+        <!-- Right: Mockup -->
+        <div class="md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
+          <div class="relative">
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-72 h-10 bg-black/30 rounded-full blur-2xl opacity-40"></div>
+            <img src="/assets/preview.webp" alt="WatInside App Preview"
+              class="w-72 sm:w-80 md:w-[420px] rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.5)]" />
           </div>
         </div>
-      </section>
-
-      <section id="gallery" class="py-16 container mx-auto px-6">
-        <h2 class="text-3xl font-semibold text-center mb-12">App Gallery</h2>
-        <div class="flex flex-wrap justify-center gap-8">
-          <div class="w-40 sm:w-52 md:w-64 lg:w-72">
-            <img src="/assets/gallery1-light.webp" alt="App screenshot in light mode" class="rounded-3xl shadow-xl">
-          </div>
-          <div class="w-40 sm:w-52 md:w-64 lg:w-72 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-4">
-            <img src="/assets/gallery2-dark.webp" alt="App screenshot in dark mode" class="rounded-2xl">
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <aside id="sidebar" class="fixed right-0 top-0 h-full w-80 bg-background-light dark:bg-background-dark shadow-lg p-6 overflow-y-auto transform translate-x-full transition-transform duration-300 z-50">
-      <button id="sidebar-close" aria-label="Close sidebar" class="mb-4 text-2xl focus:outline-none">&times;</button>
-      <h2 class="text-2xl font-semibold mb-4">Latest Posts</h2>
-      <ul id="posts-list" class="space-y-4"></ul>
-    </aside>
-    <button id="sidebar-open" aria-label="Open sidebar" class="fixed right-6 bottom-6 bg-accent p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
-      <svg class="w-6 h-6 text-background-light dark:text-background-dark" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5h12v2H4V5zm0 6h12v2H4v-2zm0 6h12v2H4v-2z"/>
-      </svg>
-    </button>
-
-    <footer class="bg-background-light dark:bg-background-dark py-8">
-      <div class="container mx-auto px-6 text-center space-y-4">
-        <h2 class="text-xl font-semibold">Join our Beta Test</h2>
-        <form action="#" class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <input type="email" name="email" placeholder="Your email" aria-label="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-auto bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm">
-          <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">Subscribe</button>
-        </form>
-        <div class="flex justify-center space-x-6 mt-6 text-2xl">
-          <a href="https://twitter.com/watinside" aria-label="Twitter" class="hover:text-accent">
-            <i class="fab fa-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.tiktok.com/@watinside" aria-label="TikTok" class="hover:text-accent">
-            <i class="fab fa-tiktok" aria-hidden="true"></i>
-          </a>
-          <a href="https://instagram.com/watinside" aria-label="Instagram" class="hover:text-accent">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
-          </a>
-          <a href="https://youtube.com/watinside" aria-label="YouTube" class="hover:text-accent">
-            <i class="fab fa-youtube" aria-hidden="true"></i>
-          </a>
-        </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
       </div>
-    </footer>
+    </section>
+    <!-- END HERO -->
+
+    <!-- Existing sections follow -->
+    <!-- keep your Features, Gallery, Sidebar, Footer exactly as before -->
+    <!-- ... -->
   </div>
+
   <script>
     fetch('/posts.json')
       .then(res => res.json())

@@ -23,8 +23,84 @@
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
     {% include app-header.html %}
-    {% include app-footer.html %}
+        <main class="flex-1">
+      <section class="py-12 sm:py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Contact us</h1>
+          <p class="mt-2 text-text-light/70 dark:text-text-dark/70">We’ll get back to you as soon as we can.</p>
+        </div>
+      </section>
+      <section class="pb-16 sm:pb-24">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <form id="contact-form" class="rounded-2xl bg-cardBg-light dark:bg-cardBg-dark p-6 sm:p-8 shadow-sm ring-1 ring-black/5 space-y-4" data-endpoint="" novalidate>
+            <div>
+              <label for="name" class="block text-sm font-medium">Name</label>
+              <input id="name" name="name" type="text" required class="mt-1 block w-full rounded-md border border-black/10 bg-white/90 dark:bg-white/5 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Jane Doe">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md border border-black/10 bg-white/90 dark:bg-white/5 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="jane@company.com">
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-medium">Subject</label>
+              <input id="subject" name="subject" type="text" class="mt-1 block w-full rounded-md border border-black/10 bg-white/90 dark:bg-white/5 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="How can we help?">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium">Message</label>
+              <textarea id="message" name="message" rows="6" required class="mt-1 block w-full rounded-md border border-black/10 bg-white/90 dark:bg-white/5 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Write your message..."></textarea>
+            </div>
+            <div class="hidden">
+              <label>Leave this field empty<input type="text" name="_honeypot" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="pt-2 flex items-center justify-between gap-4">
+              <p id="form-status" class="text-sm text-text-light/70 dark:text-text-dark/70"></p>
+              <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-accent text-text-light hover:brightness-95 transition">
+                <i class="fa-regular fa-paper-plane"></i>
+                Send message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+{% include app-footer.html %}
   </div>
   {% include mobile-menu-script.html %}
+<script>
+  (function(){
+    const form = document.getElementById('contact-form');
+    if(!form) return;
+    const statusEl = document.getElementById('form-status');
+    const fallbackEmail = "support@watinside.com";
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "";
+      const data = new FormData(form);
+      if ((data.get('_honeypot')||'').trim() !== "") return;
+      const name = (data.get('name')||'').trim();
+      const email = (data.get('email')||'').trim();
+      const subject = (data.get('subject')||'').trim() || "Contact form";
+      const message = (data.get('message')||'').trim();
+      if(!name || !email || !message){ statusEl.textContent = "Please fill in your name, email, and message."; return; }
+      const endpoint = form.dataset.endpoint && form.dataset.endpoint.trim();
+      const payload = { name, email, subject, message, source: "watinside.com" };
+      try {
+        if (endpoint && /^https?:\/\//.test(endpoint)) {
+          const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+          if (res.ok) { statusEl.textContent = "Thanks! Your message has been sent."; form.reset(); }
+          else { throw new Error("Submit failed"); }
+        } else {
+          const body = encodeURIComponent(`${message}
+
+— ${name} (${email})`);
+          const subj = encodeURIComponent(subject);
+          window.location.href = `mailto:${fallbackEmail}?subject=${subj}&body=${body}`;
+        }
+      } catch (err) {
+        statusEl.textContent = "Sorry, we could not send your message. Please email us directly.";
+      }
+    });
+  })();
+</script>
 </body>
 </html>

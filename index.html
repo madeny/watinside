@@ -22,13 +22,8 @@
             accent: '#FFCC00',
             cardBg: { light: '#FFFFFF', dark: '#132B54' }
           },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          },
-          borderRadius: {
-            DEFAULT: '12px',
-            lg: '16px'
-          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          borderRadius: { DEFAULT: '12px', lg: '16px' },
           boxShadow: {
             cardLight: '0 1px 2px rgba(0,0,0,0.05)',
             cardDark: '0 4px 6px rgba(255,255,255,0.08)'
@@ -44,13 +39,15 @@
 
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
-    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- HEADER -->
+        <header class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
-        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10" />
+        <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
         <span class="text-2xl font-semibold">WatInside</span>
       </a>
-      <div class="flex items-center space-x-8">
-        <nav>
+      <div class="flex items-center space-x-4">
+        <nav class="hidden md:block">
           <ul class="flex space-x-6 text-lg font-medium">
             <li><a href="/" class="hover:text-accent">App</a></li>
             <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
@@ -60,38 +57,50 @@
         </nav>
         <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
           <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path clip-rule="evenodd" fill-rule="evenodd"
-              d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
           </svg>
           <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
             <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z" />
           </svg>
         </button>
+        <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </header>
+    <nav id="mobile-menu" class="md:hidden hidden container mx-auto px-6 pb-4">
+      <ul class="flex flex-col gap-3 text-lg font-medium bg-cardBg-light dark:bg-cardBg-dark rounded-xl p-4 shadow-cardLight dark:shadow-cardDark">
+        <li><a href="/" class="block w-full px-2 py-2 rounded hover:text-accent">App</a></li>
+        <li><a href="/tutorial.html" class="block w-full px-2 py-2 rounded hover:text-accent">Tutorial</a></li>
+        <li><a href="/blog.html" class="block w-full px-2 py-2 rounded hover:text-accent">Blog</a></li>
+        <li><a href="/contact.html" class="block w-full px-2 py-2 rounded hover:text-accent">Contact</a></li>
+      </ul>
+    </nav>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      <!-- Background gradient -->
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden py-16 md:py-24">
       <div class="absolute inset-0 bg-gradient-to-br from-[#0B1D3B] to-[#132B54] dark:from-[#0B1D3B] dark:to-[#132B54] light:from-[#F9FAFB] light:to-[#E8ECF4]"></div>
-      <!-- Yellow glow -->
       <div class="absolute right-1/4 bottom-1/4 w-[600px] h-[600px] bg-[#FFCC00] opacity-20 blur-[160px] rounded-full"></div>
 
-      <div class="relative z-10 container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
-        <!-- Left: Text -->
+      <div class="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         <div class="text-center md:text-left md:w-1/2 space-y-6">
           <p class="text-accent font-medium tracking-wide uppercase">Available soon on the App Store</p>
-          <h1 class="text-5xl sm:text-6xl font-semibold leading-tight text-white">Know what’s inside — without opening every box.</h1>
-          <p class="text-lg text-[#C7D0E0] max-w-md">Organize your spaces effortlessly with smart tagging, search, and storage tracking powered by AI.</p>
+          <h1 class="text-5xl sm:text-6xl font-semibold leading-tight text-white">
+            Know what’s inside — without opening every box.
+          </h1>
+          <p class="text-lg text-[#C7D0E0] max-w-md">
+            Organize your spaces effortlessly with smart tagging, search, and storage tracking powered by AI.
+          </p>
           <a href="https://apps.apple.com/app/idYourAppID"
             class="inline-flex items-center px-8 py-4 bg-[#FFCC00] text-[#0B1D3B] rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
             <img src="/assets/app-store-badge.svg" alt="Get it on the App Store" class="h-8 mr-3" />
-            Get it on the App Store
+            <!-- Get it on the App Store -->
           </a>
         </div>
 
-        <!-- Right: Mockup -->
-        <div class="md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
+        <div class="md:w-1/2 flex justify-center md:justify-end pt-12 mb-12 md:pt-0 md:mb-0">
           <div class="relative">
             <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-72 h-10 bg-black/30 rounded-full blur-2xl opacity-40"></div>
             <img src="/assets/preview.webp" alt="WatInside App Preview"
@@ -100,30 +109,96 @@
         </div>
       </div>
     </section>
-    <!-- END HERO -->
 
-    <!-- Existing sections follow -->
-    <!-- keep your Features, Gallery, Sidebar, Footer exactly as before -->
-    <!-- ... -->
+    <!-- FEATURES -->
+    <section id="features" class="bg-background-light dark:bg-background-dark py-20">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-shadow">
+            <img src="/assets/icons/smart-search.svg" alt="Smart Search" class="h-8 w-8 mr-4">
+            <div><h3 class="text-xl font-medium mb-2">Smart Search</h3><p>Find exactly what you need in seconds.</p></div>
+          </article>
+          <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-shadow">
+            <img src="/assets/icons/qr-labeling.svg" alt="QR Labeling" class="h-8 w-8 mr-4">
+            <div><h3 class="text-xl font-medium mb-2">QR Labeling</h3><p>Print and scan QR labels for effortless tracking.</p></div>
+          </article>
+          <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-shadow">
+            <img src="/assets/icons/ai-tagging.svg" alt="AI Tagging" class="h-8 w-8 mr-4">
+            <div><h3 class="text-xl font-medium mb-2">AI Tagging</h3><p>Auto-tag contents using smart AI predictions.</p></div>
+          </article>
+          <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-shadow">
+            <img src="/assets/icons/return-reminders.svg" alt="Return Reminders" class="h-8 w-8 mr-4">
+            <div><h3 class="text-xl font-medium mb-2">Return Reminders</h3><p>Never forget borrowed items again.</p></div>
+          </article>
+          <article class="flex items-start bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_4px_6px_rgba(0,0,0,0.1)] transition-shadow">
+            <img src="/assets/icons/icloud-sync.svg" alt="iCloud Sync" class="h-8 w-8 mr-4">
+            <div><h3 class="text-xl font-medium mb-2">iCloud Sync</h3><p>Keep your data synced across all devices.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-20 container mx-auto px-6">
+      <h2 class="text-3xl font-semibold text-center mb-12">App Gallery</h2>
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="w-40 sm:w-52 md:w-64 lg:w-72">
+          <img src="/assets/gallery1-light.webp" alt="App screenshot in light mode" class="rounded-3xl shadow-xl" />
+        </div>
+        <div class="w-40 sm:w-52 md:w-64 lg:w-72 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-4">
+          <img src="/assets/gallery2-dark.webp" alt="App screenshot in dark mode" class="rounded-2xl" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-background-light dark:bg-background-dark py-12">
+      <div class="container mx-auto px-6 text-center space-y-4">
+        <h2 class="text-xl font-semibold">Join our Beta Test</h2>
+        <form action="#" class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <input type="email" name="email" placeholder="Your email" required
+            class="px-4 py-3 rounded-lg w-full sm:w-auto bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm" />
+          <button type="submit"
+            class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            Subscribe
+          </button>
+        </form>
+        <div class="flex justify-center space-x-6 mt-6 text-2xl">
+          <a href="https://twitter.com/watinside" class="hover:text-accent"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.tiktok.com/@watinside" class="hover:text-accent"><i class="fab fa-tiktok"></i></a>
+          <a href="https://instagram.com/watinside" class="hover:text-accent"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/watinside" class="hover:text-accent"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
+      </div>
+    </footer>
   </div>
 
+  <!-- Sidebar script kept -->
   <script>
     fetch('/posts.json')
       .then(res => res.json())
       .then(posts => {
         const list = document.getElementById('posts-list');
+        if (!list) return;
         posts.forEach(post => {
           const li = document.createElement('li');
           li.innerHTML = `<a href="${post.url}" class="flex items-start space-x-3">
             <img src="${post.thumbnail}" alt="${post.title}" class="h-12 w-12 rounded-md object-cover">
-            <div>
-              <h3 class="font-medium">${post.title}</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">${post.description}</p>
-            </div>
+            <div><h3 class="font-medium">${post.title}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">${post.description}</p></div>
           </a>`;
           list.appendChild(li);
         });
       });
+  </script>
+  <script>
+    (function(){
+      const btn = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+    })();
   </script>
 </body>
 </html>

@@ -101,8 +101,12 @@
         <div class="md:w-1/2 flex justify-center md:justify-end pt-12 mb-12 md:pt-0 md:mb-0">
           <div class="relative">
             <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-72 h-10 bg-black/30 rounded-full blur-2xl opacity-40"></div>
-            <img src="/assets/preview.webp" alt="WatInside App Preview"
-              class="w-72 sm:w-80 md:w-[420px] rounded-[32px] shadow-[0_30px_60px_rgba(0,0,0,0.5)]" />
+            <div class="rounded-[80px]  shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+              <picture>
+                <source srcset="/assets/preview.png" type="image/png">
+                <img src="/assets/preview.png" alt="WatInside App Preview" class="w-72 sm:w-80 md:w-[420px] block" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>

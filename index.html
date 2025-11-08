@@ -162,13 +162,15 @@
     <!-- GALLERY -->
     <section id="gallery" class="py-20 container mx-auto px-6">
       <h2 class="text-3xl font-semibold text-center mb-12">App Gallery</h2>
-      <div class="flex flex-wrap justify-center gap-8">
-        <div class="w-40 sm:w-52 md:w-64 lg:w-72">
-          <img src="/assets/gallery1-light.webp" alt="App screenshot in light mode" class="rounded-3xl shadow-xl" />
-        </div>
-        <div class="w-40 sm:w-52 md:w-64 lg:w-72 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-4">
-          <img src="/assets/gallery2-dark.webp" alt="App screenshot in dark mode" class="rounded-2xl" />
-        </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <figure class="rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25)] bg-gradient-to-b from-white/30 to-white/10 dark:from-white/10 dark:to-white/5">
+          <img src="/assets/gallery-light.webp" alt="WatInside collage — light mode" class="w-full h-auto block" />
+          <figcaption class="sr-only">Light mode</figcaption>
+        </figure>
+        <figure class="rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.35)] bg-gradient-to-b from-[#0B1D3B]/40 to-[#132B54]/30">
+          <img src="/assets/gallery-dark.webp" alt="WatInside collage — dark mode" class="w-full h-auto block" />
+          <figcaption class="sr-only">Dark mode</figcaption>
+        </figure>
       </div>
     </section>
 

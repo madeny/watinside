@@ -23,34 +23,7 @@
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
     {% include app-header.html %}
-    <header class="container mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center space-x-3">
-        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
-        <span class="text-2xl font-semibold">WatInside</span>
-      </a>
-      <div class="flex items-center space-x-8">
-        <nav>
-          <ul class="flex space-x-6 text-lg font-medium">
-            <li><a href="/" class="hover:text-accent">App</a></li>
-            <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
-            <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
-            <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
-          </ul>
-        </nav>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
-          </svg>
-          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
-          </svg>
-        </button>
-      </div>
     
-    <main class="flex-grow container mx-auto max-w-7xl px-6 py-20">
-      <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Tutorial</h1>
-      <p class="text-lg mb-8">Step-by-step guides to get the most out of WatInside.</p>
-    </main>
     {% include app-footer.html %}
   </div>
   {% include mobile-menu-script.html %}

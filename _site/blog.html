@@ -17,6 +17,9 @@
   <script defer src="theme-switch.js"></script>
   <script async defer data-domain="watinside.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
 </head>
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
@@ -113,34 +116,191 @@
   </ul>
 </nav>
 
-    <header class="container mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center space-x-3">
-        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
-        <span class="text-2xl font-semibold">WatInside</span>
-      </a>
-      <div class="flex items-center space-x-8">
-        <nav>
-          <ul class="flex space-x-6 text-lg font-medium">
-            <li><a href="/" class="hover:text-accent">App</a></li>
-            <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
-            <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
-            <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
-          </ul>
-        </nav>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
-          </svg>
-          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
-          </svg>
-        </button>
-      </div>
+
     
-    <main class="flex-grow container mx-auto max-w-7xl px-6 py-20">
-      <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Blog</h1>
-      <p class="text-lg mb-8">Insights, updates, and news from the WatInside team.</p>
+    
+    
+
+    <main class="flex-1">
+      <section class="py-10 sm:py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Blog</h1>
+          <p class="mt-2 text-text-light/70 dark:text-text-dark/70 max-w-2xl">Insights, updates, and news from the WatInside team.</p>
+        </div>
+      </section>
+
+      
+      <section class="pb-8 sm:pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <a href="/2025/11/08/2025-11-08-watinside-overview.html" class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 shadow-sm hover:shadow-md hover:ring-accent/30 transition">
+            <div class="relative">
+              
+              <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt=" cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div class="absolute left-4 top-4 z-10">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold backdrop-blur">
+                  <i class="fa-solid fa-star text-accent"></i>
+                  Featured
+                </span>
+              </div>
+              <div class="absolute inset-0 flex items-end p-6">
+                <div>
+                  <h2 class="text-2xl sm:text-3xl font-semibold text-white drop-shadow"></h2>
+                  <div class="mt-2 text-white/80 text-sm flex items-center gap-3">
+                    <span class="inline-flex items-center gap-2"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-sm text-text-light/80 dark:text-text-dark/80 line-clamp-2"></p>
+            </div>
+          </a>
+        </div>
+      </section>
+      
+
+      <section class="pb-16 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl sm:text-2xl font-semibold">Latest posts</h2>
+          </div>
+          
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/tips-and-tricks.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Tips and tricks cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Tips and tricks</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Power-user shortcuts and lesser-known features to speed up your work.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/integrations.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Integrations cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Integrations</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Connect WatInside with your existing tools and data sources.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/automations-and-alerts.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Automations and alerts cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Automations and alerts</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Set up automated workflows, triggers, and notifications.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/building-dashboards.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Building dashboards cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Building dashboards</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Create insightful dashboards with charts, filters, and interactive components.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/projects-and-data.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Working with projects and data cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Working with projects and data</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Organize projects, import datasets, and manage resources efficiently.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/setup-and-installation.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Setup and installation cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Setup and installation</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">Install prerequisites, configure your environment, and connect your workspace.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/jekyll/update/2025/11/02/welcome-to-jekyll.html">
+              <div class="relative">
+                
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="/assets/og-image.webp" alt="Welcome to Jekyll! cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <h3 class="font-semibold text-white drop-shadow">Welcome to Jekyll!</h3>
+                </span>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70 line-clamp-2">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.
+</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 2, 2025</span>
+                  
+                </div>
+              </div>
+            </a>
+            
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer class="bg-background-light dark:bg-background-dark pt-16">
   <div class="container mx-auto max-w-7xl px-6">
     <div class="grid gap-10 md:grid-cols-4 text-center md:text-left">

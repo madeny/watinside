@@ -20,7 +20,100 @@
 </head>
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
-    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header class="fixed inset-x-0 top-0 z-50 bg-white dark:bg-[#0B1D3B]/80 dark:backdrop-blur-sm border-b border-black/5 dark:border-white/10">
+  <div class="container mx-auto max-w-7xl px-6 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center space-x-3">
+      <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
+      <span class="text-2xl font-semibold">WatInside</span>
+    </a>
+    <div class="flex items-center space-x-4">
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+          <li>
+            <a href="/"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-house text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">App</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tutorial.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-accent
+               " aria-current="page">
+               <i class="fa-solid fa-book-open text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Tutorial</span>
+            </a>
+          </li>
+          <li>
+            <a href="/blog.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-newspaper text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-envelope text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
+        </svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z" />
+        </svg>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div aria-hidden="true" class="h-12 md:h-14"></div>
+<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
+  <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
+    <li>
+      <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-house mr-3"></i>App</a>
+    </li>
+    <li>
+      <a href="/tutorial.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         text-accent"
+         aria-current="page"><i class="fa-solid fa-book-open mr-3"></i>Tutorial</a>
+    </li>
+    <li>
+      <a href="/blog.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-newspaper mr-3"></i>Blog</a>
+    </li>
+    <li>
+      <a href="/contact.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-envelope mr-3"></i>Contact</a>
+    </li>
+  </ul>
+</nav>
+
+    <header class="container mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
         <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
         <span class="text-2xl font-semibold">WatInside</span>
@@ -43,27 +136,99 @@
           </svg>
         </button>
       </div>
-    </header>
-    <main class="flex-grow container mx-auto px-6 py-20">
+    
+    <main class="flex-grow container mx-auto max-w-7xl px-6 py-20">
       <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Tutorial</h1>
       <p class="text-lg mb-8">Step-by-step guides to get the most out of WatInside.</p>
     </main>
-    <footer class="bg-background-light dark:bg-background-dark py-8">
-      <div class="container mx-auto px-6 text-center space-y-4">
-        <h2 class="text-xl font-semibold">Join our Beta Test</h2>
-        <form action="#" class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <input type="email" name="email" placeholder="Your email" aria-label="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-auto bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm">
-          <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">Subscribe</button>
-        </form>
-        <div class="flex justify-center space-x-6 mt-6 text-2xl">
-          <a href="https://twitter.com/watinside" aria-label="Twitter" class="hover:text-accent"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://www.tiktok.com/@watinside" aria-label="TikTok" class="hover:text-accent"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-          <a href="https://instagram.com/watinside" aria-label="Instagram" class="hover:text-accent"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://youtube.com/watinside" aria-label="YouTube" class="hover:text-accent"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+    <footer class="bg-background-light dark:bg-background-dark pt-16">
+  <div class="container mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div>
+        <a href="/" class="flex items-center space-x-3">
+          <img src="/assets/logo.webp" alt="WatInside Logo" class="h-9 w-9" />
+          <span class="text-xl font-semibold">WatInside</span>
+        </a>
+        <p class="mt-4 text-gray-600 dark:text-gray-300">Know what's inside — without opening every box.</p>
+        <div class="mt-4 flex items-center gap-4 text-2xl">
+          <a href="https://twitter.com/watinside" class="hover:text-accent" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.tiktok.com/@watinside" class="hover:text-accent" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://instagram.com/watinside" class="hover:text-accent" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/watinside" class="hover:text-accent" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
       </div>
-    </footer>
+      <div>
+        <h3 class="font-semibold mb-3">Product</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="/" class="hover:text-accent">App</a></li>
+          <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
+          <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
+          <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Resources</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="/Design/template.pdf" class="hover:text-accent">Press Kit</a></li>
+          <li><a href="#wishlist-press" class="hover:text-accent">Wishlist Press</a></li>
+          <li><a href="#features" class="hover:text-accent">Features</a></li>
+          <li><a href="#gallery" class="hover:text-accent">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Company</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="mailto:hello@watinside.com" class="hover:text-accent">Email us</a></li>
+          <li><a href="#" class="hover:text-accent">Privacy</a></li>
+          <li><a href="#" class="hover:text-accent">Terms</a></li>
+          <li><a href="#" class="hover:text-accent">Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-white/10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <form action="#" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-3">
+        <input type="email" name="email" placeholder="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-72 bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm" />
+        <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow">Subscribe</button>
+      </form>
+      <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
+    </div>
   </div>
+</footer>
+
+  </div>
+  <script>
+  (function(){
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const closeMenu = () => menu.classList.add('hidden');
+    const toggleMenu = () => menu.classList.toggle('hidden');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Click outside the panel (on the dark overlay) closes it
+    menu.addEventListener('click', (e) => {
+      if (e.target === menu) closeMenu();
+    });
+
+    // Clicking any link closes the menu
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Escape to close
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    // Close if resizing to desktop
+    const mql = window.matchMedia('(min-width: 768px)');
+    if (mql && mql.addEventListener) {
+      mql.addEventListener('change', (e) => { if (e.matches) closeMenu(); });
+    }
+  })();
+</script>
+
 </body>
 </html>

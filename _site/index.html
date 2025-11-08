@@ -41,56 +41,110 @@
   <div class="min-h-screen flex flex-col">
 
     <!-- HEADER -->
-        <header class="sticky top-0 z-50 bg-white/80 dark:bg-[#0B1D3B]/80 backdrop-blur border-b border-black/5 dark:border-white/10">
-      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center space-x-3">
-        <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
-        <span class="text-2xl font-semibold">WatInside</span>
-      </a>
-      <div class="flex items-center space-x-4">
-        <nav class="hidden md:block">
-          <ul class="flex space-x-6 text-lg font-medium">
-            <li><a href="/" class="hover:text-accent">App</a></li>
-            <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
-            <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
-            <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
-          </ul>
-        </nav>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
-          </svg>
-          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z" />
-          </svg>
-        </button>
-        <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-      </div>
-    </header>
-    <nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
-      <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-4">
-        <li><a href="/" class="block w-full px-2 py-2 rounded hover:text-accent">App</a></li>
-        <li><a href="/tutorial.html" class="block w-full px-2 py-2 rounded hover:text-accent">Tutorial</a></li>
-        <li><a href="/blog.html" class="block w-full px-2 py-2 rounded hover:text-accent">Blog</a></li>
-        <li><a href="/contact.html" class="block w-full px-2 py-2 rounded hover:text-accent">Contact</a></li>
-      </ul>
-    </nav>
+    <header class="fixed inset-x-0 top-0 z-50 bg-white dark:bg-[#0B1D3B]/80 dark:backdrop-blur-sm border-b border-black/5 dark:border-white/10">
+  <div class="container mx-auto max-w-7xl px-6 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center space-x-3">
+      <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
+      <span class="text-2xl font-semibold">WatInside</span>
+    </a>
+    <div class="flex items-center space-x-4">
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+          <li>
+            <a href="/"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-accent
+               " aria-current="page">
+               <i class="fa-solid fa-house text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">App</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tutorial.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-book-open text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Tutorial</span>
+            </a>
+          </li>
+          <li>
+            <a href="/blog.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-newspaper text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact.html"
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
+               
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
+               " >
+               <i class="fa-solid fa-envelope text-[16px] md:text-[18px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" />
+        </svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z" />
+        </svg>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div aria-hidden="true" class="h-12 md:h-14"></div>
+<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
+  <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
+    <li>
+      <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors
+         text-accent"
+         aria-current="page"><i class="fa-solid fa-house mr-3"></i>App</a>
+    </li>
+    <li>
+      <a href="/tutorial.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-book-open mr-3"></i>Tutorial</a>
+    </li>
+    <li>
+      <a href="/blog.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-newspaper mr-3"></i>Blog</a>
+    </li>
+    <li>
+      <a href="/contact.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         hover:bg-black/5/50 dark:hover:bg-white/10"
+         ><i class="fa-solid fa-envelope mr-3"></i>Contact</a>
+    </li>
+  </ul>
+</nav>
+
 
     <!-- HERO -->
-    <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden py-16 md:py-24">
+    <section id="hero" class="relative min-h-screen flex flex-col justify-start overflow-hidden pt-10 md:pt-16 pb-16">
       <div class="absolute inset-0 bg-gradient-to-br from-[#0B1D3B] to-[#132B54] dark:from-[#0B1D3B] dark:to-[#132B54] light:from-[#F9FAFB] light:to-[#E8ECF4]"></div>
       <div class="absolute right-1/4 bottom-1/4 w-[600px] h-[600px] bg-[#FFCC00] opacity-20 blur-[160px] rounded-full"></div>
 
-      <div class="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-        <div class="text-center md:text-left md:w-1/2 space-y-6">
-          <p class="text-accent font-medium tracking-wide uppercase">Available soon on the App Store</p>
+      <div class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between">
+        <div class="text-center md:text-left md:w-1/2 space-y-3 md:space-y-4">
+          <!-- <p class="text-accent font-medium tracking-wide uppercase">Available soon on the App Store</p> -->
           <h1 class="text-5xl sm:text-6xl font-semibold leading-tight text-white">
-            Know what’s inside — without opening every box.
+            Know what’s inside without opening every box.
           </h1>
           <p class="text-lg text-[#C7D0E0] max-w-md">
             Organize your spaces effortlessly with smart tagging, search, and storage tracking powered by AI.
@@ -116,45 +170,45 @@
 
     <!-- FEATURES -->
     <section id="features" class="bg-background-light dark:bg-background-dark py-20">
-      <div class="container mx-auto px-6">
+      <div class="container mx-auto max-w-7xl px-6">
         <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="0" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/smart-search.webp" alt="Smart Search app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Smart Search</h3>
               <p>Find exactly what you need in seconds.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="1" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="QR Labeling app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">QR Labeling</h3>
               <p>Print and scan QR labels for effortless tracking.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="2" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="AI Tagging app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">AI Tagging</h3>
               <p>Auto-tag contents using smart AI predictions.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="3" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="Return Reminders app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Return Reminders</h3>
               <p>Never forget borrowed items again.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="4" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="iCloud Sync app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">iCloud Sync</h3>
               <p>Keep your data synced across all devices.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="5" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="Share with Friends and Family app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Share with Friends and Family</h3>
@@ -210,7 +264,7 @@
 
 
     <!-- GALLERY -->
-    <section id="gallery" class="py-20 container mx-auto px-6">
+    <section id="gallery" class="py-20 container mx-auto max-w-7xl px-6">
       <h2 class="text-3xl font-semibold text-center mb-12">App Gallery</h2>
       <div class="grid gap-8 md:grid-cols-2">
         <figure class="rounded-3xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.25)] bg-gradient-to-b from-white/30 to-white/10 dark:from-white/10 dark:to-white/5">
@@ -224,63 +278,80 @@
       </div>
     </section>
 
+    
+    <!-- FEATURES LIGHTBOX -->
+    <div id="features-lightbox" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true" aria-labelledby="feat-caption">
+      <div class="absolute inset-0 bg-black/80"></div>
+      <div class="relative h-full w-full flex items-center justify-center px-4">
+        <button id="feat-prev" aria-label="Previous" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/90 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-2xl md:text-3xl">&#10094;</button>
+        <div class="flex flex-col items-center gap-4">
+          <div class="relative w-[min(92vw,520px)] md:w-[min(86vw,640px)] h-[80vh] max-h-[900px] overflow-hidden rounded-3xl shadow-2xl bg-black/20">
+            <img id="feat-current" alt="Feature" class="absolute inset-0 w-full h-full object-contain transition-transform duration-300 ease-out" style="will-change: transform, opacity;" />
+            <img id="feat-next" alt="Feature" class="absolute inset-0 w-full h-full object-contain opacity-0 pointer-events-none transition-transform duration-300 ease-out" style="will-change: transform, opacity;" />
+            <button id="feat-close" type="button" aria-label="Close slideshow" class="absolute top-3 right-3 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-white hover:text-white/90 text-2xl md:text-3xl">&times;</button>
+          </div>
+          <div id="feat-caption" class="text-white/95 text-base md:text-lg text-center px-4"></div>
+        </div>
+        <button id="feat-next-btn" aria-label="Next" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/90 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-2xl md:text-3xl">&#10095;</button>
+      </div>
+    </div>
+
     <!-- FOOTER -->
     <footer class="bg-background-light dark:bg-background-dark pt-16">
-      <div class="container mx-auto px-6">
-        <div class="grid gap-10 md:grid-cols-4">
-          <div>
-            <a href="/" class="flex items-center space-x-3">
-              <img src="/assets/logo.webp" alt="WatInside Logo" class="h-9 w-9" />
-              <span class="text-xl font-semibold">WatInside</span>
-            </a>
-            <p class="mt-4 text-gray-600 dark:text-gray-300">Know what's inside — without opening every box.</p>
-            <div class="mt-4 flex items-center gap-4 text-2xl">
-              <a href="https://twitter.com/watinside" class="hover:text-accent" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.tiktok.com/@watinside" class="hover:text-accent" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-              <a href="https://instagram.com/watinside" class="hover:text-accent" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://youtube.com/watinside" class="hover:text-accent" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-3">Product</h3>
-            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-              <li><a href="/" class="hover:text-accent">App</a></li>
-              <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
-              <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
-              <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-3">Resources</h3>
-            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-              <li><a href="/Design/template.pdf" class="hover:text-accent">Press Kit</a></li>
-              <li><a href="#wishlist-press" class="hover:text-accent">Wishlist Press</a></li>
-              <li><a href="#features" class="hover:text-accent">Features</a></li>
-              <li><a href="#gallery" class="hover:text-accent">Gallery</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-3">Company</h3>
-            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-              <li><a href="mailto:hello@watinside.com" class="hover:text-accent">Email us</a></li>
-              <li><a href="#" class="hover:text-accent">Privacy</a></li>
-              <li><a href="#" class="hover:text-accent">Terms</a></li>
-              <li><a href="#" class="hover:text-accent">Support</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-12 border-t border-white/10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <form action="#" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-3">
-            <input type="email" name="email" placeholder="Your email" required
-              class="px-4 py-3 rounded-lg w-full sm:w-72 bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm" />
-            <button type="submit"
-              class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow">Subscribe</button>
-          </form>
-          <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
+  <div class="container mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 md:grid-cols-4">
+      <div>
+        <a href="/" class="flex items-center space-x-3">
+          <img src="/assets/logo.webp" alt="WatInside Logo" class="h-9 w-9" />
+          <span class="text-xl font-semibold">WatInside</span>
+        </a>
+        <p class="mt-4 text-gray-600 dark:text-gray-300">Know what's inside — without opening every box.</p>
+        <div class="mt-4 flex items-center gap-4 text-2xl">
+          <a href="https://twitter.com/watinside" class="hover:text-accent" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.tiktok.com/@watinside" class="hover:text-accent" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://instagram.com/watinside" class="hover:text-accent" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com/watinside" class="hover:text-accent" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-    </footer>
+      <div>
+        <h3 class="font-semibold mb-3">Product</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="/" class="hover:text-accent">App</a></li>
+          <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
+          <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
+          <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Resources</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="/Design/template.pdf" class="hover:text-accent">Press Kit</a></li>
+          <li><a href="#wishlist-press" class="hover:text-accent">Wishlist Press</a></li>
+          <li><a href="#features" class="hover:text-accent">Features</a></li>
+          <li><a href="#gallery" class="hover:text-accent">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Company</h3>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li><a href="mailto:hello@watinside.com" class="hover:text-accent">Email us</a></li>
+          <li><a href="#" class="hover:text-accent">Privacy</a></li>
+          <li><a href="#" class="hover:text-accent">Terms</a></li>
+          <li><a href="#" class="hover:text-accent">Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-white/10 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <form action="#" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-3">
+        <input type="email" name="email" placeholder="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-72 bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm" />
+        <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow">Subscribe</button>
+      </form>
+      <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
+    </div>
+  </div>
+</footer>
+
   </div>
 
   <!-- Sidebar script kept -->
@@ -302,36 +373,169 @@
       });
   </script>
   <script>
+  (function(){
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const closeMenu = () => menu.classList.add('hidden');
+    const toggleMenu = () => menu.classList.toggle('hidden');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Click outside the panel (on the dark overlay) closes it
+    menu.addEventListener('click', (e) => {
+      if (e.target === menu) closeMenu();
+    });
+
+    // Clicking any link closes the menu
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Escape to close
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+    // Close if resizing to desktop
+    const mql = window.matchMedia('(min-width: 768px)');
+    if (mql && mql.addEventListener) {
+      mql.addEventListener('change', (e) => { if (e.matches) closeMenu(); });
+    }
+  })();
+</script>
+
+
+  <script>
     (function(){
-      const btn = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-      if (!btn || !menu) return;
+      const root = document.getElementById('features-lightbox');
+      const current = document.getElementById('feat-current');
+      const nextImg = document.getElementById('feat-next');
+      const caption = document.getElementById('feat-caption');
+      const btnPrev = document.getElementById('feat-prev');
+      const btnNext = document.getElementById('feat-next-btn');
+      const btnClose = document.getElementById('feat-close');
+      const tiles = Array.from(document.querySelectorAll('.feature-item'));
+      if (!root || tiles.length === 0) return;
 
-      const closeMenu = () => menu.classList.add('hidden');
-      const toggleMenu = () => menu.classList.toggle('hidden');
+      const slides = [
+        { src: '/assets/smart-search.webp', caption: 'Smart Search' },
+        { src: '/assets/preview.webp', caption: 'QR Labeling' },
+        { src: '/assets/preview.webp', caption: 'AI Tagging' },
+        { src: '/assets/preview.webp', caption: 'Return Reminders' },
+        { src: '/assets/preview.webp', caption: 'iCloud Sync' },
+        { src: '/assets/preview.webp', caption: 'Share with Friends and Family' }
+      ];
 
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
+      let idx = 0;
+      let lastFocused = null;
+      let animating = false;
+      let touchStartX = null;
+
+      const resetImg = (el) => {
+        if (!el) return;
+        el.classList.remove('translate-x-full','-translate-x-full');
+      };
+
+      const open = (startIdx=0) => {
+        idx = startIdx;
+        updateCurrent();
+        root.classList.remove('hidden');
+        lastFocused = document.activeElement;
+        document.body.classList.add('overflow-hidden');
+        const closeBtn = document.getElementById('feat-close');
+        if (closeBtn) closeBtn.focus();
+      };
+
+      const close = () => {
+        root.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      };
+
+      const updateCurrent = () => {
+        const s = slides[idx];
+        current.src = s.src; current.alt = s.caption; caption.textContent = s.caption;
+        // reset transforms
+        resetImg(current);
+        resetImg(nextImg);
+        nextImg.classList.add('opacity-0');
+      };
+
+      const go = (dir) => {
+        if (animating) return; animating = true;
+        const nextIndex = (idx + dir + slides.length) % slides.length;
+        const s = slides[nextIndex];
+        nextImg.src = s.src; nextImg.alt = s.caption; caption.textContent = s.caption;
+        // prepare positions
+        nextImg.classList.remove('opacity-0');
+        resetImg(nextImg);
+        nextImg.classList.add(dir>0 ? 'translate-x-full' : '-translate-x-full');
+        resetImg(current);
+        // allow DOM paint, then animate
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            nextImg.classList.remove('translate-x-full','-translate-x-full');
+            current.classList.add(dir>0 ? '-translate-x-full' : 'translate-x-full');
+            const onEnd = () => {
+              current.removeEventListener('transitionend', onEnd);
+              // swap images
+              current.src = s.src; current.alt = s.caption;
+              resetImg(current);
+              nextImg.classList.add('opacity-0');
+              resetImg(nextImg);
+              caption.textContent = s.caption;
+              animating = false;
+            };
+            current.addEventListener('transitionend', onEnd, { once: true });
+          });
+        });
+        idx = nextIndex;
+      };
+
+      tiles.forEach(t => {
+        const i = parseInt(t.getAttribute('data-feature-index')||'0',10);
+        t.addEventListener('click', () => open(i));
       });
 
-      // Click outside the panel (on the dark overlay) closes it
-      menu.addEventListener('click', (e) => {
-        if (e.target === menu) closeMenu();
+      btnPrev && btnPrev.addEventListener('click', () => go(-1));
+      btnNext && btnNext.addEventListener('click', () => go(1));
+      btnClose && btnClose.addEventListener('click', close);
+
+      root.addEventListener('click', (e) => { if (e.target === root) close(); });
+      
+      // Focus trap inside lightbox
+      const focusables = () => [btnPrev, document.getElementById('feat-close'), btnNext].filter(Boolean);
+      root.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const f = focusables();
+        if (f.length === 0) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
       });
 
-      // Clicking any link closes the menu
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', (e) => {
+        if (root.classList.contains('hidden')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') go(-1);
+        if (e.key === 'ArrowRight') go(1);
+      });
 
-      // Escape to close
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-
-      // Close if resizing to desktop
-      const mql = window.matchMedia('(min-width: 768px)');
-      if (mql && mql.addEventListener) {
-        mql.addEventListener('change', (e) => { if (e.matches) closeMenu(); });
-      }
+      // touch swipe
+      const panel = current.parentElement;
+      panel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+      panel.addEventListener('touchend', (e) => {
+        if (touchStartX == null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { go(dx < 0 ? 1 : -1); }
+        touchStartX = null;
+      }, {passive:true});
     })();
   </script>
+
 </body>
 </html>

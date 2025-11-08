@@ -83,42 +83,42 @@
       <div class="container mx-auto px-6">
         <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="0" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/smart-search.webp" alt="Smart Search app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Smart Search</h3>
               <p>Find exactly what you need in seconds.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="1" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="QR Labeling app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">QR Labeling</h3>
               <p>Print and scan QR labels for effortless tracking.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="2" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="AI Tagging app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">AI Tagging</h3>
               <p>Auto-tag contents using smart AI predictions.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="3" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="Return Reminders app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Return Reminders</h3>
               <p>Never forget borrowed items again.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="4" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="iCloud Sync app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">iCloud Sync</h3>
               <p>Keep your data synced across all devices.</p>
             </div>
           </article>
-          <article class="flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
+          <article data-feature-index="5" class="feature-item cursor-pointer flex items-start gap-4 bg-cardBg-light dark:bg-cardBg-dark p-6 rounded-xl shadow-cardLight dark:shadow-cardDark hover:shadow-[0_6px_14px_rgba(0,0,0,0.12)] transition-shadow">
             <img src="/assets/preview.webp" alt="Share with Friends and Family app screen" class="w-20 sm:w-24 md:w-28 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.25)]">
             <div>
               <h3 class="text-xl font-medium mb-2">Share with Friends and Family</h3>
@@ -188,6 +188,22 @@
       </div>
     </section>
 
+    
+    <!-- FEATURES LIGHTBOX -->
+    <div id="features-lightbox" class="fixed inset-0 z-[70] hidden">
+      <div class="absolute inset-0 bg-black/80"></div>
+      <div class="relative h-full w-full flex items-center justify-center px-4">
+        <button id="feat-prev" aria-label="Previous" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl">&#10094;</button>
+        <div class="relative w-[min(92vw,520px)] md:w-[min(86vw,640px)] h-[80vh] max-h-[900px] overflow-hidden rounded-3xl shadow-2xl bg-black/20">
+          <img id="feat-current" alt="Feature" class="absolute inset-0 w-full h-full object-contain transition-transform duration-300" />
+          <img id="feat-next" alt="Feature" class="absolute inset-0 w-full h-full object-contain opacity-0 pointer-events-none transition-transform duration-300" />
+          <div id="feat-caption" class="absolute bottom-3 left-3 right-3 text-center text-white/90 text-sm"></div>
+          <button id="feat-close" aria-label="Close" class="absolute top-2 right-2 text-white/80 hover:text-white text-2xl">&times;</button>
+        </div>
+        <button id="feat-next-btn" aria-label="Next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl">&#10095;</button>
+      </div>
+    </div>
+
     <!-- FOOTER -->
     {% include app-footer.html %}
   </div>
@@ -211,5 +227,108 @@
       });
   </script>
   {% include mobile-menu-script.html %}
+
+  <script>
+    (function(){
+      const root = document.getElementById('features-lightbox');
+      const current = document.getElementById('feat-current');
+      const nextImg = document.getElementById('feat-next');
+      const caption = document.getElementById('feat-caption');
+      const btnPrev = document.getElementById('feat-prev');
+      const btnNext = document.getElementById('feat-next-btn');
+      const btnClose = document.getElementById('feat-close');
+      const tiles = Array.from(document.querySelectorAll('.feature-item'));
+      if (!root || tiles.length === 0) return;
+
+      const slides = [
+        { src: '/assets/smart-search.webp', caption: 'Smart Search' },
+        { src: '/assets/preview.webp', caption: 'QR Labeling' },
+        { src: '/assets/preview.webp', caption: 'AI Tagging' },
+        { src: '/assets/preview.webp', caption: 'Return Reminders' },
+        { src: '/assets/preview.webp', caption: 'iCloud Sync' },
+        { src: '/assets/preview.webp', caption: 'Share with Friends and Family' }
+      ];
+
+      let idx = 0;
+      let animating = false;
+      let touchStartX = null;
+
+      const open = (startIdx=0) => {
+        idx = startIdx;
+        updateCurrent();
+        root.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      };
+
+      const close = () => {
+        root.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      };
+
+      const updateCurrent = () => {
+        const s = slides[idx];
+        current.src = s.src; current.alt = s.caption; caption.textContent = s.caption;
+        // reset transforms
+        current.classList.remove('translate-x-full','-translate-x-full');
+        nextImg.classList.add('opacity-0');
+      };
+
+      const go = (dir) => {
+        if (animating) return; animating = true;
+        const nextIndex = (idx + dir + slides.length) % slides.length;
+        const s = slides[nextIndex];
+        nextImg.src = s.src; nextImg.alt = s.caption; caption.textContent = s.caption;
+        // prepare positions
+        nextImg.classList.remove('opacity-0');
+        nextImg.classList.add(dir>0 ? 'translate-x-full' : '-translate-x-full');
+        current.classList.remove('translate-x-full','-translate-x-full');
+        // allow DOM paint, then animate
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            nextImg.classList.remove('translate-x-full','-translate-x-full');
+            current.classList.add(dir>0 ? '-translate-x-full' : 'translate-x-full');
+            const onEnd = () => {
+              current.removeEventListener('transitionend', onEnd);
+              // swap images
+              current.src = s.src; current.alt = s.caption;
+              current.classList.remove('translate-x-full','-translate-x-full');
+              nextImg.classList.add('opacity-0');
+              animating = false;
+            };
+            current.addEventListener('transitionend', onEnd, { once: true });
+          });
+        });
+        idx = nextIndex;
+      };
+
+      tiles.forEach(t => {
+        const i = parseInt(t.getAttribute('data-feature-index')||'0',10);
+        t.addEventListener('click', () => open(i));
+      });
+
+      btnPrev && btnPrev.addEventListener('click', () => go(-1));
+      btnNext && btnNext.addEventListener('click', () => go(1));
+      btnClose && btnClose.addEventListener('click', close);
+
+      root.addEventListener('click', (e) => { if (e.target === root) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (root.classList.contains('hidden')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') go(-1);
+        if (e.key === 'ArrowRight') go(1);
+      });
+
+      // touch swipe
+      const panel = current.parentElement;
+      panel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+      panel.addEventListener('touchend', (e) => {
+        if (touchStartX == null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { go(dx < 0 ? 1 : -1); }
+        touchStartX = null;
+      }, {passive:true});
+    })();
+  </script>
+
 </body>
 </html>

@@ -1,57 +1,57 @@
-<header class="fixed inset-x-0 top-0 z-50 bg-white/70 dark:bg-[#0B1D3B]/80 backdrop-blur-sm border-b border-black/5 dark:border-white/10">
-  <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+<header class="fixed inset-x-0 top-0 z-50 bg-white dark:bg-[#0B1D3B]/80 dark:backdrop-blur-sm border-b border-black/5 dark:border-white/10">
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
     <a href="/" class="flex items-center space-x-3">
       <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
       <span class="text-2xl font-semibold">WatInside</span>
     </a>
     <div class="flex items-center space-x-4">
       <nav class="hidden md:block">
-        <ul class="flex items-center gap-2 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
           <li>
             <a href="/"
-               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
                {% if page.url == '/' or page.url == '/index.html'  %}
                  text-accent
                {% else %}
                  text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-house text-[18px] md:text-[20px]"></i>
+               <i class="fa-solid fa-house text-[16px] md:text-[18px]"></i>
                <span class="text-[10px] md:text-[11px] leading-none">App</span>
             </a>
           </li>
           <li>
             <a href="/tutorial.html"
-               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
                {% if page.url == '/tutorial.html'  %}
                  text-accent
                {% else %}
                  text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/tutorial.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-book-open text-[18px] md:text-[20px]"></i>
+               <i class="fa-solid fa-book-open text-[16px] md:text-[18px]"></i>
                <span class="text-[10px] md:text-[11px] leading-none">Tutorial</span>
             </a>
           </li>
           <li>
             <a href="/blog.html"
-               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
                {% if page.url == '/blog.html'  %}
                  text-accent
                {% else %}
                  text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/blog.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-newspaper text-[18px] md:text-[20px]"></i>
+               <i class="fa-solid fa-newspaper text-[16px] md:text-[18px]"></i>
                <span class="text-[10px] md:text-[11px] leading-none">Blog</span>
             </a>
           </li>
           <li>
             <a href="/contact.html"
-               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
+               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
                {% if page.url == '/contact.html'  %}
                  text-accent
                {% else %}
                  text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/contact.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-envelope text-[18px] md:text-[20px]"></i>
+               <i class="fa-solid fa-envelope text-[16px] md:text-[18px]"></i>
                <span class="text-[10px] md:text-[11px] leading-none">Contact</span>
             </a>
           </li>
@@ -73,8 +73,8 @@
     </div>
   </div>
 </header>
-<div aria-hidden="true" class="h-16 md:h-20"></div>
-<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
+<div aria-hidden="true" class="h-12 md:h-14"></div>
+<nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
   <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
     <li>
       <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors

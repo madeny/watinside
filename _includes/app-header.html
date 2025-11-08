@@ -6,11 +6,55 @@
     </a>
     <div class="flex items-center space-x-4">
       <nav class="hidden md:block">
-        <ul class="flex space-x-6 text-lg font-medium">
-          <li><a href="/" class="hover:text-accent">App</a></li>
-          <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
-          <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
-          <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
+        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-white/30 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+          <li>
+            <a href="/"
+               class="px-4 py-2 rounded-full transition-colors
+               {% if page.url == '/' or page.url == '/index.html' %}
+                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+               {% else %}
+                 text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
+               {% endif %}"
+               {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>
+               App
+            </a>
+          </li>
+          <li>
+            <a href="/tutorial.html"
+               class="px-4 py-2 rounded-full transition-colors
+               {% if page.url == '/tutorial.html' %}
+                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+               {% else %}
+                 text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
+               {% endif %}"
+               {% if page.url == '/tutorial.html' %}aria-current="page"{% endif %}>
+               Tutorial
+            </a>
+          </li>
+          <li>
+            <a href="/blog.html"
+               class="px-4 py-2 rounded-full transition-colors
+               {% if page.url == '/blog.html' %}
+                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+               {% else %}
+                 text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
+               {% endif %}"
+               {% if page.url == '/blog.html' %}aria-current="page"{% endif %}>
+               Blog
+            </a>
+          </li>
+          <li>
+            <a href="/contact.html"
+               class="px-4 py-2 rounded-full transition-colors
+               {% if page.url == '/contact.html' %}
+                 bg-white/60 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40
+               {% else %}
+                 text-inherit hover:bg-white/40 dark:hover:bg-white/10 hover:ring-1 hover:ring-white/30
+               {% endif %}"
+               {% if page.url == '/contact.html' %}aria-current="page"{% endif %}>
+               Contact
+            </a>
+          </li>
         </ul>
       </nav>
       <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
@@ -30,10 +74,26 @@
   </div>
 </header>
 <nav id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black/30 backdrop-blur-sm">
-  <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-4">
-    <li><a href="/" class="block w-full px-2 py-2 rounded hover:text-accent">App</a></li>
-    <li><a href="/tutorial.html" class="block w-full px-2 py-2 rounded hover:text-accent">Tutorial</a></li>
-    <li><a href="/blog.html" class="block w-full px-2 py-2 rounded hover:text-accent">Blog</a></li>
-    <li><a href="/contact.html" class="block w-full px-2 py-2 rounded hover:text-accent">Contact</a></li>
+  <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
+    <li>
+      <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors
+         {% if page.url == '/' or page.url == '/index.html' %}bg-white/70 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40{% else %}hover:bg-white/50 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>App</a>
+    </li>
+    <li>
+      <a href="/tutorial.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         {% if page.url == '/tutorial.html' %}bg-white/70 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40{% else %}hover:bg-white/50 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/tutorial.html' %}aria-current="page"{% endif %}>Tutorial</a>
+    </li>
+    <li>
+      <a href="/blog.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         {% if page.url == '/blog.html' %}bg-white/70 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40{% else %}hover:bg-white/50 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/blog.html' %}aria-current="page"{% endif %}>Blog</a>
+    </li>
+    <li>
+      <a href="/contact.html" class="block w-full px-4 py-3 rounded-lg transition-colors
+         {% if page.url == '/contact.html' %}bg-white/70 dark:bg-white/15 text-background-dark dark:text-white ring-1 ring-white/40{% else %}hover:bg-white/50 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/contact.html' %}aria-current="page"{% endif %}>Contact</a>
+    </li>
   </ul>
 </nav>

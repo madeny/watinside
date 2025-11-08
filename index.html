@@ -36,18 +36,29 @@
   <div class="min-h-screen flex flex-col">
 
     <header class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center">
-        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10 mr-3">
+      <a href="/" class="flex items-center space-x-3">
+        <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
         <span class="text-2xl font-semibold">WatInside</span>
       </a>
-      <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
-        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
-        </svg>
-        <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
-        </svg>
-      </button>
+      <div class="flex items-center space-x-8">
+        <nav>
+          <ul class="flex space-x-6 text-lg font-medium">
+            <li><a href="/" class="hover:text-accent">App</a></li>
+            <!-- <li><a href="/app.html" class="hover:text-accent">App</a></li> -->
+            <li><a href="/tutorial.html" class="hover:text-accent">Tutorial</a></li>
+            <li><a href="/blog.html" class="hover:text-accent">Blog</a></li>
+            <li><a href="/contact.html" class="hover:text-accent">Contact</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+          <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 5a1 1 0 011-1v2a1 1 0 11-2 0V4a1 1 0 011-1zM4.22 5.47a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zm9 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-2.78 4.53a1 1 0 01.08 1.41l-1.42 1.42a1 1 0 11-1.42-1.42l1.42-1.42a1 1 0 011.34-.08zM10 14a4 4 0 100-8 4 4 0 000 8zm0 2a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"/>
+          </svg>
+          <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 116.707 2.707a6 6 0 1010.586 10.586z"/>
+          </svg>
+        </button>
+      </div>
     </header>
 
     <main class="flex-grow">
@@ -175,141 +186,3 @@
   </script>
 </body>
 </html>
----
-layout: default
----
-
-<div class="hero-section">
-  <h1>Find your things, faster.</h1>
-  <p class="hero-subtitle">The smartest way to organize your physical world.</p>
-  <a href="#" class="cta-button">Download on the App Store</a>
-</div>
-
-<section id="features" class="features-section">
-  <h2>Features</h2>
-  <div class="features-grid">
-    <div class="feature">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-      <h3>Scan Anything</h3>
-      <p>Scan handwritten or printed labels with ease.</p>
-    </div>
-    <div class="feature">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-      <h3>Instant Search</h3>
-      <p>Instantly see what’s inside your boxes.</p>
-    </div>
-    <div class="feature">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-      </svg>
-      <h3>Smart Organization</h3>
-      <p>Find items quickly and manage your personal inventory.</p>
-    </div>
-  </div>
-</section>
-
-<section id="screenshots" class="screenshots-section">
-  <h2>Screenshots</h2>
-  <div class="carousel-wrapper">
-    <div class="carousel">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.02.heic" alt="Screenshot 1">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.06.heic" alt="Screenshot 2">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.18.heic" alt="Screenshot 3">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.29.heic" alt="Screenshot 4">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.39.heic" alt="Screenshot 5">
-      <img src="/Template/Screenshot 2025-11-02 at 09.31.54.heic" alt="Screenshot 6">
-      <img src="/Template/Screenshot 2025-11-02 at 09.32.03.heic" alt="Screenshot 7">
-    </div>
-    <button class="carousel-button prev">&#10094;</button>
-    <button class="carousel-button next">&#10095;</button>
-  </div>
-</section>
-
-<section id="testimonials" class="testimonials-section">
-  <h2>What people are saying</h2>
-  <div class="testimonial">
-    <blockquote>
-      <p>"This app is a lifesaver! I can finally find all my stuff without tearing my house apart."</p>
-    </blockquote>
-    <p class="author">- A Happy User</p>
-  </div>
-</section>
-
-<section id="cta" class="cta-form-section">
-  <h2>Stay Updated!</h2>
-  <p>Be the first to know when WatInside launches on the App Store.</p>
-  <!-- Custom Mailchimp Form (New Business Account) -->
-  <form id="custom-mailchimp-form" action="https://icloud.us2.list-manage.com/subscribe/post?u=296934fcaf28fa145cedb8800&amp;id=27b3e0ff0a" method="POST" novalidate onsubmit="handleSubmit(event)">
-    <input type="email" name="EMAIL" placeholder="Enter your email" required>
-    <button type="submit">Notify Me</button>
-    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-      <input type="text" name="b_296934fcaf28fa145cedb8800_27b3e0ff0a" tabindex="-1" value="">
-    </div>
-  </form>
-  <div id="success-message" class="success-message hidden">🎉 Thank you! You’re on the list.</div>
-</section>
-
-<script>
-  const carousel = document.querySelector('.carousel');
-  const prevButton = document.querySelector('.prev');
-  const nextButton = document.querySelector('.next');
-  let currentIndex = 0;
-
-  nextButton.addEventListener('click', () => {
-    if (currentIndex < carousel.children.length - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
-  });
-
-  function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-
-  const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
-  const body = document.body;
-
-  darkModeToggle.addEventListener('change', () => {
-    if (darkModeToggle.checked) {
-      body.classList.add('dark-mode');
-    } else {
-      body.classList.remove('dark-mode');
-    }
-  });
-
-  // Check for system preference
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    body.classList.add('dark-mode');
-    darkModeToggle.checked = true;
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const url = form.action;
-    const formData = new FormData(form);
-
-    fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    }).then(() => {
-      document.getElementById('custom-mailchimp-form').reset();
-      document.getElementById('success-message').classList.remove('hidden');
-    }).catch(() => {
-      alert('Something went wrong. Please try again.');
-    });
-  }
-</script>

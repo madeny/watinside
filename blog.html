@@ -20,6 +20,7 @@
 </head>
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
+    {% include app-header.html %}
     <header class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
         <img src="/assets/logo-yellow-box.svg" alt="WatInside Logo" class="h-10 w-10">
@@ -43,27 +44,13 @@
           </svg>
         </button>
       </div>
-    </header>
+    
     <main class="flex-grow container mx-auto px-6 py-20">
       <h1 class="text-4xl sm:text-5xl font-semibold mb-4">Blog</h1>
       <p class="text-lg mb-8">Insights, updates, and news from the WatInside team.</p>
     </main>
-    <footer class="bg-background-light dark:bg-background-dark py-8">
-      <div class="container mx-auto px-6 text-center space-y-4">
-        <h2 class="text-xl font-semibold">Join our Beta Test</h2>
-        <form action="#" class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <input type="email" name="email" placeholder="Your email" aria-label="Your email" required class="px-4 py-3 rounded-lg w-full sm:w-auto bg-white dark:bg-cardBg-dark text-text-light dark:text-text-dark focus:outline-none shadow-sm">
-          <button type="submit" class="px-6 py-3 bg-accent text-background-dark font-medium rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">Subscribe</button>
-        </form>
-        <div class="flex justify-center space-x-6 mt-6 text-2xl">
-          <a href="https://twitter.com/watinside" aria-label="Twitter" class="hover:text-accent"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://www.tiktok.com/@watinside" aria-label="TikTok" class="hover:text-accent"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-          <a href="https://instagram.com/watinside" aria-label="Instagram" class="hover:text-accent"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a href="https://youtube.com/watinside" aria-label="YouTube" class="hover:text-accent"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-        </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; WatInside 2025</p>
-      </div>
-    </footer>
+    {% include app-footer.html %}
   </div>
+  {% include mobile-menu-script.html %}
 </body>
 </html>

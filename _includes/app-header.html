@@ -6,53 +6,53 @@
     </a>
     <div class="flex items-center space-x-4">
       <nav class="hidden md:block">
-        <ul class="flex items-center gap-2 text-base font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+        <ul class="flex items-center gap-2 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
           <li>
             <a href="/"
-               class="flex flex-col items-center gap-1 px-4 py-2 rounded-full transition-colors
+               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
                {% if page.url == '/' or page.url == '/index.html'  %}
-                 bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm
+                 text-accent
                {% else %}
-                 text-inherit hover:bg-black/5 dark:hover:bg-white/10 hover:ring-1 hover:ring-black/10 dark:hover:ring-white/20
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-house text-lg md:text-xl"></i>
-               <span class="text-[11px] md:text-xs">App</span>
+               <i class="fa-solid fa-house text-[18px] md:text-[20px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">App</span>
             </a>
           </li>
           <li>
             <a href="/tutorial.html"
-               class="flex flex-col items-center gap-1 px-4 py-2 rounded-full transition-colors
+               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
                {% if page.url == '/tutorial.html'  %}
-                 bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm
+                 text-accent
                {% else %}
-                 text-inherit hover:bg-black/5 dark:hover:bg-white/10 hover:ring-1 hover:ring-black/10 dark:hover:ring-white/20
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/tutorial.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-book-open text-lg md:text-xl"></i>
-               <span class="text-[11px] md:text-xs">Tutorial</span>
+               <i class="fa-solid fa-book-open text-[18px] md:text-[20px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Tutorial</span>
             </a>
           </li>
           <li>
             <a href="/blog.html"
-               class="flex flex-col items-center gap-1 px-4 py-2 rounded-full transition-colors
+               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
                {% if page.url == '/blog.html'  %}
-                 bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm
+                 text-accent
                {% else %}
-                 text-inherit hover:bg-black/5 dark:hover:bg-white/10 hover:ring-1 hover:ring-black/10 dark:hover:ring-white/20
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/blog.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-newspaper text-lg md:text-xl"></i>
-               <span class="text-[11px] md:text-xs">Blog</span>
+               <i class="fa-solid fa-newspaper text-[18px] md:text-[20px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Blog</span>
             </a>
           </li>
           <li>
             <a href="/contact.html"
-               class="flex flex-col items-center gap-1 px-4 py-2 rounded-full transition-colors
+               class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors
                {% if page.url == '/contact.html'  %}
-                 bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm
+                 text-accent
                {% else %}
-                 text-inherit hover:bg-black/5 dark:hover:bg-white/10 hover:ring-1 hover:ring-black/10 dark:hover:ring-white/20
+                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
                {% endif %}" {% if page.url == '/contact.html' %}aria-current="page"{% endif %}>
-               <i class="fa-solid fa-envelope text-lg md:text-xl"></i>
-               <span class="text-[11px] md:text-xs">Contact</span>
+               <i class="fa-solid fa-envelope text-[18px] md:text-[20px]"></i>
+               <span class="text-[10px] md:text-[11px] leading-none">Contact</span>
             </a>
           </li>
         </ul>
@@ -78,22 +78,22 @@
   <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
     <li>
       <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors
-         {% if page.url == '/' or page.url == '/index.html' %}bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm{% else %}hover:bg-black/5 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/' or page.url == '/index.html' %}text-accent{% else %}hover:bg-black/5/50 dark:hover:bg-white/10{% endif %}"
          {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}><i class="fa-solid fa-house mr-3"></i>App</a>
     </li>
     <li>
       <a href="/tutorial.html" class="block w-full px-4 py-3 rounded-lg transition-colors
-         {% if page.url == '/tutorial.html' %}bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm{% else %}hover:bg-black/5 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/tutorial.html' %}text-accent{% else %}hover:bg-black/5/50 dark:hover:bg-white/10{% endif %}"
          {% if page.url == '/tutorial.html' %}aria-current="page"{% endif %}><i class="fa-solid fa-book-open mr-3"></i>Tutorial</a>
     </li>
     <li>
       <a href="/blog.html" class="block w-full px-4 py-3 rounded-lg transition-colors
-         {% if page.url == '/blog.html' %}bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm{% else %}hover:bg-black/5 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/blog.html' %}text-accent{% else %}hover:bg-black/5/50 dark:hover:bg-white/10{% endif %}"
          {% if page.url == '/blog.html' %}aria-current="page"{% endif %}><i class="fa-solid fa-newspaper mr-3"></i>Blog</a>
     </li>
     <li>
       <a href="/contact.html" class="block w-full px-4 py-3 rounded-lg transition-colors
-         {% if page.url == '/contact.html' %}bg-accent text-[#0B1D3B] ring-2 ring-accent/60 shadow-sm{% else %}hover:bg-black/5 dark:hover:bg-white/10{% endif %}"
+         {% if page.url == '/contact.html' %}text-accent{% else %}hover:bg-black/5/50 dark:hover:bg-white/10{% endif %}"
          {% if page.url == '/contact.html' %}aria-current="page"{% endif %}><i class="fa-solid fa-envelope mr-3"></i>Contact</a>
     </li>
   </ul>

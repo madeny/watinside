@@ -193,14 +193,15 @@
     <div id="features-lightbox" class="fixed inset-0 z-[70] hidden">
       <div class="absolute inset-0 bg-black/80"></div>
       <div class="relative h-full w-full flex items-center justify-center px-4">
-        <button id="feat-prev" aria-label="Previous" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl">&#10094;</button>
+        <button id="feat-prev" aria-label="Previous" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/90 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-2xl md:text-3xl">&#10094;</button>
         <div class="relative w-[min(92vw,520px)] md:w-[min(86vw,640px)] h-[80vh] max-h-[900px] overflow-hidden rounded-3xl shadow-2xl bg-black/20">
-          <img id="feat-current" alt="Feature" class="absolute inset-0 w-full h-full object-contain transition-transform duration-300" />
-          <img id="feat-next" alt="Feature" class="absolute inset-0 w-full h-full object-contain opacity-0 pointer-events-none transition-transform duration-300" />
-          <div id="feat-caption" class="absolute bottom-3 left-3 right-3 text-center text-white/90 text-sm"></div>
-          <button id="feat-close" aria-label="Close" class="absolute top-2 right-2 text-white/80 hover:text-white text-2xl">&times;</button>
+          <img id="feat-current" alt="Feature" class="absolute inset-0 w-full h-full object-contain transition-transform duration-300 ease-out" style="will-change: transform, opacity;" />
+          <img id="feat-next" alt="Feature" class="absolute inset-0 w-full h-full object-contain opacity-0 pointer-events-none transition-transform duration-300 ease-out" style="will-change: transform, opacity;" />
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div id="feat-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/95 text-sm sm:text-base bg-black/60 backdrop-blur px-3 py-1 rounded-full"></div>
+          <button id="feat-close" aria-label="Close" class="absolute top-3 right-3 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-white hover:text-white/90 text-2xl md:text-3xl">&times;</button>
         </div>
-        <button id="feat-next-btn" aria-label="Next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl">&#10095;</button>
+        <button id="feat-next-btn" aria-label="Next" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/90 p-3 rounded-full bg-white/20 ring-1 ring-white/30 backdrop-blur-sm text-2xl md:text-3xl">&#10095;</button>
       </div>
     </div>
 
@@ -269,7 +270,8 @@
         const s = slides[idx];
         current.src = s.src; current.alt = s.caption; caption.textContent = s.caption;
         // reset transforms
-        current.classList.remove('translate-x-full','-translate-x-full');
+        resetImg(current);
+        resetImg(nextImg);
         nextImg.classList.add('opacity-0');
       };
 
@@ -280,8 +282,9 @@
         nextImg.src = s.src; nextImg.alt = s.caption; caption.textContent = s.caption;
         // prepare positions
         nextImg.classList.remove('opacity-0');
+        resetImg(nextImg);
         nextImg.classList.add(dir>0 ? 'translate-x-full' : '-translate-x-full');
-        current.classList.remove('translate-x-full','-translate-x-full');
+        resetImg(current);
         // allow DOM paint, then animate
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
@@ -291,8 +294,10 @@
               current.removeEventListener('transitionend', onEnd);
               // swap images
               current.src = s.src; current.alt = s.caption;
-              current.classList.remove('translate-x-full','-translate-x-full');
+              resetImg(current);
               nextImg.classList.add('opacity-0');
+              resetImg(nextImg);
+              caption.textContent = s.caption;
               animating = false;
             };
             current.addEventListener('transitionend', onEnd, { once: true });

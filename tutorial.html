@@ -91,23 +91,34 @@
             <a href="/blog.html" class="text-sm text-accent hover:underline">Browse all posts</a>
           </div>
 
-          {% assign others = tutorials | where_exp: 'p', 'featured == nil or p.url != featured.url' %}
+          {% assign others = tutorials | where_exp: 'p', 'p.featured == nil or p.url != featured.url' %}
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for post in others %}
-            <a class="group rounded-xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 shadow-sm hover:shadow-md transition" href="{{ post.url }}">
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="{{ post.url }}">
               <div class="relative">
                 {% assign thumb = post.thumbnail | default: ("https://img.youtube.com/vi/" | append: post.video_id | append: "/hqdefault.jpg") %}
-                <img class="w-full aspect-video object-cover" src="{{ thumb }}" alt="{{ post.title }} thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="{{ thumb }}" alt="{{ post.title }} thumbnail">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 {% if post.duration %}
                 <span class="absolute right-2 bottom-2 text-xs px-2 py-1 rounded bg-black/70 text-white">{{ post.duration }}</span>
                 {% endif %}
-                <span class="absolute inset-0 flex items-center justify-center text-white/90">
-                  <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/60 group-hover:bg-black/70 transition"><i class="fa-solid fa-play"></i></span>
+                <span class="absolute inset-0 flex items-end p-4">
+                  <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 ring-1 ring-white/30 text-white group-hover:bg-white/20 transition">
+                      <i class="fa-solid fa-play"></i>
+                    </span>
+                    <h3 class="font-semibold text-white drop-shadow">{{ post.title }}</h3>
+                  </div>
                 </span>
               </div>
               <div class="p-4">
-                <h3 class="font-semibold">{{ post.title }}</h3>
-                <p class="mt-1 text-sm text-text-light/70 dark:text-text-dark/70">{{ post.description | default: post.excerpt | strip_html }}</p>
+                <p class="text-sm text-text-light/70 dark:text-text-dark/70">{{ post.description | default: post.excerpt | strip_html }}</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  {% if post.level %}
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-accent/10 text-text-light dark:text-text-dark ring-1 ring-black/5"><i class="fa-solid fa-layer-group"></i>{{ post.level }}</span>
+                  {% endif %}
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>{{ post.date | date: "%b %-d, %Y" }}</span>
+                </div>
               </div>
             </a>
             {% endfor %}

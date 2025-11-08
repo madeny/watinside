@@ -72,7 +72,7 @@
       </div>
       </div>
     </header>
-    <nav id="mobile-menu" class="md:hidden hidden container mx-auto px-6 pb-4">
+    <nav id="mobile-menu" class="md:hidden hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm container mx-auto px-6 pt-24 pb-6">
       <ul class="flex flex-col gap-3 text-lg font-medium bg-cardBg-light dark:bg-cardBg-dark rounded-xl p-4 shadow-cardLight dark:shadow-cardDark">
         <li><a href="/" class="block w-full px-2 py-2 rounded hover:text-accent">App</a></li>
         <li><a href="/tutorial.html" class="block w-full px-2 py-2 rounded hover:text-accent">Tutorial</a></li>
@@ -305,7 +305,32 @@
     (function(){
       const btn = document.getElementById('menu-toggle');
       const menu = document.getElementById('mobile-menu');
-      if (btn && menu) { btn.addEventListener('click', () => menu.classList.toggle('hidden')); }
+      if (!btn || !menu) return;
+
+      const closeMenu = () => menu.classList.add('hidden');
+      const toggleMenu = () => menu.classList.toggle('hidden');
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Click outside the panel (on the dark overlay) closes it
+      menu.addEventListener('click', (e) => {
+        if (e.target === menu) closeMenu();
+      });
+
+      // Clicking any link closes the menu
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      // Escape to close
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+      // Close if resizing to desktop
+      const mql = window.matchMedia('(min-width: 768px)');
+      if (mql && mql.addEventListener) {
+        mql.addEventListener('change', (e) => { if (e.matches) closeMenu(); });
+      }
     })();
   </script>
 </body>

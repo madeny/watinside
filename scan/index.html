@@ -131,17 +131,19 @@
     </div>
 
     <script>
-        // Extract scan ID from URL path
-        const pathParts = window.location.pathname.split('/').filter(part => part);
-        const scanId = pathParts.length > 1 ? pathParts[pathParts.length - 1] : null;
+        // Extract scan ID from query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const scanId = urlParams.get('id') || urlParams.get('index') || null;
         
         // Show scan info if available
         if (scanId) {
             document.getElementById('scan-info').textContent = `Scan ID: ${scanId}`;
+        } else {
+            document.getElementById('scan-info').textContent = 'No scan ID provided';
         }
         
         // Universal Links should handle this automatically, but we'll try to open the app
-        const appUrl = `watinside://scan/${scanId || ''}`;
+        const appUrl = scanId ? `watinside://scan?id=${scanId}` : 'watinside://scan';
         
         // Try to open the app after a short delay
         setTimeout(() => {
@@ -161,14 +163,6 @@
             setTimeout(() => {
                 alert('App not installed. Please download from the App Store.');
             }, 1000);
-        });
-        
-        // Detect if user came back to the page (app didn't open)
-        let hidden = false;
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                hidden = true;
-            }
         });
     </script>
 </body>

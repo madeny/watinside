@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appID": "dev.madeny.whatsinside",
+        "appID": "WBJNF78KSX.dev.madeny.whatsinside",
         "paths": [ "/scan/*" ]
       }
     ]

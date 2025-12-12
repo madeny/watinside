@@ -7,7 +7,8 @@
   <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | strip_newlines }}">
   <meta property="og:title" content="{{ page.title }} | Tutorial | WatInside">
   <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | strip_newlines }}">
-  <meta property="og:image" content="{{ page.thumbnail | default: ("https://img.youtube.com/vi/" | append: page.video_id | append: "/hqdefault.jpg") }}">
+  {%- assign default_thumbnail = "https://img.youtube.com/vi/" | append: page.video_id | append: "/hqdefault.jpg" -%}
+  <meta property="og:image" content="{{ page.thumbnail | default: default_thumbnail }}">
   <meta property="og:type" content="article">
   <link rel="icon" href="/assets/favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>

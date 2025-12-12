@@ -96,7 +96,8 @@
             {% for post in others %}
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="{{ post.url }}">
               <div class="relative">
-                {% assign thumb = post.thumbnail | default: ("https://img.youtube.com/vi/" | append: post.video_id | append: "/hqdefault.jpg") %}
+                {%- assign default_thumbnail = "https://img.youtube.com/vi/" | append: post.video_id | append: "/hqdefault.jpg" -%}
+                {% assign thumb = post.thumbnail | default: default_thumbnail %}
                 <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="{{ thumb }}" alt="{{ post.title }} thumbnail">
               </div>
               <div class="p-4">

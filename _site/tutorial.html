@@ -20,7 +20,7 @@
 </head>
 <body class="font-sans bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors ease-in-out duration-300">
   <div class="min-h-screen flex flex-col">
-    <header class="fixed inset-x-0 top-0 z-50 bg-white dark:bg-[#0B1D3B]/80 dark:backdrop-blur-sm border-b border-black/5 dark:border-white/10">
+    <header class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-[#0B1D3B]/80 backdrop-blur-sm border-b border-black/5 dark:border-white/10">
   <div class="container mx-auto max-w-7xl px-6 py-3 flex justify-between items-center">
     <a href="/" class="flex items-center space-x-3">
       <img src="/assets/logo.webp" alt="WatInside Logo" class="h-10 w-10" />
@@ -28,45 +28,33 @@
     </a>
     <div class="flex items-center space-x-4">
       <nav class="hidden md:block">
-        <ul class="flex items-center gap-1 text-[15px] font-medium bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-full p-1 ring-1 ring-black/5 dark:ring-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+        <ul class="flex items-center gap-4 text-lg font-medium">
           <li>
             <a href="/"
-               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
-               
-                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
-               " >
-               <i class="fa-solid fa-house text-[16px] md:text-[18px]"></i>
-               <span class="text-[10px] md:text-[11px] leading-none">App</span>
+               class="transition-colors hover:text-accent"
+               >
+               App
             </a>
           </li>
           <li>
             <a href="/tutorial.html"
-               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
-               
-                 text-accent
-               " aria-current="page">
-               <i class="fa-solid fa-book-open text-[16px] md:text-[18px]"></i>
-               <span class="text-[10px] md:text-[11px] leading-none">Tutorial</span>
+               class="transition-colors text-accent"
+               aria-current="page">
+               Tutorial
             </a>
           </li>
           <li>
             <a href="/blog.html"
-               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
-               
-                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
-               " >
-               <i class="fa-solid fa-newspaper text-[16px] md:text-[18px]"></i>
-               <span class="text-[10px] md:text-[11px] leading-none">Blog</span>
+               class="transition-colors hover:text-accent"
+               >
+               Blog
             </a>
           </li>
           <li>
             <a href="/contact.html"
-               class="flex flex-col items-center gap-0.5 px-2.5 py-1 rounded-xl transition-colors
-               
-                 text-inherit hover:bg-black/5/50 dark:hover:bg-white/10 
-               " >
-               <i class="fa-solid fa-envelope text-[16px] md:text-[18px]"></i>
-               <span class="text-[10px] md:text-[11px] leading-none">Contact</span>
+               class="transition-colors hover:text-accent"
+               >
+               Contact
             </a>
           </li>
         </ul>
@@ -92,7 +80,7 @@
   <ul class="w-full flex flex-col gap-1 text-lg font-medium bg-white/90 dark:bg-[#0B1D3B]/90 backdrop-blur-sm border-b border-black/5 dark:border-white/10 divide-y divide-black/5 dark:divide-white/10 p-2">
     <li>
       <a href="/" class="block w-full px-4 py-3 rounded-lg transition-colors
-         hover:bg-black/5/50 dark:hover:bg-white/10"
+         hover:bg-black/5 dark:hover:bg-white/10"
          ><i class="fa-solid fa-house mr-3"></i>App</a>
     </li>
     <li>
@@ -102,12 +90,12 @@
     </li>
     <li>
       <a href="/blog.html" class="block w-full px-4 py-3 rounded-lg transition-colors
-         hover:bg-black/5/50 dark:hover:bg-white/10"
+         hover:bg-black/5 dark:hover:bg-white/10"
          ><i class="fa-solid fa-newspaper mr-3"></i>Blog</a>
     </li>
     <li>
       <a href="/contact.html" class="block w-full px-4 py-3 rounded-lg transition-colors
-         hover:bg-black/5/50 dark:hover:bg-white/10"
+         hover:bg-black/5 dark:hover:bg-white/10"
          ><i class="fa-solid fa-envelope mr-3"></i>Contact</a>
     </li>
   </ul>
@@ -143,27 +131,22 @@
                   </span>
                 </div>
                 <div class="aspect-video bg-black">
-                  <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_6" title="Tips and tricks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe class="w-full h-full" src="https://www.youtube.com/embed/" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
             <div class="lg:col-span-2">
               <div class="h-full rounded-2xl bg-cardBg-light dark:bg-cardBg-dark p-6 shadow-sm ring-1 ring-black/5">
-                <h2 class="text-xl font-semibold">Tips and tricks</h2>
-                <p class="mt-2 text-sm text-text-light/70 dark:text-text-dark/70">Power-user shortcuts and lesser-known features to speed up your work.</p>
+                <h2 class="text-xl font-semibold"></h2>
+                <p class="mt-2 text-sm text-text-light/70 dark:text-text-dark/70"></p>
                 <dl class="mt-6 grid grid-cols-2 gap-4 text-sm">
-                  <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i><span>217.0</span></div>
-                  <div class="flex items-center gap-2"><i class="fa-solid fa-layer-group"></i><span>All levels</span></div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-clock"></i><span>—</span></div>
+                  <div class="flex items-center gap-2"><i class="fa-solid fa-layer-group"></i><span>—</span></div>
                 </dl>
                 <div class="mt-6 flex gap-3">
-                  <a href="/tutorial/2025/11/08/tips-and-tricks.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/10 hover:ring-black/20 transition">
+                  <a href="" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/10 hover:ring-black/20 transition">
                     <i class="fa-solid fa-arrow-right"></i>
                     Open tutorial
-                  </a>
-                  
-                  <a href="https://www.youtube.com/watch?v=VIDEO_ID_6" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-accent text-text-light hover:brightness-95 transition">
-                    <i class="fa-solid fa-play"></i>
-                    Watch on YouTube
                   </a>
                   
                 </div>
@@ -184,10 +167,28 @@
           
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
+            <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/watinside-overview.html">
+              <div class="relative">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_OVERVIEW/hqdefault.jpg" alt="WatInside overview thumbnail">
+              </div>
+              <div class="p-4">
+                <h3 class="font-semibold">WatInside overview</h3>
+                <p class="mt-1 text-sm text-text-light/70 dark:text-text-dark/70">A quick tour to get you up and running: setup, core concepts, and a demo of key features.</p>
+                <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                  
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-clock"></i>480.0</span>
+                  
+                  
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-accent/10 text-text-light dark:text-text-dark ring-1 ring-black/5"><i class="fa-solid fa-layer-group"></i>Beginner</span>
+                  
+                  <span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5"><i class="fa-regular fa-calendar"></i>Nov 8, 2025</span>
+                </div>
+              </div>
+            </a>
+            
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/tips-and-tricks.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_6/hqdefault.jpg" alt="Tips and tricks thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_6/hqdefault.jpg" alt="Tips and tricks thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Tips and tricks</h3>
@@ -206,8 +207,7 @@
             
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/integrations.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_5/hqdefault.jpg" alt="Integrations thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_5/hqdefault.jpg" alt="Integrations thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Integrations</h3>
@@ -226,8 +226,7 @@
             
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/automations-and-alerts.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_4/hqdefault.jpg" alt="Automations and alerts thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_4/hqdefault.jpg" alt="Automations and alerts thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Automations and alerts</h3>
@@ -246,8 +245,7 @@
             
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/building-dashboards.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_3/hqdefault.jpg" alt="Building dashboards thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg" alt="Building dashboards thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Building dashboards</h3>
@@ -266,8 +264,7 @@
             
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/projects-and-data.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_2/hqdefault.jpg" alt="Working with projects and data thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Working with projects and data thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Working with projects and data</h3>
@@ -286,8 +283,7 @@
             
             <a class="group block rounded-2xl overflow-hidden bg-cardBg-light dark:bg-cardBg-dark ring-1 ring-black/5 hover:ring-accent/30 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-0.5" href="/tutorial/2025/11/08/setup-and-installation.html">
               <div class="relative">
-                
-                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="VIDEO_ID_1/hqdefault.jpg" alt="Setup and installation thumbnail">
+                <img class="w-full aspect-video object-cover transform transition-transform duration-300 group-hover:scale-105" src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg" alt="Setup and installation thumbnail">
               </div>
               <div class="p-4">
                 <h3 class="font-semibold">Setup and installation</h3>

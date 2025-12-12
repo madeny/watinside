@@ -7,7 +7,7 @@ video_id: VIDEO_OVERVIEW
 featured: true
 level: Beginner
 duration: 8:00
-description: A quick tour to get you up and running: setup, core concepts, and a demo of key features.
+description: "A quick tour to get you up and running: setup, core concepts, and a demo of key features."
 ---
 
 This video walks through:

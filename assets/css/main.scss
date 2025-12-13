@@ -1,0 +1,96 @@
+---
+# Jekyll rebuilds this file.
+---
+
+// Import Minimal Mistakes theme's main SCSS
+@import "minimal-mistakes";
+@import "minimal-mistakes/skins/default"; // Assuming 'default' skin is used, from _config.yml
+
+/* Custom Overrides for Dark Mode */
+@media (prefers-color-scheme: dark) {
+  // Define custom dark mode variables here if they are only for this SCSS context
+  // Otherwise, if they are already defined in inline <style> block,
+  // we can directly use CSS variables or redeclare them for theme components.
+
+  // Minimal Mistakes often defines its own Sass variables.
+  // We can try to override them or directly target compiled CSS classes.
+
+  // General site colors for dark mode (re-using concepts from index.html)
+  $text-primary-dark: #f5f5f7;
+  $text-secondary-dark: #a1a1a6;
+  $background-color-dark: #000000;
+  $secondary-background-color-dark: #1c1c1e; // Apple System Gray 6 Dark
+  $link-color-dark: #007AFF; // iOS Blue
+
+  // Override Minimal Mistakes Sass variables (if it uses them in similar names)
+  // This might require knowing the exact variable names used by the theme.
+  // For safety and robustness, directly target compiled CSS classes.
+
+  // Navigation Bar specific styles
+  .greedy-nav {
+    background-color: transparent !important;
+    border-bottom: none !important;
+  }
+
+  // Target common content wrappers in Minimal Mistakes that might have a top border
+  .page__main, .page__content, .initial-content, .layout--splash #main {
+      border-top: none !important;
+      padding-top: 0 !important; /* Ensure no padding creates an artificial space */
+  }
+
+  // Footer styles
+  .greedy-nav .site-title,
+  .greedy-nav .site-subtitle,
+  .greedy-nav a {
+    color: $text-primary-dark !important;
+  }
+  .greedy-nav a:hover {
+    color: $link-color-dark !important;
+  }
+  .greedy-nav__toggle .navicon {
+    background-color: $text-primary-dark !important;
+  }
+  .greedy-nav__toggle:hover .navicon {
+    background-color: $link-color-dark !important;
+  }
+  .greedy-nav .visible-links a.active {
+    color: $link-color-dark !important;
+  }
+
+  // Footer styles
+  .page__footer {
+    background-color: $secondary-background-color-dark !important;
+    color: $text-secondary-dark !important;
+  }
+  .page__footer a {
+    color: $link-color-dark !important;
+  }
+
+  // General content styling for other pages (like about.html or posts)
+  // These selectors target common elements in Minimal Mistakes content area
+  .page__content {
+    h1, h2, h3, h4, h5, h6 {
+      color: $text-primary-dark !important;
+    }
+    p, li, dl, dd, dt, blockquote {
+      color: $text-secondary-dark !important;
+    }
+    a {
+      color: $link-color-dark !important;
+    }
+  }
+
+  // For archive pages (post lists)
+  .archive__item-title a {
+    color: $text-primary-dark !important;
+  }
+  .archive__item-excerpt {
+    color: $text-secondary-dark !important;
+  }
+  
+  // Specific to the body background for pages not covered by custom CSS from index.html
+  body {
+    background-color: $background-color-dark !important;
+    color: $text-primary-dark !important;
+  }
+}

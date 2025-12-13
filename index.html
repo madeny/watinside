@@ -9,13 +9,40 @@ author_profile: false
 /* Custom Landing Page Styles */
 :root {
     --primary-color: #007AFF; /* iOS Blue */
-    --text-color: #1d1d1f;
+    
+    /* Light Mode Default Variables */
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
     --bg-color: #ffffff;
-    --secondary-bg: #f5f5f7;
+    --bg-secondary: #f5f5f7;
+    --card-bg: #ffffff;
+    --border-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    
+    /* Dark Section Specifics (Always Dark) */
+    --dark-section-bg: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
+    --dark-section-text: #fff;
+    --dark-section-subtext: #a1a1a6;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark Mode Overrides */
+        --text-primary: #f5f5f7;
+        --text-secondary: #a1a1a6;
+        --bg-color: #000000;
+        --bg-secondary: #1c1c1e; /* Apple System Gray 6 Dark */
+        --card-bg: #1c1c1e;
+        --hero-bg: linear-gradient(135deg, #1c1c1e 0%, #000000 100%); /* Still define it for consistency, even if not used directly by hero-section background */
+        --border-color: #2c2c2e;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+    }
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
 }
 
 .landing-section {
@@ -28,6 +55,7 @@ body {
     text-align: center;
     padding-top: 2rem;
     padding-bottom: 4rem;
+    /* Removed background, border-radius, and box-shadow to blend with site-wide background */
 }
 
 .hero-title {
@@ -36,12 +64,12 @@ body {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: #86868b;
+    color: var(--text-secondary);
     max-width: 700px;
     margin: 0 auto 2.5rem;
     font-weight: 400;
@@ -67,17 +95,17 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 1rem; /* Space between images */
+    gap: 1rem;
     perspective: 1000px;
-    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .app-screenshot {
-    max-width: 280px; /* Adjusted for 3 images side-by-side */
+    max-width: 280px;
     width: 100%;
     border-radius: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    border: 8px solid #fff;
+    box-shadow: 0 25px 50px -12px var(--shadow-color);
+    border: 8px solid var(--border-color);
     transition: transform 0.4s ease;
 }
 
@@ -86,7 +114,7 @@ body {
 }
 
 .features-section {
-    background-color: var(--secondary-bg);
+    background-color: var(--bg-secondary);
     padding: 6rem 1rem;
     margin-top: 4rem;
     border-radius: 30px;
@@ -97,10 +125,9 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 4rem;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
-/* Feature Row Styles - Modular & Easy to Expand */
 .feature-row {
     display: flex;
     flex-wrap: wrap;
@@ -108,10 +135,9 @@ body {
     justify-content: center;
     gap: 4rem;
     max-width: 1000px;
-    margin: 0 auto 6rem auto; /* Bottom margin for spacing between rows */
+    margin: 0 auto 6rem auto;
 }
 
-/* Reverse the order for every even row for visual interest (Zigzag) */
 .feature-row.reverse {
     flex-direction: row-reverse;
 }
@@ -126,12 +152,12 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .feature-text p {
     font-size: 1.25rem;
-    color: #666;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -142,21 +168,36 @@ body {
     min-width: 300px;
 }
 
+.showcase-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.showcase-text p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 .dark-mode-preview {
-    background: #000;
-    color: #fff;
+    background: var(--dark-section-bg);
+    color: var(--dark-section-text);
     padding: 6rem 2rem;
     text-align: center;
     margin: 4rem -1rem -4rem -1rem; /* Full bleed hack */
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
 }
 
 .dark-mode-preview h2 {
-    color: #fff;
+    color: var(--dark-section-text);
     margin-bottom: 1rem;
 }
 
 .dark-mode-preview p {
-    color: #a1a1a6;
+    color: var(--dark-section-subtext);
     font-size: 1.3rem;
     margin-bottom: 3rem;
 }
@@ -165,7 +206,6 @@ body {
     .hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.2rem; }
     
-    /* On mobile, stack everything vertically in normal order */
     .feature-row, .feature-row.reverse {
         flex-direction: column; 
         gap: 2rem;
@@ -180,7 +220,7 @@ body {
         gap: 2rem;
     }
     .app-screenshot {
-        max-width: 320px; /* Revert to larger size for single column */
+        max-width: 320px;
     }
 }
 </style>
@@ -240,22 +280,6 @@ body {
             <img src="/assets/images/lightMode.jpg" alt="Cloud Sync Screenshot" class="app-screenshot">
         </div>
     </div>
-    
-    <!-- 
-    !!! EXPANSION INSTRUCTION !!!
-    To add a new feature, copy the block below and paste it above this comment.
-    Toggle the 'reverse' class on the div if you want to alternate the layout.
-    
-    <div class="feature-row reverse"> 
-        <div class="feature-text">
-            <h3>New Feature Title</h3>
-            <p>Description of the new feature.</p>
-        </div>
-        <div class="feature-media">
-            <img src="/path/to/image.jpg" alt="Feature Screenshot" class="app-screenshot">
-        </div>
-    </div>
-    -->
 
 </div>
 

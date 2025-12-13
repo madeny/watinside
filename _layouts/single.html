@@ -62,6 +62,9 @@ layout: default
     <aside class="post-sidebar">
       <div class="sidebar-inner">
         
+        <!-- App Slideshow Widget -->
+        {% include sidebar_slideshow.html %}
+
         <!-- Recent Posts Widget -->
         <div class="sidebar-widget">
           <h3 class="sidebar-title">Recent Stories</h3>
@@ -77,15 +80,6 @@ layout: default
               {% endif %}
             {% endfor %}
           </ul>
-        </div>
-
-        <!-- CTA Widget -->
-        <div class="sidebar-widget cta-widget">
-          <h3 class="sidebar-title">Organize Your World</h3>
-          <p class="cta-text">Don't lose track of your stuff. Download WatInside today.</p>
-          <a href="/" class="sidebar-app-btn">
-             Download App
-          </a>
         </div>
 
       </div>

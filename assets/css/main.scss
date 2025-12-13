@@ -229,54 +229,6 @@ body {
 }
 
 /* --------------------------------------------------------- */
-/* Floating CTA Button                                       */
-/* --------------------------------------------------------- */
-
-.floating-cta-container {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Optional: Background blur or container styling */
-  /* background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
-}
-
-.floating-btn {
-  display: block;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
-}
-
-.floating-btn:hover {
-  transform: scale(1.05);
-}
-
-.floating-btn img {
-  height: 56px; /* Slightly smaller than hero for subtlety */
-  width: auto;
-  display: block;
-}
-
-@media (max-width: 600px) {
-  .floating-cta-container {
-    bottom: 20px;
-    width: 100%; /* Ensure full width clickable area isn't blocking, but centering is safe */
-    pointer-events: none; /* Let clicks pass through container */
-  }
-  .floating-btn {
-    pointer-events: auto; /* Re-enable clicks on button */
-  }
-}
-
-/* --------------------------------------------------------- */
 /* Single Post Page Styles                                   */
 /* --------------------------------------------------------- */
 
@@ -516,6 +468,119 @@ body {
 }
 
 /* --------------------------------------------------------- */
+/* Slideshow Widget Styles                                   */
+/* --------------------------------------------------------- */
+
+.app-slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+.app-slideshow-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.app-slide {
+  display: none;
+  text-align: center;
+}
+
+.app-slide-img {
+  width: 100%;
+  max-width: 280px; /* Make image bigger */
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 4px solid #fff;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Dots */
+.dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: var(--primary-color);
+}
+
+.sidebar-app-btn {
+  display: block; /* Ensure it takes full width of parent */
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 15px; /* More compact padding */
+  border-radius: 12px; /* Slightly less rounded */
+  text-decoration: none;
+  font-size: 0.9rem; /* Slightly smaller text */
+  transition: opacity 0.2s;
+  text-align: center; /* Center text */
+  margin-top: 1rem; /* Space from dots */
+}
+
+.floating-cta-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Optional: Background blur or container styling */
+  /* background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+}
+
+.floating-btn {
+  display: block;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+}
+
+.floating-btn:hover {
+  transform: scale(1.05);
+}
+
+.floating-btn img {
+  height: 56px; /* Slightly smaller than hero for subtlety */
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .floating-cta-container {
+    bottom: 20px;
+    width: 100%; /* Ensure full width clickable area isn't blocking, but centering is safe */
+    pointer-events: none; /* Let clicks pass through container */
+  }
+  .floating-btn {
+    pointer-events: auto; /* Re-enable clicks on button */
+  }
+}
+
+/* --------------------------------------------------------- */
 /* Dark Mode Overrides (System Preference)                   */
 /* --------------------------------------------------------- */
 
@@ -592,5 +657,10 @@ body {
   body {
     background-color: $background-color-dark !important;
     color: $text-primary-dark !important;
+  }
+  
+  // Slideshow dark mode tweaks
+  .app-slide-img {
+    border-color: #333;
   }
 }

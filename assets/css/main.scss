@@ -536,47 +536,68 @@ body {
   margin-top: 1rem; /* Space from dots */
 }
 
+/* --------------------------------------------------------- */
+/* Floating CTA Button                                       */
+/* --------------------------------------------------------- */
+
 .floating-cta-container {
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Optional: Background blur or container styling */
-  /* background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
-}
-
-.floating-btn {
-  display: block;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
-}
-
-.floating-btn:hover {
-  transform: scale(1.05);
-}
-
-.floating-btn img {
-  height: 56px; /* Slightly smaller than hero for subtlety */
   width: auto;
-  display: block;
+}
+
+.floating-glass-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 36px;
+  border-radius: 50px;
+  
+  /* Liquid Glass Effect */
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.85), rgba(90, 200, 250, 0.85));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 10px 25px rgba(0, 122, 255, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 0.02em;
+}
+
+.floating-glass-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 15px 35px rgba(0, 122, 255, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.95), rgba(90, 200, 250, 0.95));
+  text-decoration: none;
+}
+
+.floating-glass-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
 }
 
 @media (max-width: 600px) {
   .floating-cta-container {
-    bottom: 20px;
-    width: 100%; /* Ensure full width clickable area isn't blocking, but centering is safe */
-    pointer-events: none; /* Let clicks pass through container */
+    bottom: 30px;
+    width: 100%;
+    pointer-events: none; /* Container passes clicks */
   }
-  .floating-btn {
-    pointer-events: auto; /* Re-enable clicks on button */
+  .floating-glass-btn {
+    pointer-events: auto; /* Button catches clicks */
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.5); /* Slightly stronger shadow for visibility on mobile */
   }
 }
 

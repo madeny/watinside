@@ -47,23 +47,19 @@ body {
     font-weight: 400;
 }
 
-.btn-app-store {
+.btn-app-store-link {
     display: inline-block;
-    background: #000;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 24px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
-.btn-app-store:hover {
+.btn-app-store-link:hover {
     transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    text-decoration: none;
-    color: #fff;
+    opacity: 0.9;
+}
+
+.btn-app-store-img {
+    height: 60px;
+    width: auto;
 }
 
 .hero-image-container {
@@ -71,11 +67,13 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
+    gap: 1rem; /* Space between images */
     perspective: 1000px;
+    flex-wrap: wrap; /* Allow images to wrap on smaller screens */
 }
 
 .app-screenshot {
-    max-width: 320px;
+    max-width: 280px; /* Adjusted for 3 images side-by-side */
     width: 100%;
     border-radius: 40px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -98,68 +96,50 @@ body {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     color: var(--text-color);
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.feature-item {
-    text-align: center;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-}
-
-.feature-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.feature-desc {
-    color: #666;
-    line-height: 1.6;
-}
-
-.showcase-section {
-    padding: 6rem 1rem;
+/* Feature Row Styles - Modular & Easy to Expand */
+.feature-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto 6rem auto; /* Bottom margin for spacing between rows */
 }
 
-.showcase-text {
+/* Reverse the order for every even row for visual interest (Zigzag) */
+.feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
     flex: 1;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 450px;
 }
 
-.showcase-text h2 {
-    font-size: 2.5rem;
+.feature-text h3 {
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
-.showcase-text p {
+.feature-text p {
     font-size: 1.25rem;
     color: #666;
     line-height: 1.6;
+}
+
+.feature-media {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
 }
 
 .dark-mode-preview {
@@ -184,43 +164,102 @@ body {
 @media (max-width: 768px) {
     .hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.2rem; }
+    
+    /* On mobile, stack everything vertically in normal order */
+    .feature-row, .feature-row.reverse {
+        flex-direction: column; 
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .feature-text {
+        text-align: center;
+    }
+
+    .hero-image-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .app-screenshot {
+        max-width: 320px; /* Revert to larger size for single column */
+    }
 }
 </style>
 
+<!-- Hero Section -->
 <div class="landing-section hero-section">
     <h1 class="hero-title">Organize Your World.</h1>
     <p class="hero-subtitle">WatInside helps you pack, store, and find your physical stuff instantly. Never ask "Where did I put that?" again.</p>
     
-    <a href="#" class="btn-app-store">
-        Download on the App Store
+    <a href="#" class="btn-app-store-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="btn-app-store-img">
     </a>
 
     <div class="hero-image-container">
-        <img src="/assets/images/lightMode.jpg" alt="WatInside Light Mode" class="app-screenshot">
+        <img src="/assets/images/darkmode.jpg" alt="WatInside Dark Mode Screenshot" class="app-screenshot">
+        <img src="/assets/images/lightMode.jpg" alt="WatInside Light Mode Screenshot" class="app-screenshot">
+        <img src="/assets/images/darkmode.jpg" alt="WatInside Dark Mode Screenshot 2" class="app-screenshot">
     </div>
 </div>
 
+<!-- Features Section (Modular) -->
 <div class="features-section">
     <h2 class="section-title">Why WatInside?</h2>
-    <div class="features-grid">
-        <div class="feature-item">
-            <span class="feature-icon">📦</span>
-            <h3 class="feature-title">Organize Boxes</h3>
-            <p class="feature-desc">Create digital boxes that match your real ones. Add photos, descriptions, and tags to keep everything sorted.</p>
+
+    <!-- Feature 1: Organize Boxes -->
+    <div class="feature-row">
+        <div class="feature-text">
+            <h3>Organize Boxes</h3>
+            <p>Create digital boxes that match your real ones. Add photos, descriptions, and tags to keep everything sorted. It's like having X-ray vision for your storage.</p>
         </div>
-        <div class="feature-item">
-            <span class="feature-icon">🔍</span>
-            <h3 class="feature-title">Instant Search</h3>
-            <p class="feature-desc">Looking for your winter boots? Type it in the search bar and find exactly which box and room they're in.</p>
-        </div>
-        <div class="feature-item">
-            <span class="feature-icon">☁️</span>
-            <h3 class="feature-title">Always Sync</h3>
-            <p class="feature-desc">Your inventory is safe in the cloud. Access your stuff from any device, anytime you need it.</p>
+        <div class="feature-media">
+            <!-- PLACEHOLDER: Use a screenshot showing a box list or detail view -->
+            <img src="/assets/images/lightMode.jpg" alt="Organize Boxes Screenshot" class="app-screenshot">
         </div>
     </div>
+
+    <!-- Feature 2: Instant Search (Reversed Layout) -->
+    <div class="feature-row reverse">
+        <div class="feature-text">
+            <h3>Instant Search</h3>
+            <p>Looking for your winter boots? Type it in the search bar and find exactly which box and room they're in within seconds. Stop rummaging, start finding.</p>
+        </div>
+        <div class="feature-media">
+            <!-- PLACEHOLDER: Use a screenshot showing search results -->
+            <img src="/assets/images/darkmode.jpg" alt="Instant Search Screenshot" class="app-screenshot" style="border-color: #333;">
+        </div>
+    </div>
+
+    <!-- Feature 3: Always Sync -->
+    <div class="feature-row">
+        <div class="feature-text">
+            <h3>Always Sync</h3>
+            <p>Your inventory is safe in the cloud. Access your stuff from any device, anytime you need it. Share your inventory with family members so everyone knows where things are.</p>
+        </div>
+        <div class="feature-media">
+            <!-- PLACEHOLDER: Use a screenshot showing sync settings or cloud icon -->
+            <img src="/assets/images/lightMode.jpg" alt="Cloud Sync Screenshot" class="app-screenshot">
+        </div>
+    </div>
+    
+    <!-- 
+    !!! EXPANSION INSTRUCTION !!!
+    To add a new feature, copy the block below and paste it above this comment.
+    Toggle the 'reverse' class on the div if you want to alternate the layout.
+    
+    <div class="feature-row reverse"> 
+        <div class="feature-text">
+            <h3>New Feature Title</h3>
+            <p>Description of the new feature.</p>
+        </div>
+        <div class="feature-media">
+            <img src="/path/to/image.jpg" alt="Feature Screenshot" class="app-screenshot">
+        </div>
+    </div>
+    -->
+
 </div>
 
+<!-- Design Showcase Section -->
 <div class="landing-section showcase-section">
     <div class="showcase-text">
         <h2>Beautiful by Design</h2>
@@ -229,8 +268,11 @@ body {
     <img src="/assets/images/darkmode.jpg" alt="WatInside Dark Mode" class="app-screenshot" style="border-color: #333;">
 </div>
 
+<!-- Dark Mode / Footer Call to Action -->
 <div class="dark-mode-preview">
     <h2>Ready for the Dark</h2>
     <p>Seamless support for Dark Mode, making it easy on your eyes when you're digging through the attic at night.</p>
-    <a href="#" class="btn-app-store" style="background: #fff; color: #000;">Download Now</a>
+    <a href="#" class="btn-app-store-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" class="btn-app-store-img">
+    </a>
 </div>

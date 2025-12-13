@@ -1,0 +1,236 @@
+---
+layout: splash
+title: "WatInside - Organize Your Physical Stuff"
+description: "The ultimate iOS app to organize your boxes and storage. Never forget where your items are."
+author_profile: false
+---
+
+<style>
+/* Custom Landing Page Styles */
+:root {
+    --primary-color: #007AFF; /* iOS Blue */
+    --text-color: #1d1d1f;
+    --bg-color: #ffffff;
+    --secondary-bg: #f5f5f7;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.landing-section {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-section {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #86868b;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    font-weight: 400;
+}
+
+.btn-app-store {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-app-store:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: #fff;
+}
+
+.hero-image-container {
+    margin-top: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.app-screenshot {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 8px solid #fff;
+    transition: transform 0.4s ease;
+}
+
+.app-screenshot:hover {
+    transform: translateY(-10px);
+}
+
+.features-section {
+    background-color: var(--secondary-bg);
+    padding: 6rem 1rem;
+    margin-top: 4rem;
+    border-radius: 30px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.feature-desc {
+    color: #666;
+    line-height: 1.6;
+}
+
+.showcase-section {
+    padding: 6rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.showcase-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.showcase-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.showcase-text p {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.dark-mode-preview {
+    background: #000;
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+    margin: 4rem -1rem -4rem -1rem; /* Full bleed hack */
+}
+
+.dark-mode-preview h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.dark-mode-preview p {
+    color: #a1a1a6;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+}
+</style>
+
+<div class="landing-section hero-section">
+    <h1 class="hero-title">Organize Your World.</h1>
+    <p class="hero-subtitle">WatInside helps you pack, store, and find your physical stuff instantly. Never ask "Where did I put that?" again.</p>
+    
+    <a href="#" class="btn-app-store">
+        Download on the App Store
+    </a>
+
+    <div class="hero-image-container">
+        <img src="/assets/images/lightMode.jpg" alt="WatInside Light Mode" class="app-screenshot">
+    </div>
+</div>
+
+<div class="features-section">
+    <h2 class="section-title">Why WatInside?</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <span class="feature-icon">📦</span>
+            <h3 class="feature-title">Organize Boxes</h3>
+            <p class="feature-desc">Create digital boxes that match your real ones. Add photos, descriptions, and tags to keep everything sorted.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">🔍</span>
+            <h3 class="feature-title">Instant Search</h3>
+            <p class="feature-desc">Looking for your winter boots? Type it in the search bar and find exactly which box and room they're in.</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-icon">☁️</span>
+            <h3 class="feature-title">Always Sync</h3>
+            <p class="feature-desc">Your inventory is safe in the cloud. Access your stuff from any device, anytime you need it.</p>
+        </div>
+    </div>
+</div>
+
+<div class="landing-section showcase-section">
+    <div class="showcase-text">
+        <h2>Beautiful by Design</h2>
+        <p>WatInside is built to feel right at home on your iOS device. With a clean, intuitive interface, organizing your life becomes a joy, not a chore.</p>
+    </div>
+    <img src="/assets/images/darkmode.jpg" alt="WatInside Dark Mode" class="app-screenshot" style="border-color: #333;">
+</div>
+
+<div class="dark-mode-preview">
+    <h2>Ready for the Dark</h2>
+    <p>Seamless support for Dark Mode, making it easy on your eyes when you're digging through the attic at night.</p>
+    <a href="#" class="btn-app-store" style="background: #fff; color: #000;">Download Now</a>
+</div>

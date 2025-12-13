@@ -35,6 +35,21 @@ body {
 }
 
 /* --------------------------------------------------------- */
+/* Search Icon Visibility Control                            */
+/* --------------------------------------------------------- */
+
+// Default: Hide the search toggle button globally
+.search__toggle {
+  display: none !important;
+}
+
+// Show it ONLY on the Read page (which has body.read-page)
+.read-page .search__toggle {
+  display: block !important;
+}
+
+
+/* --------------------------------------------------------- */
 /* Component Styles                                          */
 /* --------------------------------------------------------- */
 

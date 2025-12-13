@@ -1,9 +1,14 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
+layout: single
+title:  "Welcome to WatInside"
 date:   2025-12-13 15:34:18 +0100
-categories: jekyll update
+categories: update
+header:
+  overlay_image: https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "Welcome to the new WatInside blog. Here we will share updates, tips, and tricks on how to organize your life."
 ---
+
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
 Jekyll requires blog post files to be named according to the following format:

@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+<div class="post-layout-container">
+  <div class="post-layout-grid">
+    
+    <!-- Main Article Column -->
+    <article class="post-article">
+      
+      <!-- Article Header -->
+      <header class="article-header">
+        {% if page.header.overlay_image %}
+          <div class="article-hero-wrapper">
+            <img src="{{ page.header.overlay_image }}" alt="{{ page.title }}" class="article-hero-image">
+          </div>
+        {% endif %}
+        
+        <div class="article-title-group">
+          <h1 class="article-title">{{ page.title }}</h1>
+          <div class="article-meta">
+            <span class="article-date">{{ page.date | date: "%B %d, %Y" }}</span>
+            {% if page.read_time %}
+              <span class="meta-dot">·</span>
+              <span class="article-read-time">{% include read_time.html %}</span>
+            {% endif %}
+          </div>
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <div class="article-content">
+        {{ content }}
+      </div>
+
+      <!-- Article Footer / Navigation -->
+      <footer class="article-footer">
+        <div class="article-navigation">
+          {% if page.previous %}
+            <a href="{{ page.previous.url }}" class="nav-card prev">
+              <span class="nav-label">Previous</span>
+              <span class="nav-link-title">{{ page.previous.title }}</span>
+            </a>
+          {% else %}
+            <div class="nav-card disabled"></div>
+          {% endif %}
+
+          {% if page.next %}
+            <a href="{{ page.next.url }}" class="nav-card next">
+              <span class="nav-label">Next</span>
+              <span class="nav-link-title">{{ page.next.title }}</span>
+            </a>
+          {% else %}
+             <div class="nav-card disabled"></div>
+          {% endif %}
+        </div>
+      </footer>
+
+    </article>
+
+    <!-- Sidebar Column -->
+    <aside class="post-sidebar">
+      <div class="sidebar-inner">
+        
+        <!-- Recent Posts Widget -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-title">Recent Stories</h3>
+          <ul class="sidebar-post-list">
+            {% for post in site.posts limit:5 %}
+              {% if post.url != page.url %}
+              <li class="sidebar-post-item">
+                <a href="{{ post.url }}" class="sidebar-link">
+                  <span class="sidebar-post-title">{{ post.title }}</span>
+                  <span class="sidebar-post-date">{{ post.date | date: "%b %d" }}</span>
+                </a>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- CTA Widget -->
+        <div class="sidebar-widget cta-widget">
+          <h3 class="sidebar-title">Organize Your World</h3>
+          <p class="cta-text">Don't lose track of your stuff. Download WatInside today.</p>
+          <a href="/" class="sidebar-app-btn">
+             Download App
+          </a>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+</div>

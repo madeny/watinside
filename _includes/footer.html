@@ -27,6 +27,9 @@
             <i class="{{ link.icon }}" aria-hidden="true"></i>
           </a>
         {% endfor %}
+        <a href="{{ site.url | append: site.baseurl | default: site.url }}/feed.xml" class="footer-social-link" aria-label="RSS Feed">
+          <i class="fas fa-rss-square" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
     

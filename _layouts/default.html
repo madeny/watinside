@@ -1,0 +1,30 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{{ page.classes | prepend: ' ' }}" style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+    {% include masthead.html %}
+
+    <div class="initial-content" style="flex: 1 0 auto; width: 100%;">
+      {{ content }}
+    </div>
+
+    {% if site.search == true %}
+      <div class="search-content">
+        {% include_cached search/search_form.html %}
+      </div>
+    {% endif %}
+
+    <div id="footer" class="page__footer" style="flex-shrink: 0; width: 100%;">
+      {% include footer.html %}
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>

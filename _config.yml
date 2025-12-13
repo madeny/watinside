@@ -21,6 +21,7 @@
 title: WatInside
 logo: /assets/images/logo.png
 email: support@watinside.app
+app_store_url: https://apps.apple.com/us/app/watinside/idYOUR_APP_ID
 description: >-
   WatInside helps you organize your physical stuff and never forget where they are. Pack, store, and find items instantly.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -68,9 +69,9 @@ analytics:
     tracking_id:
 
 author:
-  name   : "Your Name"
+  name   : "Julie"
   avatar : # path to avatar image, e.g. /assets/images/bio-photo.jpg
-  bio    : "I am an amazing developer."
+  bio    : "I am support organized."
   links  :
     - label: "Website"
       url: "https://yourwebsite.com"

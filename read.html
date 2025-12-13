@@ -1,0 +1,138 @@
+---
+layout: default
+title: "Read"
+permalink: /read/
+---
+
+<style>
+/* Blog List Styles */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.blog-card {
+    background: var(--card-bg, #fff);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow-color, rgba(0,0,0,0.05));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color, #f0f0f0);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color, rgba(0,0,0,0.1));
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--bg-secondary);
+}
+
+.blog-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-card-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.blog-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.blog-card-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.blog-card-title a:hover {
+    text-decoration: underline;
+}
+
+.blog-card-excerpt {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.blog-card-link {
+    font-weight: 600;
+    color: var(--primary-color, #007AFF);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.blog-card-link:hover {
+    text-decoration: underline;
+}
+
+.blog-card-link::after {
+    content: "→";
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.blog-card-link:hover::after {
+    transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="landing-section">
+    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 3rem; text-align: left;">Read</h1>
+    
+    <div class="blog-grid">
+        {% for post in site.posts %}
+        <article class="blog-card">
+            {% if post.header.overlay_image %}
+                <img src="{{ post.header.overlay_image }}" alt="{{ post.title }}" class="blog-card-image">
+            {% elsif post.header.teaser %}
+                <img src="{{ post.header.teaser }}" alt="{{ post.title }}" class="blog-card-image">
+            {% else %}
+                <div class="blog-card-image" style="display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                    <span>No Image</span>
+                </div>
+            {% endif %}
+            
+            <div class="blog-card-content">
+                <div class="blog-card-date">{{ post.date | date: "%B %d, %Y" }}</div>
+                <h2 class="blog-card-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <div class="blog-card-excerpt">
+                    {{ post.excerpt | strip_html | truncatewords: 20 }}
+                </div>
+                <a href="{{ post.url }}" class="blog-card-link">Read Article</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>

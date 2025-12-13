@@ -536,6 +536,28 @@ body {
   margin-top: 1rem; /* Space from dots */
 }
 
+/* Sidebar App Store Logo */
+.sidebar-app-store-logo-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0;
+  line-height: 0; /* Remove extra space below image */
+  transition: transform 0.2s;
+}
+
+.sidebar-app-store-logo-link:hover {
+  transform: scale(1.03);
+  text-decoration: none;
+}
+
+.sidebar-app-store-logo-img {
+  height: 45px; /* Adjust height for sidebar */
+  width: auto;
+  display: inline-block; /* Ensure centering works */
+}
+
 /* --------------------------------------------------------- */
 /* Floating CTA Button                                       */
 /* --------------------------------------------------------- */

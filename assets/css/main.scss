@@ -954,3 +954,136 @@ body {
   .footer-social-link { color: $text-secondary-dark; }
   .footer-social-link:hover { color: $link-color-dark; }
 }
+
+/* --------------------------------------------------------- */
+/* Scroll-Triggered Animations                               */
+/* --------------------------------------------------------- */
+
+/* Base animation class */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none !important;
+}
+
+/* Animation variants */
+.fade-up {
+  transform: translateY(40px);
+}
+
+.fade-down {
+  transform: translateY(-40px);
+}
+
+.fade-left {
+  transform: translateX(40px);
+}
+
+.fade-right {
+  transform: translateX(-40px);
+}
+
+.scale-up {
+  transform: scale(0.9);
+}
+
+.scale-down {
+  transform: scale(1.1);
+}
+
+/* Stagger delays for grouped elements */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Hero-specific entrance animation */
+.hero-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroEntrance 0.8s ease-out forwards;
+}
+
+.hero-animate-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.hero-animate-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.hero-animate-delay-3 {
+  animation-delay: 0.45s;
+}
+
+@keyframes heroEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Screenshot hover enhancement */
+.app-screenshot.animate-on-scroll {
+  transform: translateY(40px) scale(0.95);
+}
+
+.app-screenshot.animate-on-scroll.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+.app-screenshot.animate-on-scroll.is-visible:hover {
+  transform: translateY(-10px) scale(1);
+}
+
+/* Feature row animations */
+.feature-row.animate-on-scroll .feature-text,
+.feature-row.animate-on-scroll .feature-media {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature-row.animate-on-scroll .feature-text {
+  transform: translateX(-30px);
+}
+
+.feature-row.animate-on-scroll .feature-media {
+  transform: translateX(30px);
+}
+
+.feature-row.animate-on-scroll.reverse .feature-text {
+  transform: translateX(30px);
+}
+
+.feature-row.animate-on-scroll.reverse .feature-media {
+  transform: translateX(-30px);
+}
+
+.feature-row.animate-on-scroll.is-visible .feature-text,
+.feature-row.animate-on-scroll.is-visible .feature-media {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .hero-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+
+  .feature-row.animate-on-scroll .feature-text,
+  .feature-row.animate-on-scroll .feature-media {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

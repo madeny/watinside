@@ -1,0 +1,118 @@
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{% if page.layout == 'single' %}article{% else %}website{% endif %}">
+<meta property="og:locale" content="en_US">
+{% if page.og_image %}
+<meta property="og:image" content="{{ page.og_image | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% elsif site.og_image %}
+<meta property="og:image" content="{{ site.og_image | absolute_url }}">
+{% else %}
+<meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+{% endif %}
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{ site.twitter_username }}">
+<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+<meta name="twitter:description" content="{{ page.description | default: site.description }}">
+{% if page.og_image %}
+<meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
+{% elsif site.og_image %}
+<meta name="twitter:image" content="{{ site.og_image | absolute_url }}">
+{% else %}
+<meta name="twitter:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+{% endif %}
+
+<!-- Apple Smart App Banner -->
+{% if site.app_store_id %}
+<meta name="apple-itunes-app" content="app-id={{ site.app_store_id }}">
+{% endif %}
+
+<!-- Additional SEO Meta -->
+<meta name="keywords" content="{{ page.keywords | default: 'organize, storage, inventory, boxes, moving, packing, iOS app, home organization' }}">
+<meta name="author" content="{{ site.author.name | default: site.title }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ '/assets/images/logo.png' | absolute_url }}"
+      },
+      "sameAs": [
+        "https://twitter.com/{{ site.twitter_username }}"
+        {% for link in site.footer.links %}
+        ,"{{ link.url }}"
+        {% endfor %}
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#app",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "screenshot": [
+        "{{ '/assets/images/darkmode.jpg' | absolute_url }}",
+        "{{ '/assets/images/lightMode.jpg' | absolute_url }}"
+      ]
+    }
+    {% if page.layout == 'single' and page.date %}
+    ,{
+      "@type": "BlogPosting",
+      "headline": "{{ page.title | escape }}",
+      "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author | default: site.author.name }}"
+      },
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+      }
+    }
+    {% endif %}
+  ]
+}
+</script>

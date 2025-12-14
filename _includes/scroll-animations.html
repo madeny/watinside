@@ -1,0 +1,49 @@
+<script>
+(function() {
+  'use strict';
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    // If user prefers reduced motion, make all elements visible immediately
+    document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
+
+  // Intersection Observer options
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.15
+  };
+
+  // Create the observer
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Unobserve after animation triggers (performance optimization)
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all elements with animation class
+  function initAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimations);
+  } else {
+    initAnimations();
+  }
+})();
+</script>

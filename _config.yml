@@ -42,6 +42,8 @@ search: true
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-paginate-v2
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.

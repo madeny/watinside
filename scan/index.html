@@ -1,3 +1,7 @@
+---
+layout: null
+sitemap: false
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -226,7 +230,7 @@
                 Download WatInside to scan labels and see what's inside your boxes.
             </div>
 
-            <a href="https://apps.apple.com/app/id6738595446" class="btn-app-store" id="app-store-btn">
+            <a href="{{ site.app_store_url }}" class="btn-app-store" id="app-store-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
             </a>
 
@@ -237,7 +241,7 @@
     </div>
 
     <script>
-        const APP_STORE_URL = 'https://apps.apple.com/app/id6738595446';
+        const APP_STORE_URL = '{{ site.app_store_url }}';
 
         // Redirect to App Store after a short delay
         setTimeout(() => {

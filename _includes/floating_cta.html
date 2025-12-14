@@ -3,3 +3,29 @@
     Try for free
   </a>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var cta = document.querySelector('.floating-cta-container');
+    var footer = document.querySelector('.site-custom-footer');
+
+    if (cta && footer) {
+      function checkFooter() {
+        var footerRect = footer.getBoundingClientRect();
+        var windowHeight = window.innerHeight;
+        
+        // Hide CTA well before it hits the footer (CTA is at bottom: 40px)
+        // Using 150px buffer ensures it fades out before any visual overlap
+        if (footerRect.top < windowHeight - 150) { 
+             cta.classList.add('is-hidden');
+        } else {
+             cta.classList.remove('is-hidden');
+        }
+      }
+
+      window.addEventListener('scroll', checkFooter);
+      window.addEventListener('resize', checkFooter);
+      checkFooter(); // Initial check
+    }
+  });
+</script>

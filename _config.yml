@@ -87,22 +87,22 @@ footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://twitter.com/watinside"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook"
-      url: "https://facebook.com/"
+      url: "https://facebook.com/watinsides"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://instagram.com/watinside"
     - label: "Reddit"
       icon: "fab fa-fw fa-reddit"
-      url: "https://reddit.com/"
+      url: "https://reddit.com/r/watinside"
     - label: "YouTube"
       icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/"
+      url: "https://youtube.com/@watinside"
     - label: "TikTok"
       icon: "fab fa-fw fa-tiktok"
-      url: "https://tiktok.com/"
+      url: "https://tiktok.com/@watinsides"
 
 defaults:
   # _posts

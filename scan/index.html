@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatInside - Open in App</title>
+    <meta name="description" content="Open this scan in the WatInside app to see what's inside.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --bg-color: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --border-color: #e5e5e5;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #f5f5f7;
+                --text-secondary: #a1a1a6;
+                --bg-color: #000000;
+                --bg-secondary: #1c1c1e;
+                --border-color: #2c2c2e;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            background-color: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 48px 40px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+        }
+
+        .message {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .loading {
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .btn-app-store {
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+            margin-bottom: 16px;
+        }
+
+        .btn-app-store:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .btn-app-store img {
+            height: 54px;
+            width: auto;
+        }
+
+        .btn-open-app {
+            display: block;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-bottom: 12px;
+        }
+
+        .btn-open-app:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.7;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .footer-text {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 24px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/assets/images/logo.png" alt="WatInside Logo">
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading-state">
+            <h1>Opening WatInside...</h1>
+            <div class="message">
+                Redirecting you to the App Store
+            </div>
+            <div class="loading-container">
+                <div class="loading"></div>
+                <span class="loading-text">Please wait...</span>
+            </div>
+        </div>
+
+        <!-- Fallback State -->
+        <div id="fallback-state" class="hidden">
+            <h1>Get WatInside</h1>
+            <div class="message">
+                Download WatInside to scan labels and see what's inside your boxes.
+            </div>
+
+            <a href="https://apps.apple.com/app/id6738595446" class="btn-app-store" id="app-store-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+            </a>
+
+            <div class="footer-text">
+                <a href="/">Learn more about WatInside</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const APP_STORE_URL = 'https://apps.apple.com/app/id6738595446';
+
+        // Redirect to App Store after a short delay
+        setTimeout(() => {
+            window.location.href = APP_STORE_URL;
+        }, 1500);
+
+        // Show fallback after 3 seconds in case redirect is blocked
+        setTimeout(() => {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('fallback-state').classList.remove('hidden');
+        }, 3000);
+    </script>
+</body>
+</html>

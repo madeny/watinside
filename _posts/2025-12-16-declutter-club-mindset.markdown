@@ -1,10 +1,10 @@
 ---
 layout: single
 title: "Join the Modern Declutter Club: Stop the 'Re-Clutter' Cycle"
-date: 2025-12-16 09:00:00 +0100
+date: 2025-12-14 09:00:00 +0100
 categories: mindset organization
 header:
-  overlay_image: https://images.unsplash.com/photo-1484154218962-a1c00207099b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80
+  overlay_image: https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1350&q=80
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Everyone wants a clutter-free home, but keeping it that way is the real challenge. Here is how to shift your mindset and use technology to protect your peace."
 ---

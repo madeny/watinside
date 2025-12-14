@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "WBJNF78KSX.dev.madeny.whatsinside",
+        "paths": [ "/scan", "/scan/" ]
+      }
+    ]
+  }
+}

@@ -198,6 +198,10 @@ p.hero-subtitle {
     flex-wrap: wrap;
 }
 
+.showcase-section .hero-image-container {
+    gap: 1.5rem; /* More space between design screenshots */
+}
+
 .hero-image-wrapper {
     display: flex;
     flex-direction: column;

@@ -95,6 +95,19 @@ body {
   text-decoration: none;
 }
 
+.greedy-nav {
+  border-bottom: none !important;
+}
+
+.masthead {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.masthead__inner-wrap {
+  border-bottom: none !important;
+}
+
 /* --------------------------------------------------------- */
 /* Search Icon Visibility Control                            */
 /* --------------------------------------------------------- */
@@ -260,6 +273,8 @@ p.hero-subtitle {
     margin-bottom: 4rem;
     letter-spacing: -0.03em;
     color: var(--text-primary);
+    border-bottom: none !important;
+    padding-bottom: 0;
 }
 
 .feature-row {
@@ -313,6 +328,8 @@ p.hero-subtitle {
     margin-bottom: 1.5rem;
     letter-spacing: -0.03em;
     color: var(--text-primary);
+    border-bottom: none !important;
+    padding-bottom: 0;
 }
 
 .showcase-text p {
@@ -939,10 +956,7 @@ p.hero-subtitle {
 }
 
 .footer-divider {
-  height: 1px;
-  background-color: var(--border-color);
-  margin-bottom: 2rem;
-  width: 100%;
+  display: none;
 }
 
 .footer-bottom {
@@ -1026,7 +1040,7 @@ p.hero-subtitle {
   // Navigation Bar specific styles
   .greedy-nav {
     background-color: transparent !important;
-    border-bottom: 1px solid rgba(255,255,255, 0.05) !important;
+    border-bottom: none !important;
   }
 
   // Reset theme dividers
@@ -1086,7 +1100,7 @@ p.hero-subtitle {
   // Custom Footer Dark Mode
   .site-custom-footer {
     background-color: $secondary-background-color-dark;
-    border-top: 1px solid $border-color;
+    border-top: none;
   }
   .footer-logo-text { color: $text-primary-dark; }
   .footer-tagline { color: $text-secondary-dark; }

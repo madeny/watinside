@@ -7,38 +7,52 @@
 @import "minimal-mistakes/skins/default"; // Assuming 'default' skin is used, from _config.yml
 
 /* --------------------------------------------------------- */
+/* Google Fonts - Inter                                      */
+/* --------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------- */
 /* Global Site Styles                                        */
 /* --------------------------------------------------------- */
 
 :root {
     --primary-color: #007AFF; /* iOS Blue */
-    
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
     /* Light Mode Default Variables */
-    --text-primary: #1d1d1f;
-    --text-secondary: #86868b;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b7280;
     --bg-color: #ffffff;
     --bg-secondary: #f5f5f7;
     --card-bg: #ffffff;
     --border-color: #e5e5e5;
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
-    
+
     /* Dark Section Specifics */
     --dark-section-bg: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
     --dark-section-text: #fff;
     --dark-section-subtext: #a1a1a6;
-    
+
     /* Layout Dimensions */
     --max-content-width: 1200px;
     --content-padding: 1rem;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     background-color: var(--bg-color);
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .initial-content {
@@ -62,18 +76,18 @@ body {
 /* --------------------------------------------------------- */
 
 .greedy-nav .site-title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 800; /* Extra bold for brand */
-  letter-spacing: -0.03em; /* Tight tracking */
-  font-size: 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-size: 1.3rem;
 }
 
 .greedy-nav .visible-links a {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 500; /* Medium weight for links */
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
   letter-spacing: -0.01em;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .greedy-nav .visible-links a:hover {
@@ -111,25 +125,37 @@ body {
 
 
 .hero-title {
-    font-size: 3.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.08;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.035em;
     color: var(--text-primary);
 }
 
 .hero-subtitle {
     display: block;
-    font-size: 1.35rem;
+    font-family: var(--font-sans);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.6;
     letter-spacing: -0.01em;
     text-align: center !important;
     text-wrap: balance;
+}
+
+.hero-section .hero-subtitle,
+.landing-section .hero-subtitle,
+p.hero-subtitle {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .btn-app-store-link {
@@ -167,12 +193,15 @@ body {
 }
 
 .hero-image-label {
-    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     text-align: center;
-    min-height: 1.5rem; /* Ensure consistent height for alignment if possible */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    min-height: 1.5rem;
     display: flex;
     align-items: center;
 }
@@ -224,10 +253,12 @@ body {
 }
 
 .section-title {
+    font-family: var(--font-display);
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
     margin-bottom: 4rem;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
 }
 
@@ -252,16 +283,20 @@ body {
 }
 
 .feature-text h3 {
-    font-size: 2rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     margin-bottom: 1rem;
+    letter-spacing: -0.025em;
     color: var(--text-primary);
 }
 
 .feature-text p {
-    font-size: 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
 }
 
 .feature-media {
@@ -272,16 +307,20 @@ body {
 }
 
 .showcase-text h2 {
-    font-size: 2.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
 }
 
 .showcase-text p {
-    font-size: 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
 }
 
 .dark-mode-preview {
@@ -370,18 +409,21 @@ body {
 }
 
 .article-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
   line-height: 1.15;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .article-meta {
-  font-size: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .meta-dot {
@@ -390,13 +432,31 @@ body {
 
 /* Article Content Body */
 .article-content {
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.8;
   color: var(--text-primary);
   margin-bottom: 4rem;
-  
-  h2 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-primary); }
-  h3 { font-size: 1.4rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 600; color: var(--text-primary); }
+  letter-spacing: -0.01em;
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
   p { margin-bottom: 1.5rem; }
   ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; color: var(--text-primary); }
   blockquote {
@@ -482,11 +542,12 @@ body {
 }
 
 .sidebar-title {
-  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
@@ -512,21 +573,26 @@ body {
 }
 
 .sidebar-post-title {
+  font-family: var(--font-sans);
   display: block;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   margin-bottom: 0.25rem;
   transition: color 0.2s;
 }
 
 .sidebar-post-date {
-  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
   color: var(--text-secondary);
+  letter-spacing: -0.01em;
 }
 
 .sidebar-app-btn {
+  font-family: var(--font-sans);
   display: inline-block;
   background-color: var(--primary-color);
   color: #fff;
@@ -534,7 +600,8 @@ body {
   padding: 10px 20px;
   border-radius: 20px;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
   transition: opacity 0.2s;
 }
 
@@ -545,10 +612,12 @@ body {
 }
 
 .cta-text {
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   color: var(--text-primary);
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 900px) {
@@ -699,9 +768,11 @@ body {
 .floating-glass-btn {
   display: inline-block;
   text-decoration: none;
+  font-family: var(--font-sans);
   color: #ffffff !important;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
   padding: 14px 36px;
   border-radius: 50px;
   position: relative;
@@ -831,17 +902,20 @@ body {
 }
 
 .footer-logo-text {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .footer-tagline {
+  font-family: var(--font-sans);
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
 .footer-nav {
@@ -850,10 +924,12 @@ body {
 }
 
 .footer-nav-link {
+  font-family: var(--font-sans);
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
   transition: color 0.2s ease;
 }
 

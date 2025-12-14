@@ -21,11 +21,12 @@
 title: WatInside
 logo: /assets/images/logo.png
 email: support@watinside.app
-app_store_url: https://apps.apple.com/us/app/watinside/idYOUR_APP_ID
+# app_store_url: https://apps.apple.com/us/app/watinside/idYOUR_APP_ID
+app_store_url: https://testflight.apple.com/join/NZveBxzt
 description: >-
   WatInside helps you organize your physical stuff and never forget where they are. Pack, store, and find items instantly.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://watinside.app" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://watinside.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: watinside
 github_username:  watinside
 
@@ -71,7 +72,7 @@ analytics:
 author:
   name   : "Julie"
   avatar : # path to avatar image, e.g. /assets/images/bio-photo.jpg
-  bio    : "I am support organized."
+  bio    : "I am super organized."
   links  :
     - label: "Website"
       url: "https://yourwebsite.com"

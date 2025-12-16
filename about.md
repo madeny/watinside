@@ -42,7 +42,7 @@ We didn't build a generic cross-platform app. We built a native iOS experience t
 WatInside isn't just an app; it's a movement to reclaim our space and our mental peace. We are proud to help thousands of users stop the "re-clutter" cycle and finally find what they need, when they need it.
 
 **Ready to get organized?**
-[Download WatInside on the App Store](https://apps.apple.com/app/idYOUR_ID) or [Join the Beta](https://testflight.apple.com/join/xjzBGcdm).
+[Join the Beta](https://testflight.apple.com/join/xjzBGcdm).
 
 ---
 

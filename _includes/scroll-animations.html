@@ -45,5 +45,64 @@
   } else {
     initAnimations();
   }
+
+  // Hero Flow Animation
+  function initFlowAnimation() {
+    const flowContainer = document.querySelector('.hero-flow-animated');
+    if (!flowContainer) return;
+
+    const steps = [
+      { step: '.flow-step-1', arrow: '.flow-arrow-1' },
+      { step: '.flow-step-2', arrow: '.flow-arrow-2' },
+      { step: '.flow-step-3', arrow: null }
+    ];
+
+    let currentStep = 0;
+    const stepDuration = 2500; // Time each step is highlighted
+    const arrowDuration = 600; // Arrow animation duration
+
+    function clearAllActive() {
+      flowContainer.querySelectorAll('.flow-step, .hero-flow-arrow').forEach(function(el) {
+        el.classList.remove('is-active');
+      });
+    }
+
+    function animateStep() {
+      clearAllActive();
+
+      // Activate current step
+      const current = steps[currentStep];
+      const stepEl = flowContainer.querySelector(current.step);
+      if (stepEl) {
+        stepEl.classList.add('is-active');
+      }
+
+      // Animate arrow after a short delay (if not last step)
+      if (current.arrow) {
+        setTimeout(function() {
+          const arrowEl = flowContainer.querySelector(current.arrow);
+          if (arrowEl) {
+            arrowEl.classList.add('is-active');
+          }
+        }, stepDuration - arrowDuration - 200);
+      }
+
+      // Move to next step
+      currentStep = (currentStep + 1) % steps.length;
+    }
+
+    // Start animation after initial page load animation
+    setTimeout(function() {
+      animateStep();
+      setInterval(animateStep, stepDuration);
+    }, 1500);
+  }
+
+  // Initialize flow animation when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFlowAnimation);
+  } else {
+    initFlowAnimation();
+  }
 })();
 </script>

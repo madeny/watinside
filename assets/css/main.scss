@@ -139,9 +139,9 @@ body {
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(1.75rem, 5vw, 3rem);
     font-weight: 700;
-    line-height: 1.08;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     letter-spacing: -0.035em;
     color: var(--text-primary);
@@ -231,10 +231,14 @@ p.hero-subtitle {
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 0.5rem; /* Reduced gap since arrow takes space */
-    align-items: flex-start; /* Align top to match text labels */
+    gap: 0.5rem;
+    align-items: flex-start;
     perspective: 1000px;
     flex-wrap: wrap;
+}
+
+.hero-flow-animated {
+    align-items: flex-start;
 }
 
 .showcase-section .hero-image-container {
@@ -268,8 +272,71 @@ p.hero-subtitle {
     justify-content: center;
     color: var(--text-secondary);
     padding: 0 0.5rem;
-    margin-top: 0.25rem; /* Nudge down to align with text center */
-    height: 1.5rem; /* Match approximate text line-height */
+    margin-top: 4.5rem; /* Align with middle of screenshot */
+    height: 1.5rem;
+    align-self: flex-start;
+}
+
+/* Flow Step Descriptions */
+.flow-step-desc {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    opacity: 0.8;
+    transition: opacity 0.5s ease, color 0.5s ease;
+    min-height: 1.25rem;
+}
+
+/* Flow Animation Container */
+.hero-flow-animated .flow-step {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hero-flow-animated .flow-step .app-screenshot {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.hero-flow-animated .flow-step.is-active .app-screenshot {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px -15px rgba(0, 122, 255, 0.3);
+}
+
+.hero-flow-animated .flow-step.is-active .flow-step-desc {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.hero-flow-animated .flow-step.is-active .hero-image-label {
+    color: var(--primary-color);
+}
+
+/* Arrow Animation */
+.hero-flow-arrow {
+    opacity: 0.5;
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.4s ease;
+}
+
+.hero-flow-arrow.is-active {
+    opacity: 1;
+    color: var(--primary-color);
+    animation: arrowPulse 0.6s ease-out;
+}
+
+@keyframes arrowPulse {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(6px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 768px) {
@@ -278,13 +345,35 @@ p.hero-subtitle {
         align-items: center;
         gap: 1rem;
     }
-    
+
     .hero-flow-arrow {
         transform: rotate(90deg);
         margin-top: 0;
         padding: 0.5rem 0;
         height: auto;
-        width: 100%; /* Ensure it takes width in column mode */
+        width: 100%;
+        align-self: center;
+    }
+
+    .hero-flow-arrow.is-active {
+        animation: arrowPulseMobile 0.6s ease-out;
+    }
+
+    .flow-step-desc {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@keyframes arrowPulseMobile {
+    0% {
+        transform: rotate(90deg) translateX(0);
+    }
+    50% {
+        transform: rotate(90deg) translateX(6px);
+    }
+    100% {
+        transform: rotate(90deg) translateX(0);
     }
 }
 
@@ -405,11 +494,16 @@ p.hero-subtitle {
 }
 
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .hero-subtitle { font-size: 1.2rem; }
-    
+    .hero-title { font-size: 1.6rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+
+    .landing-section {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
     .feature-row, .feature-row.reverse {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 2rem;
         margin-bottom: 4rem;
     }

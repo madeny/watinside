@@ -1,0 +1,162 @@
+---
+layout: default
+title: "Privacy Policy | WatInside"
+permalink: /privacy/
+---
+
+<div class="legal-page">
+  <div class="legal-container">
+    <h1>Privacy Policy</h1>
+    <p class="legal-updated">Last updated: December 2025</p>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>At WatInside ("we," "our," or "us"), we believe your data belongs to you. We built WatInside with a "Privacy First" architecture. Unlike many other apps, <strong>we do not have access to your personal inventory data</strong>, we do not require user accounts, and we do not maintain external servers to store your information.</p>
+    </section>
+
+    <section>
+      <h2>Where Your Data Lives</h2>
+      <h3>Local Storage & iCloud</h3>
+      <p>All content you create (boxes, items, labels, photos) is stored locally on your device using Apple's Core Data framework. If you have iCloud enabled, your data is securely synchronized to your personal private iCloud container.</p>
+      <p>This synchronization is fully managed by Apple. We (the developers) have no technical way to access, view, or mine your inventory data.</p>
+    </section>
+
+    <section>
+      <h2>Data Collection</h2>
+      <h3>We Do Not Collect Personal Data</h3>
+      <p>Since we do not manage user accounts, we do not collect your name, phone number, or inventory details. Your data is tied strictly to your Apple ID.</p>
+
+      <h3>Feedback and Bug Reports</h3>
+      <p>The only time we receive information from you is if you explicitly choose to send us Feedback or a Bug Report via the app. This may include:</p>
+      <ul>
+        <li>Your email address (optional, only if you wish for a reply).</li>
+        <li>Device diagnostics (OS version, device model) to help us fix the bug.</li>
+      </ul>
+      <p>This information is used strictly for support purposes and communicating with you regarding your inquiry.</p>
+    </section>
+
+    <section>
+      <h2>AI Features & Photo Processing</h2>
+      <p>WatInside uses Artificial Intelligence to suggest tags for your items. We offer two modes for this:</p>
+      <ul>
+        <li><strong>On-Device Mode:</strong> Processing happens entirely on your phone. No data leaves your device.</li>
+        <li><strong>Cloud AI Mode (Optional):</strong> If you choose the enhanced tagging features, a reduced-quality, base64-encoded version of your photo is sent securely to third-party AI providers (such as OpenAI or Google Gemini) solely for image analysis. These images are not used to train their models and are discarded after analysis.</li>
+      </ul>
+      <p>You can use the app fully without attaching photos if you prefer.</p>
+    </section>
+
+    <section>
+      <h2>Data Control & Deletion</h2>
+      <p>You have full control over your data:</p>
+      <ul>
+        <li><strong>Export:</strong> You can export your inventory data at any time in JSON or CSV formats.</li>
+        <li><strong>Full Deletion:</strong> You can delete all your data via the in-app Settings. This action will purge your local data and, if connected to the internet, remove the data from your iCloud container. This action is irreversible.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Limitation of Liability</h2>
+      <p>The WatInside application is provided on an "as is" and "as available" basis. While we strive to ensure data integrity:</p>
+      <ul>
+        <li>We are not responsible for data loss caused by user actions, device failure, or iCloud synchronization errors managed by Apple.</li>
+        <li>We do not guarantee that the AI suggestions will be 100% accurate.</li>
+        <li>By using the app, you acknowledge that you are solely responsible for backing up your data (via the Export feature) and for the security of your Apple ID credentials.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Children's Privacy</h2>
+      <p>We do not knowingly collect or solicit personal information from children. As we do not have user accounts, we rely on Apple's parental controls and Family Sharing settings to manage app usage for minors.</p>
+    </section>
+
+    <section>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy to reflect changes in our features. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.</p>
+    </section>
+
+    <section>
+      <h2>Contact Us</h2>
+      <p>If you have questions about this privacy policy, please contact us at:</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </section>
+  </div>
+</div>
+
+<style>
+.legal-page {
+  padding: 4rem var(--content-padding);
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+.legal-container {
+  max-width: 800px;
+}
+
+.legal-page h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.legal-updated {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.legal-page section {
+  margin-bottom: 2.5rem;
+}
+
+.legal-page h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.legal-page h3 {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.legal-page p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.legal-page ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.legal-page li {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.legal-page a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.legal-page a:hover {
+  text-decoration: underline;
+}
+</style>

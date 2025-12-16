@@ -1,7 +1,7 @@
 main:
   - title: "App"
     url: /
-  - title: "Read"
+  - title: "Guide"
     url: /read/
   - title: "Contact"
     url: /contact/

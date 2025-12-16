@@ -8,7 +8,8 @@
       "Bash(cp:*)",
       "Bash(bundle info:*)",
       "Bash(gem contents:*)",
-      "Bash(bundle exec jekyll build:*)"
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(ls:*)"
     ]
   }
 }

@@ -9,7 +9,8 @@
       "Bash(bundle info:*)",
       "Bash(gem contents:*)",
       "Bash(bundle exec jekyll build:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(openssl rand:*)"
     ]
   }
 }

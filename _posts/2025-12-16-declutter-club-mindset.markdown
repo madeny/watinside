@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Join the Modern Declutter Club: Stop the 'Re-Clutter' Cycle"
-date: 2025-12-14 09:00:00 +0100
+date: 2025-12-16 09:00:00 +0100
 categories: mindset organization
 header:
   overlay_image: https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1350&q=80

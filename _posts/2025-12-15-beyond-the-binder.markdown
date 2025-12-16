@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Beyond the Binder: The AI-Powered Secret to Lasting Home Organization"
-date: 2025-12-14 08:00:00 +0100
+date: 2025-12-15 08:00:00 +0100
 categories: organization family-tech
 header:
   overlay_image: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80

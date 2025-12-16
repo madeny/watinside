@@ -2,12 +2,53 @@
 layout: default
 ---
 
+<style>
+.article-breadcrumb {
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color, #f0f0f0);
+}
+
+.article-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color, #007AFF);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.article-breadcrumb a:hover {
+  opacity: 0.8;
+}
+
+.article-breadcrumb .breadcrumb-arrow {
+  font-size: 1.1rem;
+}
+
+/* Align sidebar slideshow with breadcrumb */
+.post-sidebar .sidebar-inner {
+  padding-top: 0.5rem;
+}
+</style>
+
 <div class="post-layout-container">
   <div class="post-layout-grid">
-    
+
     <!-- Main Article Column -->
     <article class="post-article">
-      
+
+      <!-- Breadcrumb Navigation -->
+      <nav class="article-breadcrumb">
+        <a href="/read/">
+          <span class="breadcrumb-arrow">&larr;</span>
+          <span>Back to All Articles</span>
+        </a>
+      </nav>
+
       <!-- Article Header -->
       <header class="article-header">
         {% if page.header.overlay_image %}

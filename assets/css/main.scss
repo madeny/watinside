@@ -472,6 +472,101 @@ p.hero-subtitle {
     letter-spacing: -0.01em;
 }
 
+/* --------------------------------------------------------- */
+/* Press Marquee Section                                     */
+/* --------------------------------------------------------- */
+
+.press-section {
+    padding: 3rem 0;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+.press-label {
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.press-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.press-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    animation: marqueeScroll 35s linear infinite;
+    width: max-content;
+}
+
+.press-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.press-item img {
+    height: 28px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.press-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.press-item:hover {
+    transform: scale(1.05);
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover */
+.press-marquee:hover .press-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .press-item img {
+        height: 22px;
+    }
+    .press-track {
+        gap: 2.5rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .press-item img {
+        filter: grayscale(100%) invert(1);
+        opacity: 0.5;
+    }
+    .press-item:hover img {
+        filter: grayscale(0%) invert(0);
+        opacity: 1;
+    }
+}
+
 .dark-mode-preview {
     background: var(--dark-section-bg);
     color: var(--dark-section-text);

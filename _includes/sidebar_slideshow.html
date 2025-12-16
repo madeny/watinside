@@ -1,37 +1,20 @@
+{% assign screen_images = site.static_files | where_exp: "file", "file.path contains '/assets/images/screen/'" | where_exp: "file", "file.extname == '.webp' or file.extname == '.png' or file.extname == '.jpg' or file.extname == '.jpeg'" %}
 
   <div class="sidebar-widget app-showcase-widget">
-    <!-- <h3 class="sidebar-title">See WatInside</h3> -->
     <a href="{{ site.app_store_url }}" class="sidebar-slideshow-link">
     <div class="app-slideshow-container">
       <div class="app-slideshow-wrapper">
-        <!-- Slide 1 -->
+        {% for image in screen_images %}
         <div class="app-slide fade">
-          <img src="/assets/images/screen/Design_01.webp" alt="WatInside App Design" class="app-slide-img">
+          <img src="{{ image.path }}" alt="WatInside Screenshot" class="app-slide-img" loading="lazy">
         </div>
-        <!-- Slide 2 -->
-        <div class="app-slide fade">
-          <img src="/assets/images/screen/Organize_Boxes.webp" alt="Organize Your Boxes" class="app-slide-img">
-        </div>
-        <!-- Slide 3 -->
-        <div class="app-slide fade">
-          <img src="/assets/images/screen/Instant_Search.webp" alt="Instant Search Feature" class="app-slide-img">
-        </div>
-        <!-- Slide 4 -->
-        <div class="app-slide fade">
-          <img src="/assets/images/screen/Scan_to_find.webp" alt="Scan to Find Items" class="app-slide-img">
-        </div>
-        <!-- Slide 5 -->
-        <div class="app-slide fade">
-          <img src="/assets/images/screen/Always_Sync.webp" alt="Always Synced" class="app-slide-img">
-        </div>
+        {% endfor %}
       </div>
       <!-- Navigation dots -->
       <div class="slideshow-dots-wrapper" style="text-align:center; margin-top: 10px;">
+        {% for image in screen_images %}
         <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+        {% endfor %}
       </div>
     </div>
     </a>

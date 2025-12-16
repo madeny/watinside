@@ -186,6 +186,45 @@ p.hero-subtitle {
     width: auto;
 }
 
+/* Early Access Button (Beta) */
+.btn-early-access {
+    display: inline-block;
+    background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+    color: #fff !important;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    padding: 16px 32px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
+}
+
+.btn-early-access:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+    opacity: 0.95;
+    text-decoration: none;
+    color: #fff !important;
+}
+
+.btn-early-access:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+}
+
+/* Sidebar variant */
+.sidebar-early-access {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+    margin-top: 1rem;
+}
+
 .hero-image-container {
     margin-top: 3rem;
     margin-bottom: 3rem;

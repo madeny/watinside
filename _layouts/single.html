@@ -52,8 +52,8 @@ layout: default
       <!-- Article Header -->
       <header class="article-header">
         {% if page.header.overlay_image %}
-          <div class="article-hero-wrapper">
-            <img src="{{ page.header.overlay_image }}" alt="{{ page.title }}" class="article-hero-image">
+          <div class="article-hero-wrapper{% if page.header.image_class %} {{ page.header.image_class }}-wrapper{% endif %}">
+            <img src="{{ page.header.overlay_image }}" alt="{{ page.title }}" class="article-hero-image{% if page.header.image_class %} {{ page.header.image_class }}{% endif %}">
           </div>
         {% endif %}
         

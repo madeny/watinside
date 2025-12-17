@@ -657,8 +657,21 @@ p.hero-subtitle {
   width: 100%;
   height: auto;
   max-height: 400px;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+/* About page logo - specific styling for logo images */
+.about-logo-image-wrapper {
+  max-height: 280px;
+  background-color: transparent;
+}
+
+.about-logo-image {
+  object-fit: contain;
+  max-width: 280px;
+  max-height: 280px;
+  margin: 0 auto;
 }
 
 .article-title {
@@ -878,7 +891,7 @@ p.hero-subtitle {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
+
   .article-hero-wrapper {
     max-height: 250px;
   }
@@ -886,7 +899,17 @@ p.hero-subtitle {
   .article-hero-image {
     max-height: 250px;
   }
-  
+
+  /* About page logo - keep nice ratio on mobile */
+  .about-logo-image-wrapper {
+    max-height: 200px;
+  }
+
+  .about-logo-image {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
   .article-title {
     font-size: 2rem;
   }

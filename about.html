@@ -1,0 +1,427 @@
+---
+layout: default
+title: "About WatInside"
+permalink: /about/
+---
+
+<style>
+/* About Page Styles */
+.about-page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+}
+
+.about-hero {
+  text-align: center;
+  padding: 3rem 0 4rem;
+}
+
+.about-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.about-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.about-tagline {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Story Section */
+.about-section {
+  margin-bottom: 4rem;
+}
+
+.about-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.about-section p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.about-section p strong {
+  color: var(--primary-color);
+}
+
+.highlight-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.08) 0%, rgba(90, 200, 250, 0.08) 100%);
+  border-radius: 16px;
+  border-left: 4px solid var(--primary-color);
+  margin: 2rem 0;
+}
+
+/* Principles Cards */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.principle-card {
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 1000px) {
+  .principles-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.principle-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.principle-icon.privacy {
+  background: linear-gradient(135deg, #34C759 0%, #30D158 100%);
+}
+
+.principle-icon.speed {
+  background: linear-gradient(135deg, #FF9500 0%, #FF9F0A 100%);
+}
+
+.principle-icon.apple {
+  background: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%);
+}
+
+.principle-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.principle-card p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.principle-features {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.principle-features li {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  padding: 0.875rem 1rem;
+  background: var(--bg-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.principle-features li strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.principle-features li .feature-desc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.principle-features li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.7rem;
+  color: #fff;
+  background: var(--primary-color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* CTA Section */
+.about-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(90, 200, 250, 0.1) 100%);
+  border-radius: 24px;
+  margin: 3rem 0;
+}
+
+.about-cta h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about-cta p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Social Links */
+.social-section {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 2rem;
+}
+
+.social-section h3 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.social-link i {
+  font-size: 1.1rem;
+}
+
+.about-footer-note {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 2rem 0 3rem;
+  }
+
+  .about-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-link {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+</style>
+
+<div class="about-page">
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <img src="/assets/images/logo.webp" alt="WatInside Logo" class="about-logo">
+    <h1>The Story Behind WatInside</h1>
+    <p class="about-tagline">We built the home inventory app we wanted to use: fast, private, and simple.</p>
+  </section>
+
+  <!-- The Problem Section -->
+  <section class="about-section">
+    <h2>The Problem We All Share</h2>
+    <p>We have all been there. You buy a 4-pack of AA batteries because you can't find the ones you bought last month. You dig through six different moving boxes just to find your winter boots. You spend your weekends "organizing," only to watch the clutter return a week later.</p>
+
+    <div class="highlight-text">
+      We realized the problem wasn't <strong>effort</strong>—it was <strong>visibility</strong>.
+    </div>
+
+    <p>You can't organize what you can't see. And in the physical world, our storage is opaque. Bins, boxes, and drawers become black holes where items go to disappear.</p>
+  </section>
+
+  <!-- Why We Built It Section -->
+  <section class="about-section">
+    <h2>Why We Built WatInside</h2>
+    <p>We looked for solutions, but the existing "home inventory" apps were stuck in the past. They felt like data entry jobs. They required us to create accounts, upload our personal belongings to strange cloud servers, and manually type out details for every single item.</p>
+    <p>We knew there had to be a better way. So we built <strong>WatInside</strong> with three non-negotiable principles:</p>
+
+    <!-- Principles Cards -->
+    <div class="principles-grid">
+
+      <div class="principle-card">
+        <div class="principle-icon privacy">
+          <i class="fas fa-shield-alt" style="color: #fff;"></i>
+        </div>
+        <h3>Privacy is Paramount</h3>
+        <p>Your inventory is your private life. It's your tax documents, your expensive electronics, and your family heirlooms.</p>
+        <ul class="principle-features">
+          <li><span><strong>No Accounts</strong><span class="feature-desc">No sign-up required</span></span></li>
+          <li><span><strong>Local-First</strong><span class="feature-desc">Data stays on your device</span></span></li>
+          <li><span><strong>No Tracking</strong><span class="feature-desc">We never see what you own</span></span></li>
+        </ul>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-icon speed">
+          <i class="fas fa-bolt" style="color: #fff;"></i>
+        </div>
+        <h3>Speed is the Feature</h3>
+        <p>If logging an item takes more than 5 seconds, you won't do it. We made it instant.</p>
+        <ul class="principle-features">
+          <li><span><strong>AI Tagging</strong><span class="feature-desc">Auto-suggests tags from photos</span></span></li>
+          <li><span><strong>QR & NFC</strong><span class="feature-desc">Scan to find instantly</span></span></li>
+          <li><span><strong>Handwriting</strong><span class="feature-desc">Recognizes your labels</span></span></li>
+        </ul>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-icon apple">
+          <i class="fab fa-apple" style="color: #fff;"></i>
+        </div>
+        <h3>Built for Apple</h3>
+        <p>We didn't build a generic cross-platform app. We built a native iOS experience.</p>
+        <ul class="principle-features">
+          <li><span><strong>Native iOS</strong><span class="feature-desc">Feels right at home</span></span></li>
+          <li><span><strong>iCloud Sync</strong><span class="feature-desc">Seamless across devices</span></span></li>
+          <li><span><strong>Dark Mode</strong><span class="feature-desc">Beautiful day and night</span></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <h2>Join the Insiders</h2>
+    <p>WatInside isn't just an app; it's a movement to reclaim our space and our mental peace. Stop the "re-clutter" cycle and finally find what you need, when you need it.</p>
+    <a href="https://testflight.apple.com/join/xjzBGcdm" class="btn-early-access">Get Early Access</a>
+  </section>
+
+  <!-- Social Section -->
+  <section class="social-section">
+    <h3>Connect With Us</h3>
+    <div class="social-links">
+      <a href="https://www.reddit.com/r/watinside/" class="social-link" target="_blank" rel="noopener">
+        <i class="fab fa-reddit"></i>
+        <span>Reddit</span>
+      </a>
+      <a href="https://twitter.com/watinside" class="social-link" target="_blank" rel="noopener">
+        <i class="fab fa-x-twitter"></i>
+        <span>X (Twitter)</span>
+      </a>
+      <a href="https://www.linkedin.com/company/watinside" class="social-link" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://www.instagram.com/watinside/" class="social-link" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+    <p class="about-footer-note">WatInside is designed and developed in France, serving organized homes worldwide.</p>
+  </section>
+
+</div>
+
+{% include floating_cta.html %}

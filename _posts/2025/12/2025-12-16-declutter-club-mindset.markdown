@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How to Stop the 'Re-Clutter' Cycle: A Modern Guide to Home Organization"
+title: "Stop the Re-Clutter Cycle: Modern Home Organization"
 date: 2025-12-16 09:00:00 +0100
 categories: mindset organization
 header:
@@ -8,7 +8,7 @@ header:
   overlay_filter: 0.5
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
   alt: "A clean, organized living room with minimal clutter"
-excerpt: "Tired of cleaning up only to see the mess return? Discover how a digital home inventory system helps you stop buying duplicates and maintain a clutter-free home forever."
+excerpt: "Tired of the mess returning? Discover how a digital home inventory system stops duplicates and keeps your home clutter-free forever."
 permalink: /declutter-club-mindset/
 ---
 

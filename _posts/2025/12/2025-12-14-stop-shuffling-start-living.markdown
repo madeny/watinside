@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Stop Shuffling, Start Living: The Ultimate Guide to Stress-Free Decluttering"
+title: "Stress-Free Decluttering: Stop Shuffling, Start Living"
 date: 2025-12-14 09:00:00 +0100
 categories: organization decluttering
 header:

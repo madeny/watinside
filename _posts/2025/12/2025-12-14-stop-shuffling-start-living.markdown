@@ -4,9 +4,9 @@ title: "Stress-Free Decluttering: Stop Shuffling, Start Living"
 date: 2025-12-14 09:00:00 +0100
 categories: organization decluttering
 header:
-  overlay_image: https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-  alt: "A organized minimalist room with moving boxes and storage bins"
+  overlay_image: /assets/images/blog/declutter-start.webp
+  caption: "Photo credit: WatInside"
+  alt: "Minimalist desk setup with calendar, iMac computer and plant"
 excerpt: "Stop moving clutter from one spot to another. Discover how a smart home inventory app helps you track storage bins, stop buying duplicates, and find peace."
 # IF POST IS LIVE, USE OLD URL. IF NEW, USE THIS:
 permalink: /stop-shuffling-start-living/

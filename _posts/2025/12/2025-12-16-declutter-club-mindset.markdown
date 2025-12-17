@@ -4,10 +4,10 @@ title: "Stop the Re-Clutter Cycle: Modern Home Organization"
 date: 2025-12-16 09:00:00 +0100
 categories: mindset organization
 header:
-  overlay_image: https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=1350&q=80
+  overlay_image: /assets/images/blog/declutter-mindset.webp
   overlay_filter: 0.5
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-  alt: "A clean, organized living room with minimal clutter"
+  caption: "Photo credit: WatInside"
+  alt: "Beautifully organized living room with sideboard, mirror and plants"
 excerpt: "Tired of the mess returning? Discover how a digital home inventory system stops duplicates and keeps your home clutter-free forever."
 permalink: /declutter-club-mindset/
 ---

@@ -4,9 +4,9 @@ title: "Beyond the Binder: AI-Powered Home Organization"
 date: 2025-12-15 08:00:00 +0100
 categories: organization family-tech
 header:
-  overlay_image: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-  alt: "Family organizing a home using a tablet and smart apps"
+  overlay_image: /assets/images/blog/declutter-ai.webp
+  caption: "Photo credit: WatInside"
+  alt: "Laptop displaying code on a clean desk with plant and yellow mug"
 excerpt: "Paper checklists fail because they are slow. Discover how WatInside's AI tagging and iCloud family sharing solve your household clutter problem for good."
 # IF POST IS ALREADY LIVE, USE YOUR EXISTING URL. IF NEW, USE THIS:
 permalink: /ai-home-organization-family-sharing/

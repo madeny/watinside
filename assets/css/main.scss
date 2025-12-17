@@ -1373,6 +1373,41 @@ p.hero-subtitle {
   .footer-copyright { color: $text-secondary-dark; }
   .footer-social-link { color: $text-secondary-dark; }
   .footer-social-link:hover { color: $link-color-dark; }
+
+  // Button text visibility fix for dark mode - must override .page__content a
+  a.btn-early-access,
+  a.floating-glass-btn,
+  a.sidebar-early-access,
+  .page__content a.btn-early-access,
+  .initial-content a.btn-early-access,
+  .hero-section a.btn-early-access,
+  .about-cta a.btn-early-access,
+  .floating-cta-container a.floating-glass-btn {
+    color: #ffffff !important;
+  }
+
+  a.btn-early-access:hover,
+  a.floating-glass-btn:hover,
+  a.sidebar-early-access:hover,
+  .page__content a.btn-early-access:hover,
+  .initial-content a.btn-early-access:hover,
+  .floating-cta-container a.floating-glass-btn:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  // Scroll to top dark mode
+  .scroll-to-top {
+    background: #1c1c1e;
+    border-color: #3a3a3c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .scroll-to-top:hover {
+    background: $link-color-dark;
+    border-color: $link-color-dark;
+    color: #fff;
+  }
 }
 
 /* --------------------------------------------------------- */
@@ -1522,6 +1557,77 @@ p.hero-subtitle {
 .press-label i.fa-heart {
   color: #e02424;
   margin-right: 0.35em;
+}
+
+/* --------------------------------------------------------- */
+/* Scroll to Top Button                                      */
+/* --------------------------------------------------------- */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0);
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top:hover svg {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 90px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .scroll-to-top svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 

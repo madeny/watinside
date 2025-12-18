@@ -479,6 +479,88 @@ p.hero-subtitle {
     min-width: 300px;
 }
 
+/* Card Fan Effect - Cards in hand style */
+.card-fan {
+    position: relative;
+    width: 280px;
+    height: 500px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.card-fan .app-screenshot {
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+    height: auto;
+    transform-origin: bottom center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-fan .card-fan-left {
+    transform: rotate(-12deg) translateX(-30px);
+    z-index: 1;
+}
+
+.card-fan .card-fan-center {
+    transform: rotate(0deg);
+    z-index: 3;
+}
+
+.card-fan .card-fan-right {
+    transform: rotate(12deg) translateX(30px);
+    z-index: 2;
+}
+
+/* Hover effects */
+.card-fan:hover .card-fan-left {
+    transform: rotate(-18deg) translateX(-50px) translateY(-10px);
+}
+
+.card-fan:hover .card-fan-center {
+    transform: rotate(0deg) translateY(-15px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.card-fan:hover .card-fan-right {
+    transform: rotate(18deg) translateX(50px) translateY(-10px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card-fan {
+        width: 240px;
+        height: 420px;
+    }
+
+    .card-fan .app-screenshot {
+        width: 180px;
+        border-radius: 20px;
+    }
+
+    .card-fan .card-fan-left {
+        transform: rotate(-10deg) translateX(-20px);
+    }
+
+    .card-fan .card-fan-right {
+        transform: rotate(10deg) translateX(20px);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .card-fan .app-screenshot {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-fan:hover .card-fan-center {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+}
+
 .showcase-text h2 {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.75rem);

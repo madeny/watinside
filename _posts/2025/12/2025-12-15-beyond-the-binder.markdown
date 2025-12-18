@@ -58,4 +58,4 @@ A binder is a great place to start planning your goals. But to truly "stop movin
 By combining a **smart home inventory app** with your decluttering routine, you aren't just cleaning up for today; you are building a searchable, organized database for the future.
 
 **Ready to ditch the stress?**
-[**Download WatInside**](https://testflight.apple.com/join/xjzBGcdm) today. Snap a photo, let the AI tag it, share it with your family, and finally enjoy a home where everything has a place.
+[**Download WatInside Beta**](https://testflight.apple.com/join/xjzBGcdm) today. Snap a photo, let the AI tag it, share it with your family, and finally enjoy a home where everything has a place.

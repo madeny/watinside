@@ -1,0 +1,700 @@
+---
+layout: default
+title: "Free Moving box labels - WatInside"
+description: "Download free printable labels for your storage boxes and moving bins. Simple, clean design with room checkboxes and space for contents."
+permalink: /free-labels/
+---
+
+<style>
+/* Free Labels Page Styles */
+.labels-page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+}
+
+/* Hero Section */
+.labels-hero {
+  text-align: center;
+  padding: 3rem 0 4rem;
+}
+
+.labels-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.labels-hero-tagline {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.labels-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.15) 0%, rgba(48, 209, 88, 0.15) 100%);
+  color: #34C759;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.labels-hero-badge i {
+  font-size: 0.75rem;
+}
+
+/* Main Label Showcase */
+.label-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 3rem;
+  background: var(--bg-secondary);
+  border-radius: 32px;
+}
+
+.label-preview-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Embedded Label Preview */
+.label-preview {
+  width: 100%;
+  max-width: 320px;
+  background: white;
+  border: 4px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.label-preview:hover {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+}
+
+.label-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.label-preview-logo {
+  font-weight: bold;
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.label-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.label-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-checkbox {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #333;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.label-contents {
+  margin-top: 15px;
+}
+
+.label-contents-title {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 0.03em;
+}
+
+.label-line {
+  border-bottom: 1px solid #ddd;
+  height: 22px;
+  margin-bottom: 4px;
+}
+
+.label-box-number {
+  position: absolute;
+  bottom: 55px;
+  right: 20px;
+  text-align: right;
+}
+
+.label-box-text {
+  font-size: 11px;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.label-box-input {
+  font-size: 28px;
+  font-weight: 800;
+  color: #000;
+  border: 2px solid #333;
+  padding: 4px 8px;
+  width: 55px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+
+.label-preview-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.label-preview-footer strong {
+  color: #fff;
+}
+
+/* Label Info Section */
+.label-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label-info h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.label-info-desc {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.label-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.label-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.label-feature i {
+  color: #34C759;
+  font-size: 0.9rem;
+  width: 20px;
+}
+
+.label-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.label-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.label-meta-item i {
+  opacity: 0.6;
+}
+
+/* Download Buttons */
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: #fff !important;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+  text-decoration: none;
+  color: #fff !important;
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+.download-btn i {
+  font-size: 1rem;
+}
+
+.download-btn-secondary {
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary) !important;
+  box-shadow: none;
+}
+
+.download-btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* How to Use Section */
+.how-to-use {
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+}
+
+.how-to-use h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.how-to-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.how-to-step {
+  text-align: center;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.how-to-step h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.how-to-step p {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Reddit Callout */
+.reddit-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.08) 0%, rgba(255, 87, 34, 0.08) 100%);
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.reddit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF4500 0%, #FF5722 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reddit-icon i {
+  color: #fff;
+  font-size: 1.75rem;
+}
+
+.reddit-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.reddit-content p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reddit-content a {
+  color: #FF4500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.reddit-content a:hover {
+  text-decoration: underline;
+}
+
+/* CTA Section */
+.labels-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(90, 200, 250, 0.1) 100%);
+  border-radius: 24px;
+  margin: 3rem 0;
+}
+
+.labels-cta h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.labels-cta p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .label-showcase {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .label-preview-container {
+    order: -1;
+  }
+
+  .label-info {
+    text-align: center;
+  }
+
+  .label-features {
+    align-items: center;
+  }
+
+  .label-meta {
+    justify-content: center;
+  }
+
+  .download-buttons {
+    justify-content: center;
+  }
+
+  .how-to-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .labels-hero {
+    padding: 2rem 0 3rem;
+  }
+
+  .label-showcase {
+    padding: 1.5rem;
+  }
+
+  .label-preview {
+    max-width: 280px;
+    padding: 15px;
+  }
+
+  .how-to-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .how-to-use {
+    padding: 2rem 1.5rem;
+  }
+
+  .reddit-callout {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .label-preview {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .label-preview:hover {
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+  }
+
+  .download-btn-secondary {
+    background: var(--bg-secondary);
+  }
+}
+</style>
+
+<div class="labels-page">
+
+  <!-- Hero Section -->
+  <section class="labels-hero">
+    <h1>Free Storage Box Labels</h1>
+    <p class="labels-hero-tagline">Print-ready labels for organizing your storage boxes, moving bins, and home inventory.</p>
+    <span class="labels-hero-badge">
+      <i class="fas fa-check"></i>
+      100% Free - No sign-up required
+    </span>
+  </section>
+
+  <!-- Reddit Callout -->
+  <div class="reddit-callout">
+    <div class="reddit-icon">
+      <i class="fab fa-reddit-alien"></i>
+    </div>
+    <div class="reddit-content">
+      <h3>Made for the organizing community</h3>
+      <p>These labels were created for fellow organization enthusiasts. Share your setups and get tips at <a href="https://www.reddit.com/r/SmartOrganizing/" target="_blank" rel="noopener">r/SmartOrganizing</a>!</p>
+    </div>
+  </div>
+
+  <!-- Main Label Showcase -->
+  <section class="label-showcase">
+    <div class="label-preview-container">
+      <!-- Embedded Label Preview -->
+      <div class="label-preview">
+        <div class="label-preview-header">
+          <div class="label-preview-logo">WatInside.com</div>
+        </div>
+
+        <div class="label-preview-grid">
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Kitchen</span>
+          </div>
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Bedroom</span>
+          </div>
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Living Room</span>
+          </div>
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Office</span>
+          </div>
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Garage</span>
+          </div>
+          <div class="label-checkbox-item">
+            <span class="label-checkbox"></span>
+            <span>Storage</span>
+          </div>
+        </div>
+
+        <div class="label-contents">
+          <div class="label-contents-title">Contents:</div>
+          <div class="label-line"></div>
+          <div class="label-line"></div>
+          <div class="label-line"></div>
+          <div class="label-line"></div>
+        </div>
+
+        <div class="label-box-number">
+          <div class="label-box-text">BOX #</div>
+          <div class="label-box-input"></div>
+        </div>
+
+        <div class="label-preview-footer">
+          Tired of writing? Snap a photo with <strong>WatInside.com</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="label-info">
+      <h2>Storage Box Labels</h2>
+      <p class="label-info-desc">Clean, simple labels with everything you need to organize your boxes. Check off the room, list the contents, and number your boxes for easy tracking.</p>
+
+      <div class="label-features">
+        <div class="label-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>6 room checkboxes (Kitchen, Bedroom, Living Room, Office, Garage, Storage)</span>
+        </div>
+        <div class="label-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>5 lines to write box contents</span>
+        </div>
+        <div class="label-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>Large box number field for easy identification</span>
+        </div>
+        <div class="label-feature">
+          <i class="fas fa-check-circle"></i>
+          <span>4 labels per page - perfect size for boxes</span>
+        </div>
+      </div>
+
+      <div class="label-meta">
+        <span class="label-meta-item"><i class="fas fa-file-pdf"></i> PDF format</span>
+        <span class="label-meta-item"><i class="fas fa-ruler"></i> 4 per page</span>
+        <span class="label-meta-item"><i class="fas fa-print"></i> A4 / Letter</span>
+      </div>
+
+      <div class="download-buttons">
+        <a href="/assets/labels/pdfs/free-moving-box-labels-watinside.pdf" class="download-btn" download>
+          <i class="fas fa-download"></i>
+          Download PDF
+        </a>
+        <a href="/assets/labels/storage-box-labels.html" class="download-btn download-btn-secondary" target="_blank">
+          <i class="fas fa-print"></i>
+          Print from Browser
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="how-to-use">
+    <h2>How to Use</h2>
+    <div class="how-to-steps">
+      <div class="how-to-step">
+        <div class="step-number">1</div>
+        <h3>Download</h3>
+        <p>Click download to get the PDF or print directly from browser</p>
+      </div>
+      <div class="how-to-step">
+        <div class="step-number">2</div>
+        <h3>Print</h3>
+        <p>Print on standard letter or A4 paper</p>
+      </div>
+      <div class="how-to-step">
+        <div class="step-number">3</div>
+        <h3>Cut</h3>
+        <p>Cut the page into 4 individual labels</p>
+      </div>
+      <div class="how-to-step">
+        <div class="step-number">4</div>
+        <h3>Label</h3>
+        <p>Fill in and attach to your boxes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="labels-cta">
+    <h2>Want to go digital?</h2>
+    <p>Skip the writing altogether. Take photos of your box contents and search for any item instantly with WatInside.</p>
+    <a href="{{ site.app_store_url }}" class="btn-early-access">Try WatInside Free</a>
+  </section>
+
+</div>
+
+{% include floating_cta.html %}

@@ -421,6 +421,7 @@ p.hero-subtitle {
     padding: 1rem 1rem 6rem 1rem;
     margin-top: 4rem;
     border-radius: 30px;
+    overflow-x: hidden;
 }
 
 .section-title {
@@ -501,7 +502,7 @@ p.hero-subtitle {
 }
 
 .card-fan .card-fan-left {
-    transform: rotate(-12deg) translateX(-30px);
+    transform: rotate(-15deg) translateX(-50px);
     z-index: 1;
 }
 
@@ -511,42 +512,167 @@ p.hero-subtitle {
 }
 
 .card-fan .card-fan-right {
-    transform: rotate(12deg) translateX(30px);
+    transform: rotate(15deg) translateX(50px);
     z-index: 2;
 }
 
 /* Hover effects */
 .card-fan:hover .card-fan-left {
-    transform: rotate(-18deg) translateX(-50px) translateY(-10px);
+    transform: rotate(-25deg) translateX(-80px) translateY(-15px);
 }
 
 .card-fan:hover .card-fan-center {
-    transform: rotate(0deg) translateY(-15px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transform: rotate(0deg) translateY(-20px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
 }
 
 .card-fan:hover .card-fan-right {
-    transform: rotate(18deg) translateX(50px) translateY(-10px);
+    transform: rotate(25deg) translateX(80px) translateY(-15px);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+    .feature-media {
+        overflow: visible;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     .card-fan {
-        width: 240px;
-        height: 420px;
+        width: 280px;
+        height: 400px;
+        transform: scale(0.85);
+        cursor: pointer;
+        position: relative;
+    }
+
+    .card-fan::after {
+        content: "Tap to view";
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        opacity: 0.7;
+        font-family: var(--font-sans);
     }
 
     .card-fan .app-screenshot {
         width: 180px;
         border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
     .card-fan .card-fan-left {
-        transform: rotate(-10deg) translateX(-20px);
+        transform: rotate(-12deg) translateX(-35px);
     }
 
     .card-fan .card-fan-right {
-        transform: rotate(10deg) translateX(20px);
+        transform: rotate(12deg) translateX(35px);
+    }
+
+    /* Disable hover on touch devices for stability */
+    .card-fan:hover .card-fan-left {
+        transform: rotate(-12deg) translateX(-35px);
+    }
+
+    .card-fan:hover .card-fan-center {
+        transform: rotate(0deg);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-fan:hover .card-fan-right {
+        transform: rotate(12deg) translateX(35px);
+    }
+}
+
+/* Card Fan Expanded Overlay (Mobile) */
+.card-fan-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    padding: 60px 20px 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.card-fan-overlay.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.card-fan-overlay .close-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    transition: background 0.2s ease;
+}
+
+.card-fan-overlay .close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.card-fan-overlay .expanded-card {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUpCard 0.4s ease backwards;
+}
+
+.card-fan-overlay .expanded-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.card-fan-overlay .expanded-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.card-fan-overlay .expanded-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideUpCard {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

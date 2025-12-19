@@ -104,5 +104,73 @@
   } else {
     initFlowAnimation();
   }
+
+  // Card Fan Mobile Expand
+  function initCardFanExpand() {
+    // Only on mobile
+    if (window.innerWidth > 768) return;
+
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'card-fan-overlay';
+    document.body.appendChild(overlay);
+
+    // Handle card fan tap
+    const cardFans = document.querySelectorAll('.card-fan');
+    cardFans.forEach(function(fan) {
+      fan.addEventListener('click', function(e) {
+        if (window.innerWidth > 768) return;
+
+        e.preventDefault();
+
+        // Get images from this card fan
+        const images = fan.querySelectorAll('.app-screenshot');
+
+        // Build overlay content
+        overlay.innerHTML = '<button class="close-btn" aria-label="Close">&times;</button>';
+
+        images.forEach(function(img) {
+          const expandedImg = document.createElement('img');
+          expandedImg.src = img.src;
+          expandedImg.alt = img.alt;
+          expandedImg.className = 'expanded-card';
+          overlay.appendChild(expandedImg);
+        });
+
+        // Show overlay
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Close button handler
+        overlay.querySelector('.close-btn').addEventListener('click', closeOverlay);
+      });
+    });
+
+    // Close on background tap
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeOverlay();
+      }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeOverlay();
+      }
+    });
+
+    function closeOverlay() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Initialize card fan expand when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCardFanExpand);
+  } else {
+    initCardFanExpand();
+  }
 })();
 </script>

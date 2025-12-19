@@ -488,6 +488,9 @@ p.hero-subtitle {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    isolation: isolate; /* Creates stacking context for Chrome */
 }
 
 .card-fan .app-screenshot {
@@ -499,35 +502,38 @@ p.hero-subtitle {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     border-radius: 24px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .card-fan .card-fan-left {
-    transform: rotate(-15deg) translateX(-50px);
+    transform: rotate(-15deg) translateX(-50px) translateZ(0);
     z-index: 1;
 }
 
 .card-fan .card-fan-center {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateZ(0);
     z-index: 3;
 }
 
 .card-fan .card-fan-right {
-    transform: rotate(15deg) translateX(50px);
+    transform: rotate(15deg) translateX(50px) translateZ(0);
     z-index: 2;
 }
 
 /* Hover effects */
 .card-fan:hover .card-fan-left {
-    transform: rotate(-25deg) translateX(-80px) translateY(-15px);
+    transform: rotate(-25deg) translateX(-80px) translateY(-15px) translateZ(0);
 }
 
 .card-fan:hover .card-fan-center {
-    transform: rotate(0deg) translateY(-20px);
+    transform: rotate(0deg) translateY(-20px) translateZ(0);
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
 }
 
 .card-fan:hover .card-fan-right {
-    transform: rotate(25deg) translateX(80px) translateY(-15px);
+    transform: rotate(25deg) translateX(80px) translateY(-15px) translateZ(0);
 }
 
 /* Responsive */
@@ -566,25 +572,25 @@ p.hero-subtitle {
     }
 
     .card-fan .card-fan-left {
-        transform: rotate(-12deg) translateX(-35px);
+        transform: rotate(-12deg) translateX(-35px) translateZ(0);
     }
 
     .card-fan .card-fan-right {
-        transform: rotate(12deg) translateX(35px);
+        transform: rotate(12deg) translateX(35px) translateZ(0);
     }
 
     /* Disable hover on touch devices for stability */
     .card-fan:hover .card-fan-left {
-        transform: rotate(-12deg) translateX(-35px);
+        transform: rotate(-12deg) translateX(-35px) translateZ(0);
     }
 
     .card-fan:hover .card-fan-center {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateZ(0);
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     }
 
     .card-fan:hover .card-fan-right {
-        transform: rotate(12deg) translateX(35px);
+        transform: rotate(12deg) translateX(35px) translateZ(0);
     }
 }
 

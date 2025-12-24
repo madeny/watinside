@@ -29,6 +29,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Cleanup unwanted files
+        run: |
+          # Claude Code
+          find . -type d -name ".claude" -exec rm -rf {} + 2>/dev/null || true
+
+          # macOS
+          find . -name ".DS_Store" -delete 2>/dev/null || true
+          find . -name ".AppleDouble" -exec rm -rf {} + 2>/dev/null || true
+          find . -name ".LSOverride" -delete 2>/dev/null || true
+          find . -name "._*" -delete 2>/dev/null || true
+          find . -name ".Spotlight-V100" -exec rm -rf {} + 2>/dev/null || true
+          find . -name ".Trashes" -exec rm -rf {} + 2>/dev/null || true
+          find . -name "Icon?" -delete 2>/dev/null || true
+
+          # Synology NAS
+          find . -type d -name "@eaDir" -exec rm -rf {} + 2>/dev/null || true
+          find . -name "*@SynoEAStream" -delete 2>/dev/null || true
+          find . -name "*@SynoResource" -delete 2>/dev/null || true
+
+          # Editor
+          find . -name "*.swp" -delete 2>/dev/null || true
+          find . -name "*.swo" -delete 2>/dev/null || true
+
+          echo "Cleanup complete"
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

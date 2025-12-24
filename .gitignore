@@ -4,7 +4,25 @@ _site
 .jekyll-metadata
 vendor
 .bundle
+node_modules
+
+# Claude Code
+.claude
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Synology NAS
+@eaDir
+@SynoEAStream
+@SynoResource
+
+# Editor
 *.swp
 *.swo
-node_modules

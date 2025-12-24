@@ -53,6 +53,12 @@
             text-transform: uppercase;
         }
 
+        .logo a,
+        .footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .room-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -138,128 +144,141 @@
 </head>
 <body>
 
-    <div class="page">
-        <div class="label">
-            <div class="header">
-                <div class="logo">WatInside.com</div>
-            </div>
+<div class="page">
 
-            <div class="room-grid">
-                <div class="checkbox-item"><span class="box"></span> Kitchen</div>
-                <div class="checkbox-item"><span class="box"></span> Bedroom</div>
-                <div class="checkbox-item"><span class="box"></span> Living Room</div>
-                <div class="checkbox-item"><span class="box"></span> Office</div>
-                <div class="checkbox-item"><span class="box"></span> Garage</div>
-                <div class="checkbox-item"><span class="box"></span> Storage</div>
-            </div>
-
-            <div class="contents-section">
-                <div class="contents-title">Contents:</div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-
-            <div class="box-number-section">
-                <div class="box-label">BOX #</div>
-                <div class="box-input"></div>
-            </div>
-
-            <div class="footer">
-                Tired of writing? Snap a photo of this box with <strong>WatInside.com</strong>
+    <!-- LABEL 1 -->
+    <div class="label">
+        <div class="header">
+            <div class="logo">
+                <a href="https://watinside.com">WatInside.com</a>
             </div>
         </div>
 
-        <div class="label">
-            <div class="header">
-                <div class="logo">WatInside.com</div>
-            </div>
-            <div class="room-grid">
-                <div class="checkbox-item"><span class="box"></span> Kitchen</div>
-                <div class="checkbox-item"><span class="box"></span> Bedroom</div>
-                <div class="checkbox-item"><span class="box"></span> Living Room</div>
-                <div class="checkbox-item"><span class="box"></span> Office</div>
-                <div class="checkbox-item"><span class="box"></span> Garage</div>
-                <div class="checkbox-item"><span class="box"></span> Storage</div>
-            </div>
-            <div class="contents-section">
-                <div class="contents-title">Contents:</div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="box-number-section">
-                <div class="box-label">BOX #</div>
-                <div class="box-input"></div>
-            </div>
-            <div class="footer">
-                Tired of writing? Snap a photo of this box with <strong>WatInside.com</strong>
-            </div>
+        <div class="room-grid">
+            <div class="checkbox-item"><span class="box"></span> Kitchen</div>
+            <div class="checkbox-item"><span class="box"></span> Bedroom</div>
+            <div class="checkbox-item"><span class="box"></span> Living Room</div>
+            <div class="checkbox-item"><span class="box"></span> Office</div>
+            <div class="checkbox-item"><span class="box"></span> Garage</div>
+            <div class="checkbox-item"><span class="box"></span> Storage</div>
         </div>
 
-        <div class="label">
-            <div class="header">
-                <div class="logo">WatInside.com</div>
-            </div>
-            <div class="room-grid">
-                <div class="checkbox-item"><span class="box"></span> Kitchen</div>
-                <div class="checkbox-item"><span class="box"></span> Bedroom</div>
-                <div class="checkbox-item"><span class="box"></span> Living Room</div>
-                <div class="checkbox-item"><span class="box"></span> Office</div>
-                <div class="checkbox-item"><span class="box"></span> Garage</div>
-                <div class="checkbox-item"><span class="box"></span> Storage</div>
-            </div>
-            <div class="contents-section">
-                <div class="contents-title">Contents:</div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="box-number-section">
-                <div class="box-label">BOX #</div>
-                <div class="box-input"></div>
-            </div>
-            <div class="footer">
-                Tired of writing? Snap a photo of this box with <strong>WatInside.com</strong>
-            </div>
+        <div class="contents-section">
+            <div class="contents-title">Contents:</div>
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
         </div>
 
-        <div class="label">
-            <div class="header">
-                <div class="logo">WatInside.com</div>
-            </div>
-            <div class="room-grid">
-                <div class="checkbox-item"><span class="box"></span> Kitchen</div>
-                <div class="checkbox-item"><span class="box"></span> Bedroom</div>
-                <div class="checkbox-item"><span class="box"></span> Living Room</div>
-                <div class="checkbox-item"><span class="box"></span> Office</div>
-                <div class="checkbox-item"><span class="box"></span> Garage</div>
-                <div class="checkbox-item"><span class="box"></span> Storage</div>
-            </div>
-            <div class="contents-section">
-                <div class="contents-title">Contents:</div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="box-number-section">
-                <div class="box-label">BOX #</div>
-                <div class="box-input"></div>
-            </div>
-            <div class="footer">
-                Tired of writing? Snap a photo of this box with <strong>WatInside.com</strong>
-            </div>
+        <div class="box-number-section">
+            <div class="box-label">BOX #</div>
+            <div class="box-input"></div>
         </div>
 
+        <div class="footer">
+            Tired of writing? Snap a photo of this box with
+            <a href="https://watinside.com"><strong>WatInside.com</strong></a>
+        </div>
     </div>
+
+    <!-- LABEL 2 -->
+    <div class="label">
+        <div class="header">
+            <div class="logo">
+                <a href="https://watinside.com">WatInside.com</a>
+            </div>
+        </div>
+
+        <div class="room-grid">
+            <div class="checkbox-item"><span class="box"></span> Kitchen</div>
+            <div class="checkbox-item"><span class="box"></span> Bedroom</div>
+            <div class="checkbox-item"><span class="box"></span> Living Room</div>
+            <div class="checkbox-item"><span class="box"></span> Office</div>
+            <div class="checkbox-item"><span class="box"></span> Garage</div>
+            <div class="checkbox-item"><span class="box"></span> Storage</div>
+        </div>
+
+        <div class="contents-section">
+            <div class="contents-title">Contents:</div>
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+        </div>
+
+        <div class="box-number-section">
+            <div class="box-label">BOX #</div>
+            <div class="box-input"></div>
+        </div>
+
+        <div class="footer">
+            Tired of writing? Snap a photo of this box with
+            <a href="https://watinside.com"><strong>WatInside.com</strong></a>
+        </div>
+    </div>
+
+    <!-- LABEL 3 -->
+    <div class="label">
+        <div class="header">
+            <div class="logo">
+                <a href="https://watinside.com">WatInside.com</a>
+            </div>
+        </div>
+
+        <div class="room-grid">
+            <div class="checkbox-item"><span class="box"></span> Kitchen</div>
+            <div class="checkbox-item"><span class="box"></span> Bedroom</div>
+            <div class="checkbox-item"><span class="box"></span> Living Room</div>
+            <div class="checkbox-item"><span class="box"></span> Office</div>
+            <div class="checkbox-item"><span class="box"></span> Garage</div>
+            <div class="checkbox-item"><span class="box"></span> Storage</div>
+        </div>
+
+        <div class="contents-section">
+            <div class="contents-title">Contents:</div>
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+        </div>
+
+        <div class="box-number-section">
+            <div class="box-label">BOX #</div>
+            <div class="box-input"></div>
+        </div>
+
+        <div class="footer">
+            Tired of writing? Snap a photo of this box with
+            <a href="https://watinside.com"><strong>WatInside.com</strong></a>
+        </div>
+    </div>
+
+    <!-- LABEL 4 -->
+    <div class="label">
+        <div class="header">
+            <div class="logo">
+                <a href="https://watinside.com">WatInside.com</a>
+            </div>
+        </div>
+
+        <div class="room-grid">
+            <div class="checkbox-item"><span class="box"></span> Kitchen</div>
+            <div class="checkbox-item"><span class="box"></span> Bedroom</div>
+            <div class="checkbox-item"><span class="box"></span> Living Room</div>
+            <div class="checkbox-item"><span class="box"></span> Office</div>
+            <div class="checkbox-item"><span class="box"></span> Garage</div>
+            <div class="checkbox-item"><span class="box"></span> Storage</div>
+        </div>
+
+        <div class="contents-section">
+            <div class="contents-title">Contents:</div>
+            <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+        </div>
+
+        <div class="box-number-section">
+            <div class="box-label">BOX #</div>
+            <div class="box-input"></div>
+        </div>
+
+        <div class="footer">
+            Tired of writing? Snap a photo of this box with
+            <a href="https://watinside.com"><strong>WatInside.com</strong></a>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

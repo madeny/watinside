@@ -75,6 +75,10 @@ body {
 /* Custom Navigation Typography                              */
 /* --------------------------------------------------------- */
 
+.greedy-nav .site-logo img {
+  border-radius: 12px;
+}
+
 .greedy-nav .site-title {
   font-family: var(--font-display);
   font-weight: 700;

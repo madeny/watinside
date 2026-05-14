@@ -1,23 +1,23 @@
 {% assign screen_images = site.static_files | where_exp: "file", "file.path contains '/assets/images/screen/'" | where_exp: "file", "file.extname == '.webp'" %}
 
-  <div class="sidebar-widget app-showcase-widget">
-    <a href="{{ site.app_store_url }}" class="sidebar-slideshow-link">
-    <div class="app-slideshow-container">
-      <div class="app-slideshow-wrapper">
-        {% for image in screen_images %}
-        <div class="app-slide">
-          <img src="{{ image.path }}" alt="WatInside app screenshot showcasing home inventory features" class="app-slide-img" loading="lazy">
+  <div class="sidebar-widget app-showcase-widget" role="group" aria-label="WatInside app preview">
+    <a href="{{ site.app_store_url }}" class="sidebar-slideshow-link" aria-label="Open WatInside early access">
+      <div class="app-slideshow-container">
+        <div class="app-slideshow-wrapper">
+          {% for image in screen_images %}
+          <div class="app-slide{% if forloop.first %} active{% endif %}">
+            <img src="{{ image.path }}" alt="WatInside app screenshot showcasing home inventory features" class="app-slide-img" loading="lazy">
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-      <!-- Navigation dots -->
-      <div class="slideshow-dots-wrapper" style="text-align:center; margin-top: 10px;">
-        {% for image in screen_images %}
-        <span class="dot"></span>
-        {% endfor %}
-      </div>
-    </div>
     </a>
+
+    <div class="slideshow-dots-wrapper" role="group" aria-label="Choose app preview screenshot">
+      {% for image in screen_images %}
+      <button class="dot{% if forloop.first %} active{% endif %}" type="button" aria-label="Show screenshot {{ forloop.index }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+      {% endfor %}
+    </div>
 
     <a href="{{ site.app_store_url }}" class="btn-early-access sidebar-early-access">
       Get Early Access
@@ -31,30 +31,60 @@
 
 <script>
 (function() {
-  const slides = document.querySelectorAll('.app-slide');
-  const dots = document.querySelectorAll('.slideshow-dots-wrapper .dot');
-  let slideIndex = 0;
+  const widgets = document.querySelectorAll('.app-showcase-widget');
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (slides.length === 0) return;
+  widgets.forEach(function(widget) {
+    const slides = widget.querySelectorAll('.app-slide');
+    const dots = widget.querySelectorAll('.slideshow-dots-wrapper .dot');
+    let slideIndex = 0;
+    let timer;
 
-  // Show first slide
-  slides[0].classList.add('active');
-  if (dots[0]) dots[0].classList.add('active');
+    if (slides.length === 0) return;
 
-  function nextSlide() {
-    // Remove active from current
-    slides[slideIndex].classList.remove('active');
-    if (dots[slideIndex]) dots[slideIndex].classList.remove('active');
+    function showSlide(index) {
+      slides[slideIndex].classList.remove('active');
+      if (dots[slideIndex]) {
+        dots[slideIndex].classList.remove('active');
+        dots[slideIndex].removeAttribute('aria-current');
+      }
 
-    // Move to next
-    slideIndex = (slideIndex + 1) % slides.length;
+      slideIndex = index;
 
-    // Add active to new
-    slides[slideIndex].classList.add('active');
-    if (dots[slideIndex]) dots[slideIndex].classList.add('active');
-  }
+      slides[slideIndex].classList.add('active');
+      if (dots[slideIndex]) {
+        dots[slideIndex].classList.add('active');
+        dots[slideIndex].setAttribute('aria-current', 'true');
+      }
+    }
 
-  // Auto advance every 4 seconds
-  setInterval(nextSlide, 4000);
+    function nextSlide() {
+      showSlide((slideIndex + 1) % slides.length);
+    }
+
+    function startTimer() {
+      if (slides.length < 2 || reduceMotion) return;
+      window.clearInterval(timer);
+      timer = window.setInterval(nextSlide, 4000);
+    }
+
+    dots.forEach(function(dot, index) {
+      dot.addEventListener('click', function() {
+        showSlide(index);
+        startTimer();
+      });
+    });
+
+    widget.addEventListener('mouseenter', function() {
+      window.clearInterval(timer);
+    });
+    widget.addEventListener('mouseleave', startTimer);
+    widget.addEventListener('focusin', function() {
+      window.clearInterval(timer);
+    });
+    widget.addEventListener('focusout', startTimer);
+
+    startTimer();
+  });
 })();
 </script>

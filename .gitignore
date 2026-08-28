@@ -9,6 +9,9 @@ node_modules
 # Claude Code
 .claude
 
+# Internal engineering docs — never publish/sync
+docs/
+
 # macOS
 .DS_Store
 .AppleDouble

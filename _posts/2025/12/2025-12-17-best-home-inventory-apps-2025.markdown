@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Best Home Inventory Apps for 2025: Why Privacy & AI Matter"
+title: "Best Home Inventory Apps for 2026: Why Privacy & AI Matter"
 # SEO Title (Optimized < 60 chars)
-seo_title: "Best Home Inventory App 2025: Top iOS Picks - WatInside"
+seo_title: "Best Home Inventory App 2026: Top iOS Picks - WatInside"
 date: 2025-12-17 09:00:00 +0100
 categories: reviews technology
 header:

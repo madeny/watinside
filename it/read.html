@@ -1,14 +1,15 @@
 ---
 layout: default
-lang: en
-title: "Organizing & Decluttering Tips | WatInside Blog"
-permalink: /read/
+lang: it
+title: "Consigli per organizzare e riordinare | Blog di WatInside"
+description: "Trucchi per organizzare, riordinare e liberare spazio in casa con WatInside."
+permalink: /it/read/
 classes: read-page
 i18n: true
 ---
 
 <style>
-/* Blog List Styles */
+/* Stili elenco blog */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -102,6 +103,47 @@ i18n: true
     transform: translateX(3px);
 }
 
+.blog-empty {
+    text-align: center;
+    padding: 3rem 2rem 4rem;
+    background: var(--bg-secondary);
+    border-radius: 28px;
+}
+
+.blog-empty h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+}
+
+.blog-empty p {
+    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    max-width: 460px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+}
+
+.blog-empty-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    padding: 0.85rem 1.75rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-empty-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 122, 255, 0.25);
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .blog-grid {
         grid-template-columns: 1fr;
@@ -109,12 +151,14 @@ i18n: true
 }
 </style>
 
+{% assign it_posts = site.posts | where: "lang", "it" %}
+
 <div class="landing-section">
-    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 3rem; text-align: left;">Organizing & Decluttering Tips</h1>
-    
+    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 3rem; text-align: left;">Consigli per organizzare e riordinare</h1>
+
+    {% if it_posts.size > 0 %}
     <div class="blog-grid">
-        {% assign en_posts = site.posts | where: "lang", "en" %}
-        {% for post in en_posts %}
+        {% for post in it_posts %}
         <article class="blog-card">
             {% if post.header.overlay_image %}
                 <img src="{{ post.header.overlay_image }}" alt="{{ post.title }}" class="blog-card-image">
@@ -122,23 +166,30 @@ i18n: true
                 <img src="{{ post.header.teaser }}" alt="{{ post.title }}" class="blog-card-image">
             {% else %}
                 <div class="blog-card-image" style="display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
-                    <span>No Image</span>
+                    <span>Nessuna immagine</span>
                 </div>
             {% endif %}
-            
+
             <div class="blog-card-content">
-                <div class="blog-card-date">{{ post.date | date: "%B %d, %Y" }}</div>
+                <div class="blog-card-date">{{ post.date | date: "%d %B %Y" }}</div>
                 <h2 class="blog-card-title">
                     <a href="{{ post.url }}">{{ post.title }}</a>
                 </h2>
                 <div class="blog-card-excerpt">
                     {{ post.excerpt | strip_html | truncatewords: 20 }}
                 </div>
-                <a href="{{ post.url }}" class="blog-card-link">Read Article</a>
+                <a href="{{ post.url }}" class="blog-card-link">Leggi l’articolo</a>
             </div>
         </article>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="blog-empty">
+        <h2>Gli articoli in italiano arrivano presto</h2>
+        <p>Stiamo preparando guide per organizzare e riordinare in italiano. Nel frattempo, scopri l’app o scrivici.</p>
+        <a href="{{ '/it/' | relative_url }}" class="blog-empty-btn">Scopri WatInside</a>
+    </div>
+    {% endif %}
 </div>
 
 {% include floating_cta.html %}

@@ -1,30 +1,97 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
+{%- comment -%} Resolve the active language and its independent nav / strings. {%- endcomment -%}
+{% assign lang = page.lang | default: site.default_lang | default: "en" %}
+{% assign nav = site.data.navigation[lang] %}
+{% assign t = site.data[lang].strings %}
+{% if lang == site.default_lang %}{% assign lang_home = "/" %}{% else %}{% capture lang_home %}/{{ lang }}/{% endcapture %}{% endif %}
+
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
-          <a class="site-logo" href="{{ '/' | relative_url }}">
+          <a class="site-logo" href="{{ lang_home | relative_url }}">
             <img src="{{ logo_path | relative_url }}" alt="{{ site.title }}">
           </a>
         {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
+        <a class="site-title" href="{{ lang_home | relative_url }}">
           {{ site.title }}
         </a>
         <ul class="visible-links">
-          {%- for link in site.data.navigation.main -%}
+          {%- for link in nav.main -%}
             <li class="masthead__menu-item">
               <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
         </ul>
-        
+
+        {%- comment -%} Mobile nav (< 768px, see main.scss): exactly one link inline,
+        the rest in a menu. Replaces the greedy-nav distribution, which mis-measures
+        because the language switcher sits outside .visible-links and produced an
+        inconsistent 1-or-2 visible items across languages. {%- endcomment -%}
+        {%- if nav.main.size > 0 -%}
+          <div class="mobile-nav">
+            <a class="mobile-nav__link" href="{{ nav.main[0].url | relative_url }}">{{ nav.main[0].title }}</a>
+            {%- if nav.main.size > 1 -%}
+              <details class="mobile-nav__more" id="mobile-nav-more">
+                <summary class="mobile-nav__toggle" aria-label="{{ t.menu | default: 'Menu' }}" title="{{ t.menu | default: 'Menu' }}">
+                  <span class="mobile-nav__icon" aria-hidden="true"></span>
+                </summary>
+                <ul class="mobile-nav__menu">
+                  {%- for link in nav.main offset:1 -%}
+                    <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </details>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} Language switcher — a compact dropdown that swaps the whole site
+        to another language. Kept outside .visible-links so greedy-nav never folds it
+        into the overflow menu. Uses <details> for a no-framework popover. {%- endcomment -%}
+        {%- if site.languages.size > 1 -%}
+          {%- include i18n-base.html -%}
+          <details class="lang-switch" id="lang-switch">
+            <summary class="lang-switch__toggle" aria-label="{{ t.lang_switch.label | default: 'Language' }}" title="{{ t.lang_switch.label | default: 'Language' }}">
+              <svg class="lang-switch__globe" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg>
+              <span class="lang-switch__current">{{ lang | upcase }}</span>
+              <svg class="lang-switch__chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <ul class="lang-switch__menu" role="menu">
+              {%- for l in site.languages -%}
+                {%- if l == site.default_lang -%}{%- assign l_home = "/" -%}{%- else -%}{%- capture l_home -%}/{{ l }}/{%- endcapture -%}{%- endif -%}
+                {%- if page.translations[l] -%}
+                  {%- assign l_url = page.translations[l] -%}
+                {%- elsif page.i18n -%}
+                  {%- if l == site.default_lang -%}{%- assign l_url = i18n_base -%}{%- else -%}{%- capture l_url -%}/{{ l }}{{ i18n_base }}{%- endcapture -%}{%- endif -%}
+                {%- else -%}
+                  {%- assign l_url = l_home -%}
+                {%- endif -%}
+                <li role="none">
+                  {%- if l == lang -%}
+                  <span class="lang-switch__item is-current" role="menuitem" aria-current="true" lang="{{ l }}">
+                    <span class="lang-switch__name">{{ site.language_names[l] | default: l }}</span>
+                    <svg class="lang-switch__check" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  {%- else -%}
+                  <a class="lang-switch__item" role="menuitem" href="{{ l_url | relative_url }}" hreflang="{{ l }}" lang="{{ l }}">
+                    <span class="lang-switch__name">{{ site.language_names[l] | default: l }}</span>
+                    <span class="lang-switch__code">{{ l | upcase }}</span>
+                  </a>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
           <i class="fas fa-search"></i>
         </button>
-        
+
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>
@@ -34,3 +101,38 @@
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var pops = ['lang-switch', 'mobile-nav-more']
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  if (!pops.length) return;
+
+  // Close a popover when a click lands outside it.
+  document.addEventListener('click', function (e) {
+    pops.forEach(function (el) {
+      if (el.open && !el.contains(e.target)) el.open = false;
+    });
+  });
+
+  // Escape closes any open popover and returns focus to its trigger.
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    pops.forEach(function (el) {
+      if (!el.open) return;
+      el.open = false;
+      var s = el.querySelector('summary');
+      if (s) s.focus();
+    });
+  });
+
+  // Only one popover open at a time.
+  pops.forEach(function (el) {
+    el.addEventListener('toggle', function () {
+      if (!el.open) return;
+      pops.forEach(function (other) { if (other !== el) other.open = false; });
+    });
+  });
+})();
+</script>

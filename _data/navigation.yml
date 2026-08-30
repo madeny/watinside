@@ -1,9 +1,186 @@
-main:
-  - title: "App"
-    url: /
-  - title: "Guide"
-    url: /read/
-  - title: "Help"
-    url: /help/
-  - title: "Contact"
-    url: /contact/
+# Per-language navigation.
+# Each language's URL paths are independent — a language switch swaps the
+# whole nav to that language's set of paths. Labels are localized natively,
+# not transliterated ("App" -> Accueil / Inicio / Start / Home / 首页 / ホーム).
+
+en:
+  main:
+    - title: "App"
+      url: /
+    - title: "Guide"
+      url: /read/
+    - title: "Help"
+      url: /help/
+    - title: "Contact"
+      url: /contact/
+  footer:
+    - title: "App"
+      url: /
+    - title: "Read"
+      url: /read/
+    - title: "About"
+      url: /about/
+    - title: "Contact"
+      url: /contact/
+    - title: "Free Labels"
+      url: /free-labels/
+    - title: "Privacy"
+      url: /privacy/
+    - title: "Terms"
+      url: /terms/
+
+fr:
+  main:
+    - title: "Accueil"
+      url: /fr/
+    - title: "Conseils"
+      url: /fr/read/
+    - title: "Aide"
+      url: /fr/help/
+    - title: "Contact"
+      url: /fr/contact/
+  footer:
+    - title: "Accueil"
+      url: /fr/
+    - title: "Conseils"
+      url: /fr/read/
+    - title: "À propos"
+      url: /fr/about/
+    - title: "Contact"
+      url: /fr/contact/
+    - title: "Étiquettes gratuites"
+      url: /fr/free-labels/
+    - title: "Confidentialité"
+      url: /fr/privacy/
+    - title: "Conditions d'utilisation"
+      url: /fr/terms/
+
+es:
+  main:
+    - title: "Inicio"
+      url: /es/
+    - title: "Consejos"
+      url: /es/read/
+    - title: "Ayuda"
+      url: /es/help/
+    - title: "Contacto"
+      url: /es/contact/
+  footer:
+    - title: "Inicio"
+      url: /es/
+    - title: "Consejos"
+      url: /es/read/
+    - title: "Quiénes somos"
+      url: /es/about/
+    - title: "Contacto"
+      url: /es/contact/
+    - title: "Etiquetas gratis"
+      url: /es/free-labels/
+    - title: "Privacidad"
+      url: /es/privacy/
+    - title: "Condiciones de uso"
+      url: /es/terms/
+
+de:
+  main:
+    - title: "Start"
+      url: /de/
+    - title: "Ratgeber"
+      url: /de/read/
+    - title: "Hilfe"
+      url: /de/help/
+    - title: "Kontakt"
+      url: /de/contact/
+  footer:
+    - title: "Start"
+      url: /de/
+    - title: "Ratgeber"
+      url: /de/read/
+    - title: "Über uns"
+      url: /de/about/
+    - title: "Kontakt"
+      url: /de/contact/
+    - title: "Kostenlose Etiketten"
+      url: /de/free-labels/
+    - title: "Datenschutz"
+      url: /de/privacy/
+    - title: "AGB"
+      url: /de/terms/
+
+it:
+  main:
+    - title: "Home"
+      url: /it/
+    - title: "Consigli"
+      url: /it/read/
+    - title: "Assistenza"
+      url: /it/help/
+    - title: "Contatti"
+      url: /it/contact/
+  footer:
+    - title: "Home"
+      url: /it/
+    - title: "Consigli"
+      url: /it/read/
+    - title: "Chi siamo"
+      url: /it/about/
+    - title: "Contatti"
+      url: /it/contact/
+    - title: "Etichette gratuite"
+      url: /it/free-labels/
+    - title: "Privacy"
+      url: /it/privacy/
+    - title: "Termini e condizioni"
+      url: /it/terms/
+
+zh:
+  main:
+    - title: "首页"
+      url: /zh/
+    - title: "整理技巧"
+      url: /zh/read/
+    - title: "帮助"
+      url: /zh/help/
+    - title: "联系我们"
+      url: /zh/contact/
+  footer:
+    - title: "首页"
+      url: /zh/
+    - title: "整理技巧"
+      url: /zh/read/
+    - title: "关于我们"
+      url: /zh/about/
+    - title: "联系我们"
+      url: /zh/contact/
+    - title: "免费标签"
+      url: /zh/free-labels/
+    - title: "隐私政策"
+      url: /zh/privacy/
+    - title: "服务条款"
+      url: /zh/terms/
+
+ja:
+  main:
+    - title: "ホーム"
+      url: /ja/
+    - title: "整理のヒント"
+      url: /ja/read/
+    - title: "ヘルプ"
+      url: /ja/help/
+    - title: "お問い合わせ"
+      url: /ja/contact/
+  footer:
+    - title: "ホーム"
+      url: /ja/
+    - title: "整理のヒント"
+      url: /ja/read/
+    - title: "私たちについて"
+      url: /ja/about/
+    - title: "お問い合わせ"
+      url: /ja/contact/
+    - title: "無料ラベル"
+      url: /ja/free-labels/
+    - title: "プライバシー"
+      url: /ja/privacy/
+    - title: "利用規約"
+      url: /ja/terms/

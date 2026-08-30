@@ -1,0 +1,29 @@
+# Stringhe dell'interfaccia in italiano.
+# I titoli di navigazione / piè di pagina sono in _data/navigation.yml.
+
+lang_switch:
+  label: "Lingua"
+
+menu: "Menu"
+
+cta:
+  early_access: "Accesso anticipato"
+  join_beta: "Entra nella beta iOS"
+
+slideshow:
+  group_label: "Anteprima dell'app WatInside"
+  link_label: "Apri l'accesso anticipato a WatInside"
+  screenshot_alt: "Screenshot dell'app WatInside che mostra le funzioni di inventario domestico"
+  choose_label: "Scegli lo screenshot dell'anteprima dell'app"
+  show_label: "Mostra screenshot"
+
+footer:
+  tagline: "Organizza il tuo mondo fisico."
+  rights: "Tutti i diritti riservati."
+  rss: "Feed RSS"
+
+blog:
+  back_to_all: "Torna a tutti gli articoli"
+  previous: "Precedente"
+  next: "Successivo"
+  recent_stories: "Articoli recenti"

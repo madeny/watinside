@@ -1,0 +1,775 @@
+---
+layout: default
+lang: ja
+title: "ヘルプセンター | WatInside"
+description: "WatInside を使いこなすために知っておきたいすべて — 収納の整理、持ち物の追加、スキャン、AI タグ付け、共有など。"
+permalink: /ja/help/
+i18n: true
+---
+
+<style>
+/* Help Page Styles */
+.help-page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+}
+
+.help-hero {
+  text-align: center;
+  padding: 3rem 0 3rem;
+}
+
+.help-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.help-hero p {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.help-search-hint {
+  margin-top: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 20px;
+}
+
+/* Layout: sidebar + content */
+.help-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.help-toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.help-toc-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.help-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--border-color);
+}
+
+.help-toc li {
+  margin: 0;
+}
+
+.help-toc a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.help-toc a:hover,
+.help-toc a.is-active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
+
+.help-content {
+  min-width: 0;
+}
+
+.help-section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.help-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.help-section > p.help-lede {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.help-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.help-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.help-card h3 i {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  width: 1.1rem;
+  text-align: center;
+}
+
+.help-card p,
+.help-card li {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.help-card ul,
+.help-card ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.help-card p:last-child,
+.help-card ul:last-child,
+.help-card ol:last-child {
+  margin-bottom: 0;
+}
+
+.help-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.help-badge.premium {
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15) 0%, rgba(255, 59, 48, 0.12) 100%);
+  color: #FF9500;
+}
+
+.help-badge.tip {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.15) 0%, rgba(48, 209, 88, 0.15) 100%);
+  color: #34C759;
+}
+
+.help-note {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.help-note i {
+  color: var(--primary-color);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.help-note p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.help-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Tips & tricks list */
+.tip-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.tip-item {
+  display: flex;
+  gap: 0.9rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.1rem 1.35rem;
+}
+
+.tip-item i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.tip-item p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.tip-item strong {
+  color: var(--text-primary);
+}
+
+/* FAQ accordion-ish */
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.faq-item p {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Still need help */
+.help-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-secondary);
+  border-radius: 28px;
+  margin-top: 1rem;
+}
+
+.help-cta h2 {
+  border: none;
+  padding: 0;
+}
+
+.help-cta p {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  max-width: 460px;
+  margin: 0.75rem auto 1.5rem;
+  line-height: 1.6;
+}
+
+.help-cta-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.help-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 122, 255, 0.25);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-toc {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .help-toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-left: none;
+  }
+
+  .help-toc li a {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .help-toc li a.is-active,
+  .help-toc li a:hover {
+    border-color: var(--primary-color);
+  }
+
+  .help-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="help-page">
+  <div class="help-hero">
+    <h1>ヘルプセンター</h1>
+    <p>持ち物を整理し、すばやく見つけ、WatInside を使いこなすために必要なすべて。</p>
+    <div class="help-search-hint"><i class="fas fa-lightbulb"></i>&nbsp; ヒント: <kbd>Cmd/Ctrl + F</kbd> でこのページ内を検索できます</div>
+  </div>
+
+  <div class="help-layout">
+    <nav class="help-toc" id="help-toc">
+      <div class="help-toc-title">このページの内容</div>
+      <ul>
+        <li><a href="#getting-started">はじめに</a></li>
+        <li><a href="#storages">収納と箱</a></li>
+        <li><a href="#items">持ち物の管理</a></li>
+        <li><a href="#search-scan">検索とスキャン</a></li>
+        <li><a href="#ai">AI タグとアシスタント</a></li>
+        <li><a href="#sharing">共有グループ</a></li>
+        <li><a href="#reminders">通知とリマインダー</a></li>
+        <li><a href="#siri">Siri、Spotlight、ウィジェット</a></li>
+        <li><a href="#labels">QR ラベルと印刷</a></li>
+        <li><a href="#import-export">インポートとエクスポート</a></li>
+        <li><a href="#premium">Premium とクレジット</a></li>
+        <li><a href="#tips">コツとショートカット</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ul>
+    </nav>
+
+    <div class="help-content">
+
+      <section class="help-section" id="getting-started">
+        <h2>はじめに</h2>
+        <p class="help-lede">WatInside は初めてですか？インストールから最初の箱を整理するまでの最短ルートです。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-flag-checkered"></i> 初回起動</h3>
+          <p>ようこそガイドが中心となる考え方（収納、ラベル、カメラ、検索、スキャン）を紹介します。準備ができたら「はじめる」を、すぐに使い始めたい場合は右上の「スキップ」をタップしてください。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-user"></i> プロフィールを設定</h3>
+          <p>プロフィール画面で表示名とアバターを追加できます。これは任意です。WatInside はアカウント不要で、匿名のままでもすべて問題なく使えます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-box-open"></i> 最初の収納を作成</h3>
+          <p>「収納」タブのフローティング <strong>+</strong> ボタンをタップします。WatInside が箱に固有のコード（例: <code>W123456</code>）を自動生成するので、名前を付け、場所とタイプを選べば完了です。QR コードを印刷または保存しておけば、あとでスキャンして開けます。</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-gift"></i>
+          <p>新規インストールでは、最初の 5 日間はすべての Premium 機能が自動的に使えます。購入は不要です。すべて試してから、登録するか決めてください。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="storages">
+        <h2>収納と箱</h2>
+        <p class="help-lede">「収納」とは、追跡したいあらゆる入れ物のことです。引っ越しの箱、キッチンの引き出し、ガレージの棚、トランクルームなど。それぞれにスキャンできる固有コードが付きます。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> 収納を見る</h3>
+          <p>「収納」タブはすべてを場所ごとにまとめ、場所ごとに最近の箱を表示し、その下に「もっと見る」の切り替えがあります。グリッド上部のフィルターチップで、すべて・最近・特定のタイプや場所へ移動したり、期限切れや一時的な項目を絞り込んだりできます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen"></i> 収納を編集</h3>
+          <p>収納カードの <strong>⋯</strong> メニューをタップ（またはカードを長押し）して<strong>管理</strong>を選びます。そこから名前の変更、場所 / タイプ / サイズの変更、カバー写真の更新、メモの追加ができます。同じ画面で、カスタムの場所とタイプの一覧も管理できます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> QR コードと NFC</h3>
+          <p>各収納には QR コードがあり、「管理」画面から直接コピー・共有・印刷できます。お使いの iPhone が NFC に対応していれば、収納のコードを物理的な NFC タグに書き込み、箱に貼ることもできます。あとで iPhone をかざすだけで、カメラを開かずにその収納が瞬時に開きます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-trash-alt"></i> 収納を削除</h3>
+          <p><strong>⋯</strong> メニュー、または「管理」内の危険ゾーンから<strong>削除</strong>を使います。収納が共有グループに含まれている場合、削除できるのは所有者だけです。他のメンバーにはグレー表示されます。</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-hashtag"></i>
+          <p>無料アカウントでは収納を最大 5 個まで作成できます（購入した収納パックがあればさらに増やせます）。Premium では上限が完全になくなります。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="items">
+        <h2>持ち物の管理</h2>
+        <p class="help-lede">持ち物は収納の中にあります。写真ありでもなしでも追加でき、タグを付け、リマインダーを設定して何も忘れないようにできます。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-camera"></i> 持ち物を追加</h3>
+          <p>任意の収納内で <strong>+</strong> をタップします。既定では、持ち物をどう追加するか（写真を撮る / 写真なしで追加）を尋ねます。ボタンを長押しすると既定を設定でき、以後は尋ねられません。持ち物に名前かメモ（どちらか一方は必須）を付け、写真を添付し、タグを追加します。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-tags"></i> タグ</h3>
+          <p>タグは、あとで検索・Siri・Spotlight から探すのに役立ちます。タグを入力してカンマを押すとすぐに追加でき、カンマ区切りの複数タグをまとめて貼り付けることもできます。持ち物のメモに <code>#なにか</code> と書くと、自動的にタグも作成されます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-sliders-h"></i> カスタムフィールド <span class="help-badge premium">Premium</span></h3>
+          <p>任意の持ち物に構造化された情報（テキスト、数値、日付、スイッチ、URL、電話番号など）を付けられます。最近使ったフィールド名が自動で候補に出るので、毎回「保証期限」と入力し直す必要はありません。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-boxes"></i> 数量</h3>
+          <p>持ち物の数量バッジをタップすると数量マネージャーが開きます。1 つ減らす、正確な数を設定する、まるごと空にする、が可能です。</p>
+          <div class="help-note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><strong>注意:</strong> 持ち物の数量を 0 にすると、0 のまま残るのではなく持ち物自体が削除されます。数を減らしたいだけなら、代わりに「正確な数量を設定」を使ってください。</p>
+          </div>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-check-double"></i> 複数選択と一括操作</h3>
+          <p>持ち物を長押し（またはチェックマークアイコンをタップ）すると、複数の持ち物を一度に選択できます。ツールバーが表示され、複数の持ち物をまとめて削除・移動、または返却済み / 取り出し済みとしてマークできます。グリッド表示では、タイル上に選択枠をドラッグして一度に多数を選ぶこともできます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-exchange-alt"></i> 持ち物を移動</h3>
+          <p>持ち物を開き、メニューをタップして「移動先…」を選ぶと、別の収納へ移せます。単一の持ち物でも、複数選択したまとまりでも動作します。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-clock"></i> 貸し出しと一時的な取り出し</h3>
+          <p>持ち物を「取り出し済み」（貸した、持ち出した、など）としてマークし、返却予定日を設定します。期日になると WatInside が知らせます。持ち物のステータスアイコンは、緑（元の場所にある）・黄（一時的に外に出ている）・赤（期限切れ）で一目でわかります。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="search-scan">
+        <h2>検索とスキャン</h2>
+        <p class="help-lede">ものを見つける方法は 3 つ。入力する、スキャンする、カメラを向ける。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search"></i> スマート検索</h3>
+          <p>検索バーは単なるテキスト以上を理解します。<code>tag:休暇</code> や <code>location:ガレージ</code> を試すと、正確に絞り込めます。入力ミスにも強いので、近いつづりでも正しい持ち物が見つかります。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> QR コードをスキャン</h3>
+          <p>「スキャン」タブを開き、任意の WatInside の QR ラベルにカメラを向けると、その収納が瞬時に開きます。まだ何にも対応していないコードをスキャンすると、WatInside がそのコードを入力済みの新しい収納を作成するか尋ねます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen-fancy"></i> 手書き文字をスキャン</h3>
+          <p>QR コードが手元にない？スキャナーを手書きモードに切り替えると、WatInside がデバイス上の文字認識で、手書きまたは印刷された収納コードをラベルから直接読み取ります。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-wifi"></i> NFC タグをスキャン</h3>
+          <p>収納のコードを NFC タグに書き込んである場合は、NFC モードに切り替える（または単に iPhone をタグにかざす）だけで開けます。カメラは不要です。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crosshairs"></i> スキャンして確認 <span class="help-badge premium">Premium</span></h3>
+          <p>特定の持ち物を表示しながら収納にカメラを向けると、その持ち物が本当に中にあるか確認できます。まったく同じ収納ケースが壁一面に並んでいるときに便利です。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="ai">
+        <h2>AI タグとアシスタント</h2>
+        <p class="help-lede">WatInside は写真を見てタグを提案でき、あなたの持ち物リストを代わりに操作できるチャットアシスタントも内蔵しています。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-magic"></i> 自動タグ付け</h3>
+          <p>写真を追加すると、WatInside が写っている内容に基づいてタグを提案します。モードは 3 つあり、設定 → AI プロバイダーの管理 で選べます:</p>
+          <ul>
+            <li><strong>オンデバイス</strong> — 常に無料で、すべて iPhone 上で処理します。</li>
+            <li><strong>Apple Intelligence</strong> <span class="help-badge premium">Premium</span> — 対応デバイスでより高品質なオンデバイス提案。</li>
+            <li><strong>クラウド AI</strong> — 最も高性能な選択肢で、AI クレジットを消費します。</li>
+          </ul>
+          <p>提案されたタグはタップできるチップとして表示されます。保存前に必要なものを選んでください。セッションの途中でクラウド AI クレジットが尽きても、タグ付けは自動的に無料のオンデバイスモードに切り替わり、途切れません。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-comments"></i> AI チャットアシスタント</h3>
+          <p>内蔵アシスタントに自然な言葉で頼めます。「この写真をガレージの箱の新しい持ち物として追加して」「パスポートはどこ」「今月期限が切れるものは」「冬用コートを玄関のクローゼットに移して」など。写真をそのままチャットにドロップして、それから持ち物を作成することもできます。</p>
+          <p>アシスタントは持ち物や収納の検索・作成・更新・移動・整理、リマインダーの設定、簡単な在庫レポートの作成ができます。安全のため、何も削除できません。削除は必ずあなた自身がアプリで行います。</p>
+          <p>「どうやって…」と尋ねれば、あらゆるトピック（収納、持ち物、共有、エクスポートなど）について手順を追ったヘルプが得られます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-eye"></i> 名前ではなく特徴で</h3>
+          <p>何と呼ぶか思い出せない？代わりに見た目を説明してください。「小さい青い陶器のマグを探して」や「ストライプで緑のものを見せて」のように。アシスタントは名前やタグだけでなく、見た目で持ち物を照合します。「6 か月触っていないものは」「今月追加したものは」といったあいまいな時間の質問にも対応するので、自分でリストを掘り返す必要はありません。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="sharing">
+        <h2>共有グループ</h2>
+        <p class="help-lede">収納を家族やルームメイトと共有すれば、全員が同じ持ち物リストを見て更新できます。<span class="help-badge premium">Premium</span></p>
+
+        <div class="help-grid-2">
+          <div class="help-card">
+            <h3><i class="fas fa-users"></i> 作成して招待</h3>
+            <p>共有グループを作成し、自分が所有する収納を追加してから、内蔵の共有シートで人を招待します。先に iCloud 同期を有効にする必要があり、有効でなければ WatInside が案内します。</p>
+          </div>
+          <div class="help-card">
+            <h3><i class="fas fa-user-minus"></i> 退出または削除</h3>
+            <p>参加者はいつでもグループを離れられます。所有者は収納をグループから外す（デバイスには残り、共有だけ解除）ことも、グループ全体を削除する（まず全共有を解除）こともできます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="reminders">
+        <h2>通知とリマインダー</h2>
+        <p class="help-lede">WatInside は、ものの期限が切れる前、予定の期日、在庫が少なくなったときに知らせます。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-bell"></i> リマインダーを起動できるもの</h3>
+          <ul>
+            <li><strong>期限日</strong> — 事前の余裕を設定（当日、1〜2 日前、1 週間前）。</li>
+            <li><strong>予定日</strong> — 同じ考え方で、期日のあるものすべてに。</li>
+            <li><strong>返却日</strong> — 一時的に取り出し / 貸し出し中とマークした持ち物に。</li>
+            <li><strong>在庫少</strong> — 数量が自分で設定したしきい値を下回ったときに通知。</li>
+            <li><strong>日付タイプのカスタムフィールド</strong> — それ自体で独立したリマインダーを設定可能。</li>
+          </ul>
+          <p>通知をタップすると、アプリがその持ち物を直接開きます。設定 → スマート機能 で通知が有効になっていることを確認してください。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="siri">
+        <h2>Siri、Spotlight、ウィジェット</h2>
+        <p class="help-lede">WatInside を使う最速の方法のいくつかは、アプリを開く必要すらありません。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-microphone"></i> Siri に頼む</h3>
+          <ul>
+            <li>「WatInside で<em>パスポート</em>はどこ？」 — Siri がどの収納にあるかを伝え、開きます。</li>
+            <li>「WatInside で<em>ガレージの棚</em>を開いて」 — その収納へ直接移動します。</li>
+            <li>「WatInside で期限切れを検索」または「WatInside で一時を検索」 — マークされた持ち物を表示します。</li>
+          </ul>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search-location"></i> Spotlight</h3>
+          <p>ホーム画面で下にスワイプして検索すると、収納や持ち物もそこに表示されます。持ち物は名前だけでなくタグでも検索できます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th"></i> ホーム画面ウィジェット</h3>
+          <p>WatInside のウィジェットを追加すると、フルアプリを開かずに、チャット・スキャン・検索へワンタップでアクセスできます。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="labels">
+        <h2>QR ラベルと印刷</h2>
+        <p class="help-lede">物理的なラベルを印刷しておけば、箱を閉じた瞬間からスキャンできます。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-print"></i> 1 枚のラベル</h3>
+          <p>収納コードを下に印字した QR コードを 1 つ生成し、そのまま保存・共有・印刷できます。コードが気に入らない？保存前に「再生成」をタップして別のものに。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> まとめてラベル</h3>
+          <p>梱包を始める前にラベルの束が必要？「12 枚のラベルを印刷」で、12 個の固有コードが並んだ 1 ページをまとめて生成します。引っ越し当日にぴったりです。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="import-export">
+        <h2>インポートとエクスポート</h2>
+        <p class="help-lede">あなたのデータは、持ち運べます。<span class="help-badge premium">Premium</span></p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-export"></i> エクスポート</h3>
+          <p>すべて（または手動で選んだ一部）を JSON または CSV でエクスポートでき、写真も一緒にまとめられます。バックアップにもなるので、安全な場所にコピーを保管してください。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-import"></i> インポート</h3>
+          <p>以前のエクスポートをインポートして、データを復元または統合します。WatInside は収納をコードで照合するため、同じファイルを再インポートすると、収納が重複せず既存のものが更新されます。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="premium">
+        <h2>Premium とクレジット</h2>
+        <p class="help-lede">無料の範囲、Premium の範囲、そして AI クレジットのしくみ。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crown"></i> Premium で解放されるもの</h3>
+          <p>無制限の収納、共有グループ、カスタムフィールド、Apple Intelligence のタグ付け、スキャンして確認、インポート/エクスポート。設定 → Premium にアップグレード から、月額・年額、または買い切りの Lifetime を選べます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-coins"></i> AI クレジット</h3>
+          <p>クラウド AI のタグ付けはクレジットを消費します。誰でも無料のスタータークレジットがいくつか付き、Premium には毎月のプールが含まれ、足りなければいつでも追加のクレジットパックを購入できます。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-undo"></i> 購入の復元とプロモコード</h3>
+          <p>別のデバイスで登録済み？設定の「購入を復元」を使います。プロモコードがある？サブスクリプション画面で入力すると、WatInside が Apple 公式の引き換えフローに引き継いで適用します。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="tips">
+        <h2>コツとショートカット</h2>
+        <p class="help-lede">見落としがちな上級者向けのちょっとした操作をいくつか。</p>
+
+        <div class="tip-list">
+          <div class="tip-item">
+            <i class="fas fa-hand-pointer"></i>
+            <p><strong>収納内の + ボタンを長押し</strong>すると、既定の操作（毎回尋ねる / 写真を撮る / 写真なしで追加）を設定でき、通常のタップでは尋ねられなくなります。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-vector-square"></i>
+            <p><strong>グリッド表示の複数選択モード</strong>で、持ち物タイルの上に選択枠をドラッグすると、一度に複数をつかめます。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-comment-dots"></i>
+            <p><strong>タグを追加中にカンマを入力</strong>すると 1 つをすぐ確定でき、カンマ区切りの複数タグを貼り付けてまとめて追加もできます。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-wifi"></i>
+            <p><strong>NFC タグはアプリの外でも機能します</strong> — WatInside の収納リンクを書き込んだタグは、iPhone が触れた瞬間にその収納を開きます。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-search"></i>
+            <p><strong><code>tag:休暇</code> や <code>location:ガレージ</code> のような検索修飾子</strong>を使うと、スクロールせずに結果をすぐ絞り込めます。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-layer-group"></i>
+            <p><strong>場所ごとのセクションは、既定で最近の収納 2 件を表示します</strong> — 下の「もっと見る」をタップすると残りが見られます。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-history"></i>
+            <p><strong>過去の AI チャットは保存され、アシスタントのサイドバーで検索できます</strong>。今日・昨日・過去 7 日間 でまとめられます。会話をスワイプして削除するか、そこからまとめて消去できます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="faq">
+        <h2>よくある質問</h2>
+
+        <div class="faq-item">
+          <h3>アカウントを作る必要はありますか？</h3>
+          <p>いいえ。WatInside はアカウントや登録なしで完全に使えます。データはあなたのデバイスにあり、有効にすれば、あなた自身の iCloud を通じて非公開で同期されます。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>数量を変えたら持ち物が消えたのはなぜ？</h3>
+          <p>持ち物の数量を 0 にすると、0 のまま残らず削除されます。数を減らしたまま持ち物を残したい場合は、いちばん下まで減らすのではなく「正確な数量を設定」を使ってください。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>機種変更の前にデータをバックアップするには？</h3>
+          <p>設定で iCloud 同期を有効にすると、Apple ID とともにすべて自動で移行します。または、エクスポート（Premium）で JSON/CSV のコピーを保存し、あとでインポートできます。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>「すべてのデータをリセット」は AI クレジットもリセットしますか？</h3>
+          <p>いいえ。「すべてのデータをリセット」は収納・持ち物・設定を消しますが、AI クレジットの残高はあえてそのまま残します。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>タグ付けの途中でクラウド AI クレジットが尽きたらどうなりますか？</h3>
+          <p>WatInside は自動で無料のオンデバイスのタグ付けに切り替わるので、作業は中断しません。クレジットは設定からいつでもチャージできます。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>AI チャットアシスタントは私の代わりにものを削除できますか？</h3>
+          <p>いいえ、仕様です。アシスタントは持ち物リストの検索・追加・更新・整理はできますが、削除はすべてあなたがアプリで直接行う必要があります。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>名前を思い出せなくても持ち物を検索できますか？</h3>
+          <p>はい。AI チャットアシスタントに、見た目で探すよう頼んでください。「赤いバックパック」や「丸い金属のもの」のように。名前やタグだけでなく、見た目で照合します。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>バグを見つけた、または機能のアイデアがある — どうすれば？</h3>
+          <p>設定 → フィードバック → 「フィードバックを送信」または「バグを報告」を使ってください。できればスクリーンショットを添えてください。とても助かります。</p>
+        </div>
+      </section>
+
+      <div class="help-cta">
+        <h2>まだお困りですか？</h2>
+        <p>お問い合わせいただければ返信します。あるいは内蔵の AI アシスタントに聞けば、たいていのことはその場で案内してくれます。</p>
+        <a href="{{ '/ja/contact/' | relative_url }}" class="help-cta-btn">お問い合わせ</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.help-section'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('#help-toc a'));
+    if (!sections.length || !links.length) return;
+
+    function setActive() {
+      var scrollPos = window.scrollY + 140;
+      var current = sections[0];
+      sections.forEach(function (section) {
+        if (section.offsetTop <= scrollPos) {
+          current = section;
+        }
+      });
+      links.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', setActive);
+    setActive();
+  });
+</script>
+
+{% include floating_cta.html %}

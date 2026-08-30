@@ -1,0 +1,29 @@
+# English UI chrome strings.
+# Nav/footer link titles live in _data/navigation.yml (per language).
+
+lang_switch:
+  label: "Language"
+
+menu: "Menu"
+
+cta:
+  early_access: "Get Early Access"
+  join_beta: "Join iOS Beta"
+
+slideshow:
+  group_label: "WatInside app preview"
+  link_label: "Open WatInside early access"
+  screenshot_alt: "WatInside app screenshot showcasing home inventory features"
+  choose_label: "Choose app preview screenshot"
+  show_label: "Show screenshot"
+
+footer:
+  tagline: "Organize your physical world."
+  rights: "All rights reserved."
+  rss: "RSS Feed"
+
+blog:
+  back_to_all: "Back to All Articles"
+  previous: "Previous"
+  next: "Next"
+  recent_stories: "Recent Stories"

@@ -1,0 +1,29 @@
+# 日本語の UI 文字列。
+# ナビゲーション / フッターのタイトルは _data/navigation.yml にあります。
+
+lang_switch:
+  label: "言語"
+
+menu: "メニュー"
+
+cta:
+  early_access: "早期アクセスを取得"
+  join_beta: "iOS ベータに参加"
+
+slideshow:
+  group_label: "WatInside アプリのプレビュー"
+  link_label: "WatInside の早期アクセスを開く"
+  screenshot_alt: "自宅の持ち物管理機能を紹介する WatInside アプリのスクリーンショット"
+  choose_label: "アプリのプレビュー用スクリーンショットを選択"
+  show_label: "スクリーンショットを表示"
+
+footer:
+  tagline: "身のまわりのモノを整理しよう。"
+  rights: "無断転載を禁じます。"
+  rss: "RSS フィード"
+
+blog:
+  back_to_all: "すべての記事に戻る"
+  previous: "前へ"
+  next: "次へ"
+  recent_stories: "最近の記事"

@@ -4,7 +4,11 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:type" content="{% if page.layout == 'single' %}article{% else %}website{% endif %}">
-<meta property="og:locale" content="en_US">
+{%- comment -%} og:locale itself is emitted (language-aware) by _includes/seo.html {%- endcomment -%}
+{% assign cur_lang = page.lang | default: site.default_lang %}
+{% if page.i18n %}{% for l in site.languages %}{% unless l == cur_lang %}{% assign alt_locale = site.language_locales[l] %}{% if alt_locale %}<meta property="og:locale:alternate" content="{{ alt_locale }}">
+{% endif %}{% endunless %}{% endfor %}{% elsif page.translations %}{% for pair in page.translations %}{% assign alt_lang = pair[0] %}{% assign alt_locale = site.language_locales[alt_lang] %}{% if alt_locale %}<meta property="og:locale:alternate" content="{{ alt_locale }}">
+{% endif %}{% endfor %}{% endif %}
 {% if page.og_image %}
 <meta property="og:image" content="{{ page.og_image | absolute_url }}">
 <meta property="og:image:width" content="1200">

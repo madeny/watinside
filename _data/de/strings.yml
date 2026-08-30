@@ -1,0 +1,29 @@
+# Oberflächentexte auf Deutsch.
+# Navigations- und Fußzeilentitel stehen in _data/navigation.yml.
+
+lang_switch:
+  label: "Sprache"
+
+menu: "Menü"
+
+cta:
+  early_access: "Frühen Zugang sichern"
+  join_beta: "iOS-Beta beitreten"
+
+slideshow:
+  group_label: "Vorschau der WatInside-App"
+  link_label: "Frühen Zugang zu WatInside öffnen"
+  screenshot_alt: "Screenshot der WatInside-App mit den Funktionen zur Haushaltsinventur"
+  choose_label: "App-Vorschau-Screenshot auswählen"
+  show_label: "Screenshot anzeigen"
+
+footer:
+  tagline: "Bring Ordnung in deine physische Welt."
+  rights: "Alle Rechte vorbehalten."
+  rss: "RSS-Feed"
+
+blog:
+  back_to_all: "Zurück zu allen Artikeln"
+  previous: "Zurück"
+  next: "Weiter"
+  recent_stories: "Neueste Artikel"

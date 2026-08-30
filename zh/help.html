@@ -1,0 +1,775 @@
+---
+layout: default
+lang: zh
+title: "帮助中心 | WatInside"
+description: "充分发挥 WatInside 所需了解的一切——整理储物空间、添加物品、扫描、AI 打标签、共享等。"
+permalink: /zh/help/
+i18n: true
+---
+
+<style>
+/* Help Page Styles */
+.help-page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+}
+
+.help-hero {
+  text-align: center;
+  padding: 3rem 0 3rem;
+}
+
+.help-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.help-hero p {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.help-search-hint {
+  margin-top: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 20px;
+}
+
+/* Layout: sidebar + content */
+.help-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.help-toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.help-toc-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.help-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--border-color);
+}
+
+.help-toc li {
+  margin: 0;
+}
+
+.help-toc a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.help-toc a:hover,
+.help-toc a.is-active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
+
+.help-content {
+  min-width: 0;
+}
+
+.help-section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.help-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.help-section > p.help-lede {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.help-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.help-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.help-card h3 i {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  width: 1.1rem;
+  text-align: center;
+}
+
+.help-card p,
+.help-card li {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.help-card ul,
+.help-card ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.help-card p:last-child,
+.help-card ul:last-child,
+.help-card ol:last-child {
+  margin-bottom: 0;
+}
+
+.help-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.help-badge.premium {
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15) 0%, rgba(255, 59, 48, 0.12) 100%);
+  color: #FF9500;
+}
+
+.help-badge.tip {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.15) 0%, rgba(48, 209, 88, 0.15) 100%);
+  color: #34C759;
+}
+
+.help-note {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.help-note i {
+  color: var(--primary-color);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.help-note p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.help-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Tips & tricks list */
+.tip-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.tip-item {
+  display: flex;
+  gap: 0.9rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.1rem 1.35rem;
+}
+
+.tip-item i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.tip-item p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.tip-item strong {
+  color: var(--text-primary);
+}
+
+/* FAQ accordion-ish */
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.faq-item p {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Still need help */
+.help-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-secondary);
+  border-radius: 28px;
+  margin-top: 1rem;
+}
+
+.help-cta h2 {
+  border: none;
+  padding: 0;
+}
+
+.help-cta p {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  max-width: 460px;
+  margin: 0.75rem auto 1.5rem;
+  line-height: 1.6;
+}
+
+.help-cta-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.help-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 122, 255, 0.25);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-toc {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .help-toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-left: none;
+  }
+
+  .help-toc li a {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .help-toc li a.is-active,
+  .help-toc li a:hover {
+    border-color: var(--primary-color);
+  }
+
+  .help-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="help-page">
+  <div class="help-hero">
+    <h1>帮助中心</h1>
+    <p>整理你的物品、快速找到它们，并充分发挥 WatInside 的一切所需。</p>
+    <div class="help-search-hint"><i class="fas fa-lightbulb"></i>&nbsp; 提示：按 <kbd>Cmd/Ctrl + F</kbd> 可在本页搜索</div>
+  </div>
+
+  <div class="help-layout">
+    <nav class="help-toc" id="help-toc">
+      <div class="help-toc-title">本页目录</div>
+      <ul>
+        <li><a href="#getting-started">快速上手</a></li>
+        <li><a href="#storages">储物空间与纸箱</a></li>
+        <li><a href="#items">管理物品</a></li>
+        <li><a href="#search-scan">搜索与扫描</a></li>
+        <li><a href="#ai">AI 标签与助手</a></li>
+        <li><a href="#sharing">共享群组</a></li>
+        <li><a href="#reminders">通知与提醒</a></li>
+        <li><a href="#siri">Siri、聚焦搜索与小组件</a></li>
+        <li><a href="#labels">二维码标签与打印</a></li>
+        <li><a href="#import-export">导入与导出</a></li>
+        <li><a href="#premium">Premium 与额度</a></li>
+        <li><a href="#tips">技巧与快捷操作</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+
+    <div class="help-content">
+
+      <section class="help-section" id="getting-started">
+        <h2>快速上手</h2>
+        <p class="help-lede">第一次使用 WatInside？这是从安装到整理好第一个纸箱的最短路径。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-flag-checkered"></i> 首次启动</h3>
+          <p>欢迎引导会介绍核心概念——储物空间、标签、相机、搜索和扫描。准备好后点按“开始使用”，或点右上角的“跳过”直接进入。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-user"></i> 设置个人资料</h3>
+          <p>在个人资料页面添加显示名称和头像。这是可选的——WatInside 不需要账户，匿名使用一切也照常。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-box-open"></i> 创建第一个储物空间</h3>
+          <p>在“储物空间”标签页点按浮动的 <strong>+</strong> 按钮。WatInside 会自动为纸箱生成一个唯一编号（例如 <code>W123456</code>）——给它起个名字，选择位置和类型，就完成了。打印或保存它的二维码，以后即可扫码打开。</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-gift"></i>
+          <p>新安装会在前 5 天自动获得全部 Premium 功能——无需购买。先把一切都体验一遍，再决定要不要订阅。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="storages">
+        <h2>储物空间与纸箱</h2>
+        <p class="help-lede">“储物空间”指任何你想追踪的容器——搬家纸箱、厨房抽屉、车库层架、储藏间。每个都会有自己可扫描的编号。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> 浏览你的储物空间</h3>
+          <p>“储物空间”标签页按位置分组，为每个位置显示最近的纸箱，下方有“显示更多”开关。用网格上方的筛选标签快速切换到全部、最近、某个类型或位置，或标记逾期或临时的项目。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen"></i> 编辑储物空间</h3>
+          <p>在任意储物空间卡片上点按 <strong>⋯</strong> 菜单（或长按卡片），选择<strong>管理</strong>。在那里你可以重命名，修改位置 / 类型 / 尺寸，更新封面照片，或添加备注。你也可以在同一页面管理自定义的位置和类型列表。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> 二维码与 NFC</h3>
+          <p>每个储物空间都有一个二维码，可直接从“管理”页面复制、分享或打印。如果你的手机支持 NFC，还可以把储物空间的编号写入实体 NFC 标签并贴在纸箱上——以后用手机轻触它，就能立刻打开这个储物空间，完全不用打开相机。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-trash-alt"></i> 删除储物空间</h3>
+          <p>在 <strong>⋯</strong> 菜单或“管理”中的危险区域里使用<strong>删除</strong>。如果该储物空间属于某个共享群组，只有所有者能删除它——其他成员会看到它呈灰色。</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-hashtag"></i>
+          <p>免费账户最多可创建 5 个储物空间（购买储物空间包后可更多）。Premium 完全取消该上限。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="items">
+        <h2>管理物品</h2>
+        <p class="help-lede">物品放在储物空间里。可以带照片或不带照片地添加，为它们打标签，并设置提醒，避免遗漏。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-camera"></i> 添加物品</h3>
+          <p>在任意储物空间里点按 <strong>+</strong>。默认情况下应用会询问你想怎样添加物品（拍照或不拍照）——长按按钮可设定默认方式，之后就不再询问。给物品起个名字或写备注（至少填一项），附上照片，并添加标签。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-tags"></i> 标签</h3>
+          <p>标签有助于日后找到物品——通过搜索、Siri 或聚焦搜索。输入一个标签后按逗号即可立刻添加，或一次粘贴多个用逗号分隔的标签。在物品备注中写 <code>#某内容</code> 也会自动为它创建一个标签。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-sliders-h"></i> 自定义字段 <span class="help-badge premium">Premium</span></h3>
+          <p>为任意物品附加结构化信息——文本、数字、日期、开关、网址、电话号码等。最近使用过的字段名会自动出现在建议中，这样你就不用每次都重新输入“保修到期”。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-boxes"></i> 数量</h3>
+          <p>点按物品上的数量标记，打开数量管理器——移除一个、设定确切数字，或彻底清空。</p>
+          <div class="help-note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><strong>注意：</strong>把物品数量设为 0 会删除该物品，而不是把它保留为零。如果只是想减少数量，请改用“设定确切数量”。</p>
+          </div>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-check-double"></i> 多选与批量操作</h3>
+          <p>长按一个物品（或点按对勾图标）即可同时选择多个物品。会出现一个工具栏，让你一次性删除、移动，或把多个物品标记为已归还 / 已移除。在网格视图中，你也可以在方块上拖出一个选择框，一次选中多个。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-exchange-alt"></i> 移动物品</h3>
+          <p>打开一个物品，点按菜单，选择“移动到…”将它转移到另一个储物空间。适用于单个物品或整批多选的物品。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-clock"></i> 借出与临时取出</h3>
+          <p>把物品标记为“已移除”（借出、随身带走等），并设定预计归还日期——到期时 WatInside 会提醒你。物品的状态图标一眼可辨：绿色（在原位）、黄色（临时取出）或红色（逾期）。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="search-scan">
+        <h2>搜索与扫描</h2>
+        <p class="help-lede">找东西有三种方式：输入它、扫描它，或把相机对准它。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search"></i> 智能搜索</h3>
+          <p>搜索栏能理解的不只是纯文本——试试 <code>tag:假期</code> 或 <code>location:车库</code> 来精确筛选。它还能容忍拼写错误，因此相近的写法也能找到正确的物品。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> 扫描二维码</h3>
+          <p>打开“扫描”标签页，把相机对准任意 WatInside 二维码标签，即可立刻打开该储物空间。若扫到一个尚未对应任何东西的编号，WatInside 会提示用该编号创建一个新的储物空间。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen-fancy"></i> 扫描手写文字</h3>
+          <p>手边没有二维码？把扫描器切换到手写模式，WatInside 会借助设备端文字识别，直接从标签上读取手写或打印的储物空间编号。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-wifi"></i> 扫描 NFC 标签</h3>
+          <p>如果你已把某个储物空间的编号写入 NFC 标签，切换到 NFC 模式（或直接用手机轻触标签）即可打开它——无需相机。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crosshairs"></i> 扫描以确认 <span class="help-badge premium">Premium</span></h3>
+          <p>在查看某个具体物品时把相机对准一个储物空间，即可确认该物品是否真的在里面——面对一排一模一样的收纳箱时很实用。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="ai">
+        <h2>AI 标签与助手</h2>
+        <p class="help-lede">WatInside 能查看你的照片并建议标签，还内置一个聊天助手，可代你操作你的物品清单。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-magic"></i> 自动打标签</h3>
+          <p>添加照片时，WatInside 会根据画面内容建议标签。共有三种模式，在 设置 → 管理 AI 提供方 中选择：</p>
+          <ul>
+            <li><strong>设备端</strong>——始终免费，全部在你的手机上处理。</li>
+            <li><strong>Apple Intelligence</strong> <span class="help-badge premium">Premium</span>——在受支持的设备上提供更高质量的设备端建议。</li>
+            <li><strong>云端 AI</strong>——最强选项，会消耗 AI 额度。</li>
+          </ul>
+          <p>建议的标签会以可点按的小标签形式出现——保存前先选中你想要的。如果云端 AI 额度在中途用尽，打标签会自动回退到免费的设备端模式，不会中断。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-comments"></i> AI 聊天助手</h3>
+          <p>用自然语言向内置助手求助——“把这张照片作为新物品添加到车库那个纸箱”“我的护照在哪”“这个月有什么要到期”或“把我的冬季大衣移到玄关柜”。你甚至可以直接把照片拖进聊天里，据此创建物品。</p>
+          <p>助手可以搜索、创建、更新、移动和整理物品与储物空间，设置提醒，并生成快速的物品清单报告。出于安全考虑，它永远不能删除任何东西——那始终由你在应用里完成。</p>
+          <p>问它“我该如何……”即可就任意主题获得逐步指引——储物空间、物品、共享、导出等。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-eye"></i> 描述它，别说名字</h3>
+          <p>记不清某样东西叫什么？那就描述它的样子——“找那只蓝色的小陶瓷杯”或“给我看所有带条纹的绿色东西”——助手会按外观匹配物品，而不仅是名字或标签。它也能处理模糊的时间问题，比如“我 6 个月没碰过什么”或“我这个月加了什么”，省得你自己翻列表。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="sharing">
+        <h2>共享群组</h2>
+        <p class="help-lede">把你的储物空间分享给家人或室友，这样大家都能查看并更新同一份物品清单。<span class="help-badge premium">Premium</span></p>
+
+        <div class="help-grid-2">
+          <div class="help-card">
+            <h3><i class="fas fa-users"></i> 创建并邀请</h3>
+            <p>创建一个共享群组，把你拥有的储物空间加进去，然后通过内置的分享面板邀请他人。需要先开启 iCloud 同步——如果没开，WatInside 会提示你。</p>
+          </div>
+          <div class="help-card">
+            <h3><i class="fas fa-user-minus"></i> 退出或移除</h3>
+            <p>参与者可随时退出群组。所有者可以把某个储物空间从群组中移除（它仍留在你的设备上，只是不再共享），或删除整个群组，这会先取消所有共享。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="reminders">
+        <h2>通知与提醒</h2>
+        <p class="help-lede">WatInside 能在物品到期前、约定到期时或库存不足时提醒你。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-bell"></i> 什么可以触发提醒</h3>
+          <ul>
+            <li><strong>到期日期</strong>——设定提前量（当天、提前 1–2 天，或提前一周）。</li>
+            <li><strong>约定日期</strong>——同理，适用于任何有截止时间的事项。</li>
+            <li><strong>归还日期</strong>——针对标记为临时移除 / 借出的物品。</li>
+            <li><strong>库存不足</strong>——当数量低于你设定的阈值时收到通知。</li>
+            <li><strong>日期类型的自定义字段</strong>——可安排各自独立的提醒。</li>
+          </ul>
+          <p>点按任意通知会直接打开应用并定位到该物品。请确保在 设置 → 智能功能 中已开启通知。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="siri">
+        <h2>Siri、聚焦搜索与小组件</h2>
+        <p class="help-lede">使用 WatInside 一些最快的方式，根本不用打开应用。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-microphone"></i> 问 Siri</h3>
+          <ul>
+            <li>“我的<em>护照</em>在 WatInside 里在哪？”——Siri 会告诉你它在哪个储物空间并打开它。</li>
+            <li>“在 WatInside 里打开<em>车库层架</em>”——直接跳转到该储物空间。</li>
+            <li>“在 WatInside 里搜索逾期”或“在 WatInside 里搜索临时”——列出被标记的物品。</li>
+          </ul>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search-location"></i> 聚焦搜索</h3>
+          <p>在主屏幕下滑并搜索——你的储物空间和物品也会出现在那里，而且物品可按标签搜索，不只是按名字。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th"></i> 主屏幕小组件</h3>
+          <p>添加 WatInside 小组件，一点即可访问聊天、扫描或搜索——无需先解锁进入完整应用。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="labels">
+        <h2>二维码标签与打印</h2>
+        <p class="help-lede">打印实体标签，让每个纸箱封箱后即可扫描。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-print"></i> 单个标签</h3>
+          <p>生成一个二维码，下方印有它的储物空间编号，可直接保存、分享或打印。对编号不满意？保存前点按“重新生成”换一个。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> 批量标签</h3>
+          <p>开始打包前需要一叠标签？“打印 12 张标签”会一次生成含 12 个唯一编号的整页——搬家当天正合适。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="import-export">
+        <h2>导入与导出</h2>
+        <p class="help-lede">你的数据，可随身带走。<span class="help-badge premium">Premium</span></p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-export"></i> 导出</h3>
+          <p>把全部内容（或手动挑选的一部分）导出为 JSON 或 CSV，可选择连同照片一起打包。这也可当作备份——把一份副本存放在安全的地方。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-import"></i> 导入</h3>
+          <p>导入此前的导出文件以恢复或合并数据。WatInside 按编号匹配储物空间，因此重新导入同一个文件会更新已有的储物空间，而不是重复创建。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="premium">
+        <h2>Premium 与额度</h2>
+        <p class="help-lede">哪些免费、哪些属于 Premium，以及 AI 额度如何运作。</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crown"></i> Premium 解锁的内容</h3>
+          <p>无限储物空间、共享群组、自定义字段、Apple Intelligence 打标签、扫描以确认，以及导入/导出。可按月、按年订阅，或在 设置 → 升级到 Premium 中一次性买断终身。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-coins"></i> AI 额度</h3>
+          <p>云端 AI 打标签会消耗额度——每个人都会获得少量免费的起始额度，Premium 含每月额度池，需要更多时随时可购买额外的额度包。</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-undo"></i> 恢复购买与优惠码</h3>
+          <p>已在另一台设备上订阅？在设置里使用“恢复购买”。有优惠码？在订阅页面输入，WatInside 会交由 Apple 官方的兑换流程来应用它。</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="tips">
+        <h2>技巧与快捷操作</h2>
+        <p class="help-lede">一些容易被忽略的进阶用法。</p>
+
+        <div class="tip-list">
+          <div class="tip-item">
+            <i class="fas fa-hand-pointer"></i>
+            <p><strong>在储物空间里长按 + 按钮</strong>，可设定它的默认操作——每次询问、拍照，或不拍照添加——这样普通一点就不再询问。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-vector-square"></i>
+            <p><strong>在网格视图的多选模式下</strong>，在物品方块上拖出一个选择框，一次抓取多个。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-comment-dots"></i>
+            <p><strong>添加标签时输入逗号</strong>即可立刻确认一个——或一次粘贴多个用逗号分隔的标签全部添加。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-wifi"></i>
+            <p><strong>NFC 标签在应用之外也能用</strong>——任何写有 WatInside 储物空间链接的标签，手机一碰就会打开该储物空间。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-search"></i>
+            <p><strong>使用 <code>tag:假期</code> 或 <code>location:车库</code> 这样的搜索限定词</strong>，可立刻缩小结果范围，而不用滚动。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-layer-group"></i>
+            <p><strong>按位置分组的区块默认显示你最近的 2 个储物空间</strong>——点按下方的“显示更多”查看其余。</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-history"></i>
+            <p><strong>过往的 AI 聊天会被保存，并可在助手的侧边栏中搜索</strong>，按今天、昨天和过去 7 天分组。滑动某条对话可删除，或从那里一次清空全部。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="faq">
+        <h2>常见问题</h2>
+
+        <div class="faq-item">
+          <h3>我需要创建账户吗？</h3>
+          <p>不需要。WatInside 完全无需任何账户或注册即可使用。你的数据保存在你的设备上，如果你开启，会通过你自己的 iCloud 私密同步。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>改了数量之后，我的物品为什么消失了？</h3>
+          <p>把物品数量设为 0 会删除它，而不是保留为零。如果想让物品保留较少的数量，请使用“设定确切数量”，而不是一直往下减。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>换手机前如何备份数据？</h3>
+          <p>在设置中开启 iCloud 同步，一切会随你的 Apple ID 自动转移；或使用导出（Premium）保存一份 JSON/CSV 副本，以后再导入。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>“重置所有数据”会一并重置我的 AI 额度吗？</h3>
+          <p>不会——“重置所有数据”会清除你的储物空间、物品和设置，但你的 AI 额度余额会被特意保留。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>如果打标签途中我的云端 AI 额度用完了会怎样？</h3>
+          <p>WatInside 会自动回退到免费的设备端打标签，不会打断你的操作——你随时可在设置里充值额度。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>AI 聊天助手能替我删除东西吗？</h3>
+          <p>不能，这是特意设计的。助手可以搜索、添加、更新和整理你的物品清单，但任何删除都必须由你在应用里直接完成。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>如果我不记得物品的名字，还能搜索它吗？</h3>
+          <p>可以——让 AI 聊天助手按外观来找它，比如“红色的背包”或“圆的金属的东西”。它依据物品的样子来匹配，而不只是名字或标签。</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>我发现了一个 bug 或有一个功能建议——该怎么做？</h3>
+          <p>使用 设置 → 反馈 →“发送反馈”或“报告 bug”。如果可以，附上一张截图——会很有帮助。</p>
+        </div>
+      </section>
+
+      <div class="help-cta">
+        <h2>还需要帮忙吗？</h2>
+        <p>联系我们，我们会回复你——或者问问内置的 AI 助手，它能就大多数事情立刻带你操作。</p>
+        <a href="{{ '/zh/contact/' | relative_url }}" class="help-cta-btn">联系我们</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.help-section'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('#help-toc a'));
+    if (!sections.length || !links.length) return;
+
+    function setActive() {
+      var scrollPos = window.scrollY + 140;
+      var current = sections[0];
+      sections.forEach(function (section) {
+        if (section.offsetTop <= scrollPos) {
+          current = section;
+        }
+      });
+      links.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', setActive);
+    setActive();
+  });
+</script>
+
+{% include floating_cta.html %}

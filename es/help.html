@@ -1,0 +1,775 @@
+---
+layout: default
+lang: es
+title: "Centro de ayuda | WatInside"
+description: "Todo lo que necesitas saber para sacar el máximo partido a WatInside: organizar trasteros, añadir objetos, escanear, etiquetar con IA, compartir y más."
+permalink: /es/help/
+i18n: true
+---
+
+<style>
+/* Help Page Styles */
+.help-page {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem var(--content-padding);
+}
+
+.help-hero {
+  text-align: center;
+  padding: 3rem 0 3rem;
+}
+
+.help-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.help-hero p {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.help-search-hint {
+  margin-top: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 20px;
+}
+
+/* Layout: sidebar + content */
+.help-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.help-toc {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.help-toc-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.help-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--border-color);
+}
+
+.help-toc li {
+  margin: 0;
+}
+
+.help-toc a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.help-toc a:hover,
+.help-toc a.is-active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+}
+
+.help-content {
+  min-width: 0;
+}
+
+.help-section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 100px;
+}
+
+.help-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.help-section > p.help-lede {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.help-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+}
+
+.help-card h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.help-card h3 i {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  width: 1.1rem;
+  text-align: center;
+}
+
+.help-card p,
+.help-card li {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.help-card ul,
+.help-card ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.help-card p:last-child,
+.help-card ul:last-child,
+.help-card ol:last-child {
+  margin-bottom: 0;
+}
+
+.help-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.help-badge.premium {
+  background: linear-gradient(135deg, rgba(255, 149, 0, 0.15) 0%, rgba(255, 59, 48, 0.12) 100%);
+  color: #FF9500;
+}
+
+.help-badge.tip {
+  background: linear-gradient(135deg, rgba(52, 199, 89, 0.15) 0%, rgba(48, 209, 88, 0.15) 100%);
+  color: #34C759;
+}
+
+.help-note {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.help-note i {
+  color: var(--primary-color);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.help-note p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.help-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Tips & tricks list */
+.tip-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.tip-item {
+  display: flex;
+  gap: 0.9rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.1rem 1.35rem;
+}
+
+.tip-item i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.tip-item p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.tip-item strong {
+  color: var(--text-primary);
+}
+
+/* FAQ accordion-ish */
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.25rem 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.faq-item p {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Still need help */
+.help-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-secondary);
+  border-radius: 28px;
+  margin-top: 1rem;
+}
+
+.help-cta h2 {
+  border: none;
+  padding: 0;
+}
+
+.help-cta p {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  max-width: 460px;
+  margin: 0.75rem auto 1.5rem;
+  line-height: 1.6;
+}
+
+.help-cta-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.help-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 122, 255, 0.25);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-toc {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .help-toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    border-left: none;
+  }
+
+  .help-toc li a {
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .help-toc li a.is-active,
+  .help-toc li a:hover {
+    border-color: var(--primary-color);
+  }
+
+  .help-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="help-page">
+  <div class="help-hero">
+    <h1>Centro de ayuda</h1>
+    <p>Todo lo necesario para organizar tus cosas, encontrarlas rápido y sacar el máximo partido a WatInside.</p>
+    <div class="help-search-hint"><i class="fas fa-lightbulb"></i>&nbsp; Consejo: usa <kbd>Cmd/Ctrl + F</kbd> para buscar en esta página</div>
+  </div>
+
+  <div class="help-layout">
+    <nav class="help-toc" id="help-toc">
+      <div class="help-toc-title">En esta página</div>
+      <ul>
+        <li><a href="#getting-started">Primeros pasos</a></li>
+        <li><a href="#storages">Trasteros &amp; cajas</a></li>
+        <li><a href="#items">Gestionar objetos</a></li>
+        <li><a href="#search-scan">Búsqueda &amp; escaneo</a></li>
+        <li><a href="#ai">Etiquetas con IA &amp; asistente</a></li>
+        <li><a href="#sharing">Grupos compartidos</a></li>
+        <li><a href="#reminders">Notificaciones &amp; recordatorios</a></li>
+        <li><a href="#siri">Siri, Spotlight &amp; widget</a></li>
+        <li><a href="#labels">Etiquetas QR &amp; impresión</a></li>
+        <li><a href="#import-export">Importar &amp; exportar</a></li>
+        <li><a href="#premium">Premium &amp; créditos</a></li>
+        <li><a href="#tips">Trucos &amp; atajos</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </nav>
+
+    <div class="help-content">
+
+      <section class="help-section" id="getting-started">
+        <h2>Primeros pasos</h2>
+        <p class="help-lede">¿Nuevo en WatInside? Este es el camino más corto, desde la instalación hasta tu primera caja organizada.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-flag-checkered"></i> Primer inicio</h3>
+          <p>La guía de bienvenida presenta las ideas clave: trasteros, etiquetas, la cámara, la búsqueda y el escaneo. Toca «Empezar» cuando estés listo, o «Omitir» en la parte superior derecha para entrar directamente.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-user"></i> Configura tu perfil</h3>
+          <p>Añade un nombre visible y un avatar desde la pantalla de perfil. Es opcional: WatInside no requiere ninguna cuenta y todo funciona también de forma anónima.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-box-open"></i> Crea tu primer trastero</h3>
+          <p>Toca el botón flotante <strong>+</strong> en la pestaña Trasteros. WatInside genera automáticamente un código único (por ejemplo <code>W123456</code>) para la caja: ponle un nombre, elige una ubicación y un tipo, y listo. Imprime o guarda su código QR para poder abrirlo escaneándolo más tarde.</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-gift"></i>
+          <p>Las nuevas instalaciones obtienen automáticamente todas las funciones Premium durante los primeros 5 días, sin ninguna compra. Explóralo todo antes de decidir si quieres suscribirte.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="storages">
+        <h2>Trasteros &amp; cajas</h2>
+        <p class="help-lede">Un «trastero» es cualquier contenedor que quieras controlar: una caja de mudanza, un cajón de la cocina, una estantería del garaje, un guardamuebles. Cada uno recibe su propio código escaneable.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> Explorar tus trasteros</h3>
+          <p>La pestaña Trasteros agrupa todo por ubicación y muestra tus cajas más recientes de cada ubicación, con un botón «Mostrar más» debajo. Usa los filtros situados encima de la cuadrícula para ir a Todos, Recientes, un Tipo o una Ubicación concretos, o marcar los elementos Vencidos o Temporales.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen"></i> Editar un trastero</h3>
+          <p>Toca el menú <strong>⋯</strong> en cualquier tarjeta de trastero (o mantén pulsada la tarjeta) y elige <strong>Gestionar</strong>. Desde ahí puedes renombrarlo, cambiar su ubicación / tipo / tamaño, actualizar la foto de portada o añadir notas. También puedes gestionar tu lista de Ubicaciones y Tipos personalizados desde la misma pantalla.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> Código QR &amp; NFC</h3>
+          <p>Cada trastero tiene un código QR que puedes copiar, compartir o imprimir directamente desde su pantalla Gestionar. Si tu teléfono admite NFC, también puedes grabar el código del trastero en una etiqueta NFC física y pegarla en la caja: acercar el teléfono a la etiqueta abre ese trastero al instante, sin necesidad de abrir la cámara.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-trash-alt"></i> Eliminar un trastero</h3>
+          <p>Usa <strong>Eliminar</strong> desde el menú <strong>⋯</strong> o la Zona de peligro de la pantalla Gestionar. Si el trastero forma parte de un grupo compartido, solo el propietario puede eliminarlo; los demás miembros lo verán atenuado.</p>
+        </div>
+
+        <div class="help-note">
+          <i class="fas fa-hashtag"></i>
+          <p>Las cuentas gratuitas pueden crear hasta 5 trasteros (o más con un paquete de trasteros comprado). Premium elimina el límite por completo.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="items">
+        <h2>Gestionar objetos</h2>
+        <p class="help-lede">Los objetos viven dentro de los trasteros. Añádelos con o sin foto, etiquétalos y configura recordatorios para no olvidar nada.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-camera"></i> Añadir objetos</h3>
+          <p>Toca el <strong>+</strong> dentro de cualquier trastero. Por defecto te pregunta cómo quieres añadir el objeto (hacer una foto o añadirlo sin ella); mantén pulsado el botón para fijar una opción por defecto y que deje de preguntar. Dale al objeto un nombre o notas (se requiere al menos uno), adjunta una foto y añade etiquetas.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-tags"></i> Etiquetas</h3>
+          <p>Las etiquetas ayudan a encontrar las cosas más tarde: mediante la búsqueda, Siri o Spotlight. Escribe una etiqueta y pulsa la coma para añadirla al instante, o pega varias etiquetas separadas por comas de una vez. Escribir <code>#algo</code> en las notas de un objeto también crea una etiqueta automáticamente.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-sliders-h"></i> Campos personalizados <span class="help-badge premium">Premium</span></h3>
+          <p>Asocia información estructurada a cualquier objeto: texto, números, fechas, interruptores, URL, números de teléfono y más. Los nombres de campo usados recientemente se sugieren automáticamente para no volver a escribir «Fin de la garantía» cada vez.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-boxes"></i> Cantidad</h3>
+          <p>Toca la insignia de cantidad de un objeto para abrir el gestor de cantidad: quitar una unidad, fijar un número exacto o vaciarla del todo.</p>
+          <div class="help-note">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><strong>Cuidado:</strong> poner la cantidad de un objeto a 0 elimina el objeto en lugar de dejarlo a cero. Si solo quieres reducir el número, usa «Fijar cantidad exacta» en su lugar.</p>
+          </div>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-check-double"></i> Selección múltiple &amp; acciones en lote</h3>
+          <p>Mantén pulsado un objeto (o toca el icono de marca de verificación) para seleccionar varios objetos a la vez. Aparece una barra de herramientas que te permite eliminar, mover o marcar varios objetos como devueltos / retirados de una sola vez. En la vista de cuadrícula, también puedes arrastrar un recuadro de selección sobre las miniaturas para seleccionar muchos de golpe.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-exchange-alt"></i> Mover objetos</h3>
+          <p>Abre un objeto, toca el menú y elige «Mover a…» para trasladarlo a otro trastero. Funciona para un solo objeto o para todo un lote seleccionado.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-clock"></i> Préstamo &amp; retirada temporal</h3>
+          <p>Marca un objeto como «Retirado» (prestado, llevado contigo, etc.) y fija una fecha de devolución prevista: WatInside te avisa cuando vence. El icono de estado del objeto muestra de un vistazo verde (en su sitio), amarillo (fuera temporalmente) o rojo (vencido).</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="search-scan">
+        <h2>Búsqueda &amp; escaneo</h2>
+        <p class="help-lede">Tres formas de encontrar las cosas: escribirla, escanearla o apuntar la cámara hacia ella.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search"></i> Búsqueda inteligente</h3>
+          <p>La barra de búsqueda entiende más que texto sin formato: prueba <code>tag:vacaciones</code> o <code>location:garaje</code> para filtrar con precisión. Además tolera errores tipográficos, así que una ortografía parecida sigue encontrando el objeto correcto.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-qrcode"></i> Escanear un código QR</h3>
+          <p>Abre la pestaña Escanear, apunta la cámara a cualquier etiqueta QR de WatInside y abrirá ese trastero al instante. Escanea un código que aún no coincida con nada y WatInside te ofrecerá crear un trastero nuevo con ese código ya rellenado.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-pen-fancy"></i> Escanear escritura a mano</h3>
+          <p>¿No tienes un código QR a mano? Cambia el escáner al modo Escritura a mano y WatInside lee un código de trastero escrito o impreso directamente de la etiqueta, mediante el reconocimiento de texto en el dispositivo.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-wifi"></i> Escanear etiquetas NFC</h3>
+          <p>Si has grabado el código de un trastero en una etiqueta NFC, cambia al modo NFC (o simplemente acerca el teléfono a la etiqueta) para abrirlo, sin cámara.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crosshairs"></i> Escanear para encontrar <span class="help-badge premium">Premium</span></h3>
+          <p>Apunta la cámara a un trastero mientras consultas un objeto concreto para confirmar si de verdad está dentro: práctico cuando tienes delante una pared de cajas idénticas.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="ai">
+        <h2>Etiquetas con IA &amp; asistente</h2>
+        <p class="help-lede">WatInside puede analizar tus fotos para sugerir etiquetas, e incluye un asistente de chat integrado capaz de actuar sobre tu inventario por ti.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-magic"></i> Etiquetado automático</h3>
+          <p>Cuando añades una foto, WatInside sugiere etiquetas según su contenido. Hay tres modos, que se eligen en Ajustes → Gestionar proveedor de IA:</p>
+          <ul>
+            <li><strong>En el dispositivo</strong>: siempre gratis, procesa todo en tu teléfono.</li>
+            <li><strong>Apple Intelligence</strong> <span class="help-badge premium">Premium</span>: sugerencias en el dispositivo de mayor calidad en dispositivos compatibles.</li>
+            <li><strong>IA en la nube</strong>: la opción más potente, consume créditos de IA.</li>
+          </ul>
+          <p>Las etiquetas sugeridas aparecen como fichas que puedes tocar; acepta las que quieras antes de guardar. Si tus créditos de IA en la nube se agotan a mitad de sesión, el etiquetado cambia automáticamente al modo gratuito en el dispositivo, sin que nada se rompa.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-comments"></i> Asistente de chat con IA</h3>
+          <p>Pide ayuda al asistente integrado en lenguaje natural: «añade esta foto como objeto nuevo en la caja del garaje», «dónde está mi pasaporte», «qué caduca este mes» o «mueve mi abrigo de invierno al armario del recibidor». Incluso puedes soltar una foto directamente en el chat para crear un objeto a partir de ella.</p>
+          <p>El asistente puede buscar, crear, actualizar, mover y organizar objetos y trasteros, configurar recordatorios y generar informes rápidos de inventario. Por seguridad, nunca puede eliminar nada: eso siempre lo haces tú desde la app.</p>
+          <p>Pregúntale «cómo hago para…» y obtendrás ayuda paso a paso sobre cualquier tema: trasteros, objetos, compartir, exportar y más.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-eye"></i> Descríbelo, no lo nombres</h3>
+          <p>¿No recuerdas cómo se llama algo? Describe mejor su aspecto («busca la taza pequeña de cerámica azul» o «muéstrame cualquier cosa a rayas y verde») y el asistente encuentra los objetos por su apariencia, no solo por su nombre o sus etiquetas. También resuelve preguntas temporales imprecisas como «qué no he tocado en 6 meses» o «qué he añadido este mes», para que no tengas que rebuscar en listas.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="sharing">
+        <h2>Grupos compartidos</h2>
+        <p class="help-lede">Comparte tus trasteros con la familia o los compañeros de piso para que todos puedan ver y actualizar el mismo inventario. <span class="help-badge premium">Premium</span></p>
+
+        <div class="help-grid-2">
+          <div class="help-card">
+            <h3><i class="fas fa-users"></i> Crear &amp; invitar</h3>
+            <p>Crea un grupo compartido, añade trasteros de tu propiedad y luego invita a personas mediante la hoja para compartir integrada. Antes hay que activar la sincronización con iCloud; WatInside te lo recordará si no lo está.</p>
+          </div>
+          <div class="help-card">
+            <h3><i class="fas fa-user-minus"></i> Salir o quitar</h3>
+            <p>Los participantes pueden salir de un grupo en cualquier momento. Los propietarios pueden quitar un trastero de un grupo (permanece en tu dispositivo, solo deja de compartirse) o eliminar todo el grupo, lo que primero deja de compartir todo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="reminders">
+        <h2>Notificaciones &amp; recordatorios</h2>
+        <p class="help-lede">WatInside puede avisarte antes de que algo caduque, cuando se acerca una cita o cuando el stock baja.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-bell"></i> Qué puede activar un recordatorio</h3>
+          <ul>
+            <li><strong>Fechas de caducidad</strong>: fija una antelación (el mismo día, 1–2 días o una semana antes).</li>
+            <li><strong>Fechas de cita</strong>: misma idea, para todo lo que tenga un plazo.</li>
+            <li><strong>Fechas de devolución</strong>: para objetos marcados como retirados temporalmente / prestados.</li>
+            <li><strong>Stock bajo</strong>: recibe un aviso cuando la cantidad cae por debajo de un umbral que tú definas.</li>
+            <li><strong>Campos personalizados de tipo fecha</strong>: pueden programar su propio recordatorio independiente.</li>
+          </ul>
+          <p>Tocar una notificación abre la app directamente en ese objeto. Asegúrate de que las notificaciones están activadas en Ajustes → Funciones inteligentes.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="siri">
+        <h2>Siri, Spotlight &amp; widget</h2>
+        <p class="help-lede">Algunas de las formas más rápidas de usar WatInside ni siquiera implican abrir la app.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-microphone"></i> Pregúntale a Siri</h3>
+          <ul>
+            <li>«¿Dónde está mi <em>pasaporte</em> en WatInside?»: Siri te dice en qué trastero está y lo abre.</li>
+            <li>«Abre la <em>estantería del garaje</em> en WatInside»: va directamente a ese trastero.</li>
+            <li>«Buscar vencidos en WatInside» o «Buscar temporal en WatInside»: muestra los objetos marcados.</li>
+          </ul>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-search-location"></i> Spotlight</h3>
+          <p>Desliza hacia abajo en la pantalla de inicio y busca: tus trasteros y objetos también aparecen ahí, y los objetos se pueden buscar por sus etiquetas, no solo por su nombre.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th"></i> Widget de la pantalla de inicio</h3>
+          <p>Añade el widget de WatInside para acceder con un toque al Chat, al Escáner o a la Búsqueda, sin entrar antes en la app completa.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="labels">
+        <h2>Etiquetas QR &amp; impresión</h2>
+        <p class="help-lede">Imprime etiquetas físicas para que cualquier caja se pueda escanear en cuanto queda cerrada.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-print"></i> Etiqueta individual</h3>
+          <p>Genera un código QR con su código de trastero impreso debajo, listo para guardar, compartir o imprimir. ¿No te convence el código? Toca Regenerar para obtener uno nuevo antes de guardar.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-th-large"></i> Etiquetas en lote</h3>
+          <p>¿Necesitas un montón de etiquetas antes de empezar a empacar? «Imprimir 12 etiquetas» genera una hoja completa de 12 códigos únicos de una vez, perfecto para el día de la mudanza.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="import-export">
+        <h2>Importar &amp; exportar</h2>
+        <p class="help-lede">Tus datos, portables. <span class="help-badge premium">Premium</span></p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-export"></i> Exportar</h3>
+          <p>Exporta todo (o una selección concreta) en JSON o CSV, opcionalmente junto con tus fotos. Sirve también como copia de seguridad: guarda una copia en un lugar seguro.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-file-import"></i> Importar</h3>
+          <p>Importa una exportación anterior para restaurar o combinar datos. WatInside asocia los trasteros por su código, así que reimportar el mismo archivo actualiza los trasteros existentes en lugar de duplicarlos.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="premium">
+        <h2>Premium &amp; créditos</h2>
+        <p class="help-lede">Qué es gratis, qué es Premium y cómo funcionan los créditos de IA.</p>
+
+        <div class="help-card">
+          <h3><i class="fas fa-crown"></i> Qué desbloquea Premium</h3>
+          <p>Trasteros ilimitados, grupos compartidos, campos personalizados, etiquetado con Apple Intelligence, Escanear para encontrar e Importar/Exportar. Suscríbete al mes, al año, o con una compra única de por vida desde Ajustes → Pasar a Premium.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-coins"></i> Créditos de IA</h3>
+          <p>El etiquetado con IA en la nube consume créditos: todo el mundo recibe unos cuantos créditos iniciales gratis, Premium incluye una reserva mensual y siempre puedes comprar paquetes de créditos adicionales si necesitas más.</p>
+        </div>
+
+        <div class="help-card">
+          <h3><i class="fas fa-undo"></i> Restaurar compras &amp; códigos promocionales</h3>
+          <p>¿Ya te suscribiste en otro dispositivo? Usa «Restaurar compras» en Ajustes. ¿Tienes un código promocional? Introdúcelo en la pantalla de suscripción y WatInside cede el paso al proceso oficial de canje de Apple para aplicarlo.</p>
+        </div>
+      </section>
+
+      <section class="help-section" id="tips">
+        <h2>Trucos &amp; atajos</h2>
+        <p class="help-lede">Un puñado de movimientos de usuario avanzado fáciles de pasar por alto.</p>
+
+        <div class="tip-list">
+          <div class="tip-item">
+            <i class="fas fa-hand-pointer"></i>
+            <p><strong>Mantén pulsado el botón +</strong> en un trastero para fijar su acción por defecto (Preguntar siempre, Hacer foto o Añadir sin foto) y que un toque normal deje de preguntar.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-vector-square"></i>
+            <p><strong>Arrastra un recuadro de selección</strong> sobre las miniaturas de objetos en la vista de cuadrícula, en modo selección múltiple, para coger varios de golpe.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-comment-dots"></i>
+            <p><strong>Escribe una coma</strong> mientras añades etiquetas para confirmar una al instante, o pega varias etiquetas separadas por comas para añadirlas todas de una vez.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-wifi"></i>
+            <p><strong>Las etiquetas NFC también funcionan fuera de la app</strong>: cualquier etiqueta grabada con un enlace de trastero de WatInside abre ese trastero en cuanto el teléfono la toca.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-search"></i>
+            <p><strong>Usa calificadores de búsqueda</strong> como <code>tag:vacaciones</code> o <code>location:garaje</code> para acotar los resultados al instante en lugar de desplazarte.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-layer-group"></i>
+            <p><strong>Las secciones por ubicación muestran por defecto tus 2 trasteros más recientes</strong>: toca «Mostrar más» debajo para ver el resto.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fas fa-history"></i>
+            <p><strong>Los chats de IA anteriores se guardan y se pueden buscar</strong> en la barra lateral del asistente, agrupados por Hoy, Ayer y Últimos 7 días. Desliza una conversación para eliminarla, o bórralo todo de una vez desde ahí.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section" id="faq">
+        <h2>Preguntas frecuentes</h2>
+
+        <div class="faq-item">
+          <h3>¿Necesito crear una cuenta?</h3>
+          <p>No. WatInside funciona por completo sin ninguna cuenta ni registro. Tus datos viven en tu dispositivo y, si lo activas, se sincronizan de forma privada a través de tu propio iCloud.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Por qué ha desaparecido mi objeto tras cambiar su cantidad?</h3>
+          <p>Poner la cantidad de un objeto a 0 lo elimina en lugar de dejarlo a cero. Si quieres mantener el objeto con un número menor, usa «Fijar cantidad exacta» en lugar de bajar hasta el final.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cómo hago una copia de seguridad de mis datos antes de cambiar de teléfono?</h3>
+          <p>Activa la sincronización con iCloud en Ajustes para que todo se transfiera automáticamente con tu ID de Apple, o usa Exportar (Premium) para guardar una copia JSON/CSV que puedas importar después.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿«Restablecer todos los datos» también restablece mis créditos de IA?</h3>
+          <p>No: «Restablecer todos los datos» borra tus trasteros, objetos y ajustes, pero tu saldo de créditos de IA se conserva a propósito.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Qué pasa si mis créditos de IA en la nube se agotan a mitad del etiquetado?</h3>
+          <p>WatInside cambia automáticamente al etiquetado gratuito en el dispositivo para no interrumpir tu trabajo; puedes recargar créditos en cualquier momento desde Ajustes.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿El asistente de chat con IA puede eliminar cosas por mí?</h3>
+          <p>No, por diseño. El asistente puede buscar, añadir, actualizar y organizar tu inventario, pero cualquier eliminación tienes que hacerla tú directamente en la app.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Puedo buscar un objeto si no recuerdo su nombre?</h3>
+          <p>Sí: pídele al asistente de chat con IA que lo encuentre por su apariencia, como «la mochila roja» o «algo redondo y metálico». Se basa en el aspecto del objeto, no solo en su nombre o sus etiquetas.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>He encontrado un error o tengo una idea para una función, ¿qué hago?</h3>
+          <p>Usa Ajustes → Comentarios → «Enviar comentarios» o «Informar de un error». Incluye una captura de pantalla si puedes: ayuda mucho.</p>
+        </div>
+      </section>
+
+      <div class="help-cta">
+        <h2>¿Aún necesitas ayuda?</h2>
+        <p>Escríbenos y te responderemos, o pregúntale al asistente de IA integrado: puede guiarte en la mayoría de temas al instante.</p>
+        <a href="{{ '/es/contact/' | relative_url }}" class="help-cta-btn">Contáctanos</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.help-section'));
+    var links = Array.prototype.slice.call(document.querySelectorAll('#help-toc a'));
+    if (!sections.length || !links.length) return;
+
+    function setActive() {
+      var scrollPos = window.scrollY + 140;
+      var current = sections[0];
+      sections.forEach(function (section) {
+        if (section.offsetTop <= scrollPos) {
+          current = section;
+        }
+      });
+      links.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', setActive);
+    setActive();
+  });
+</script>
+
+{% include floating_cta.html %}

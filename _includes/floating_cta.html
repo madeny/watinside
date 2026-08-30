@@ -1,6 +1,8 @@
+{%- assign lang = page.lang | default: site.default_lang | default: "en" -%}
+{%- assign t = site.data[lang].strings -%}
 <div class="floating-cta-container">
   <a href="{{ site.app_store_url }}" class="floating-glass-btn">
-    Join iOS Beta
+    {{ t.cta.join_beta | default: "Join iOS Beta" }}
   </a>
 </div>
 

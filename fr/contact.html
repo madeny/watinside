@@ -1,8 +1,9 @@
 ---
 layout: default
-lang: en
+lang: fr
 title: "Contact"
-permalink: /contact/
+description: "Une question ou un retour ? Écrivez-nous, nous serions ravis de vous lire."
+permalink: /fr/contact/
 i18n: true
 ---
 
@@ -43,7 +44,7 @@ i18n: true
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
-    -webkit-appearance: none; /* Remove iOS default styles */
+    -webkit-appearance: none; /* Supprime les styles iOS par défaut */
 }
 
 .form-input:focus,
@@ -60,7 +61,7 @@ i18n: true
 
 .submit-btn {
     display: inline-block;
-    background-color: #000; /* Dark button like App Store */
+    background-color: #000; /* Bouton sombre, façon App Store */
     color: #fff;
     padding: 14px 28px;
     border-radius: 24px;
@@ -86,29 +87,30 @@ i18n: true
 </style>
 
 <div class="landing-section">
-    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">Contact Us</h1>
+    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">Nous contacter</h1>
     <p class="hero-subtitle" style="text-align: center; margin-bottom: 3rem;">
-        Have questions or feedback? We'd love to hear from you.
+        Une question ou un retour ? Nous serions ravis de vous lire.
     </p>
 
     <div class="contact-container">
         <form action="https://formspree.io/f/mpwvnboy" method="POST" class="contact-form">
+            <input type="hidden" name="_language" value="fr">
             <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                <label for="name" class="form-label">Nom</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required>
             </div>
 
             <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="name@example.com" required>
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="nom@exemple.com" required>
             </div>
 
             <div class="form-group">
                 <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" class="form-textarea" placeholder="How can we help?" required></textarea>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
             </div>
 
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn">Envoyer le message</button>
         </form>
     </div>
 </div>

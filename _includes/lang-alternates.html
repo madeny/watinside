@@ -1,0 +1,28 @@
+{%- comment -%}
+  Emits <link rel="alternate" hreflang> tags for translated pages.
+
+  - `i18n: true` in front matter  -> a sibling exists in every site language;
+    the URLs are computed by stripping/adding the `/<lang>` prefix.
+  - `translations: { xx: /path/ }` -> an explicit per-language counterpart map
+    (used for one-off pairings).
+
+  x-default points at the default-language version.
+{%- endcomment -%}
+{%- assign cur_lang = page.lang | default: site.default_lang | default: "en" -%}
+{%- if page.i18n -%}
+{%- include i18n-base.html -%}
+{%- for l in site.languages -%}
+{%- if l == site.default_lang -%}{%- assign _u = i18n_base -%}{%- else -%}{%- capture _u -%}/{{ l }}{{ i18n_base }}{%- endcapture -%}{%- endif %}
+<link rel="alternate" hreflang="{{ l }}" href="{{ _u | absolute_url }}">
+{%- endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ i18n_base | absolute_url }}">
+{%- elsif page.translations -%}
+<link rel="alternate" hreflang="{{ cur_lang }}" href="{{ page.url | absolute_url }}">
+{%- for pair in page.translations %}
+<link rel="alternate" hreflang="{{ pair[0] }}" href="{{ pair[1] | absolute_url }}">
+{%- endfor -%}
+{%- if cur_lang == site.default_lang -%}{%- assign x_default = page.url -%}{%- else -%}{%- assign x_default = page.translations[site.default_lang] -%}{%- endif -%}
+{%- if x_default %}
+<link rel="alternate" hreflang="x-default" href="{{ x_default | absolute_url }}">
+{%- endif -%}
+{%- endif -%}

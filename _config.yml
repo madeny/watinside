@@ -107,7 +107,63 @@ footer:
       icon: "fab fa-fw fa-tiktok"
       url: "https://tiktok.com/@watinsides"
 
+# -----------------------------------------------------------
+# Multi-language
+# Each language has fully independent content and URL paths.
+# Default language (en) lives at the root; others under /<lang>/.
+# -----------------------------------------------------------
+languages: ["en", "fr", "es", "de", "it", "zh", "ja"]
+default_lang: "en"
+# Native names shown in the language-switcher menu
+language_names:
+  en: "English"
+  fr: "Français"
+  es: "Español"
+  de: "Deutsch"
+  it: "Italiano"
+  zh: "中文"
+  ja: "日本語"
+# Maps page.lang -> Open Graph locale (used by _includes/seo.html + seo-meta.html)
+language_locales:
+  en: "en_US"
+  fr: "fr_FR"
+  es: "es_ES"
+  de: "de_DE"
+  it: "it_IT"
+  zh: "zh_CN"
+  ja: "ja_JP"
+
 defaults:
+  # Everything is English unless it lives under a language folder (/fr/, /es/)
+  - scope:
+      path: ""
+    values:
+      lang: "en"
+  - scope:
+      path: "fr"
+    values:
+      lang: "fr"
+  - scope:
+      path: "es"
+    values:
+      lang: "es"
+  - scope:
+      path: "de"
+    values:
+      lang: "de"
+  - scope:
+      path: "it"
+    values:
+      lang: "it"
+  - scope:
+      path: "zh"
+    values:
+      lang: "zh"
+  - scope:
+      path: "ja"
+    values:
+      lang: "ja"
+
   # _posts
   - scope:
       path: ""

@@ -1,20 +1,21 @@
+{%- assign lang = page.lang | default: site.default_lang | default: "en" -%}
+{%- assign nav = site.data.navigation[lang] -%}
+{%- assign t = site.data[lang].strings -%}
+{%- if lang == site.default_lang -%}{%- assign lang_home = "/" -%}{%- else -%}{%- capture lang_home -%}/{{ lang }}/{%- endcapture -%}{%- endif -%}
+
 <footer class="site-custom-footer">
   <div class="footer-inner">
-    
+
     <div class="footer-top">
       <div class="footer-brand">
         <span class="footer-logo-text">{{ site.title }}</span>
-        <p class="footer-tagline">Organize your physical world.</p>
+        <p class="footer-tagline">{{ t.footer.tagline }}</p>
       </div>
-      
+
       <div class="footer-nav">
-        <a href="/" class="footer-nav-link">App</a>
-        <a href="/read/" class="footer-nav-link">Read</a>
-        <a href="/about/" class="footer-nav-link">About</a>
-        <a href="/contact/" class="footer-nav-link">Contact</a>
-        <a href="/free-labels/" class="footer-nav-link">Free Labels</a>
-        <a href="/privacy/" class="footer-nav-link">Privacy</a>
-        <a href="/terms/" class="footer-nav-link">Terms</a>
+        {% for link in nav.footer %}
+          <a href="{{ link.url | relative_url }}" class="footer-nav-link">{{ link.title }}</a>
+        {% endfor %}
       </div>
     </div>
 
@@ -22,21 +23,21 @@
 
     <div class="footer-bottom">
       <div class="footer-copyright">
-        &copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.
+        &copy; {{ site.time | date: '%Y' }} {{ site.title }}. {{ t.footer.rights }}
       </div>
-      
+
       <div class="footer-social-icons">
         {% for link in site.footer.links %}
           <a href="{{ link.url }}" class="footer-social-link" aria-label="{{ link.label }}">
             <i class="{{ link.icon }}" aria-hidden="true"></i>
           </a>
         {% endfor %}
-        <a href="{{ site.url | append: site.baseurl | default: site.url }}/feed.xml" class="footer-social-link" aria-label="RSS Feed">
+        <a href="{{ site.url | append: site.baseurl | default: site.url }}/feed.xml" class="footer-social-link" aria-label="{{ t.footer.rss }}">
           <i class="fas fa-rss-square" aria-hidden="true"></i>
         </a>
       </div>
     </div>
-    
+
   </div>
 </footer>
 

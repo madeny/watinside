@@ -1,0 +1,14 @@
+{%- comment -%}
+  Sets `i18n_base` = the language-neutral path of the current page, i.e. its
+  URL with any `/<lang>` prefix stripped. `/de/help/` -> `/help/`, `/fr/` -> `/`,
+  `/help/` -> `/help/`. Callers rebuild a sibling URL as `/<lang>{{ i18n_base }}`
+  (or just `i18n_base` for the default language).
+
+  Only meaningful for pages that exist in every language (front matter `i18n: true`).
+{%- endcomment -%}
+{%- assign i18n_base = page.url -%}
+{%- unless page.lang == site.default_lang -%}
+  {%- assign _lang_prefix = '/' | append: page.lang -%}
+  {%- assign i18n_base = page.url | remove_first: _lang_prefix -%}
+{%- endunless -%}
+{%- if i18n_base == '' -%}{%- assign i18n_base = '/' -%}{%- endif -%}

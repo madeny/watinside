@@ -1,0 +1,29 @@
+# Cadenas de interfaz en español.
+# Los títulos de navegación / pie de página están en _data/navigation.yml.
+
+lang_switch:
+  label: "Idioma"
+
+menu: "Menú"
+
+cta:
+  early_access: "Acceso anticipado"
+  join_beta: "Unirse a la beta de iOS"
+
+slideshow:
+  group_label: "Vista previa de la app WatInside"
+  link_label: "Obtener acceso anticipado a WatInside"
+  screenshot_alt: "Captura de pantalla de la app WatInside mostrando las funciones de inventario del hogar"
+  choose_label: "Elegir captura de pantalla de la app"
+  show_label: "Mostrar captura de pantalla"
+
+footer:
+  tagline: "Organiza tu mundo físico."
+  rights: "Todos los derechos reservados."
+  rss: "Fuente RSS"
+
+blog:
+  back_to_all: "Volver a todos los artículos"
+  previous: "Anterior"
+  next: "Siguiente"
+  recent_stories: "Artículos recientes"

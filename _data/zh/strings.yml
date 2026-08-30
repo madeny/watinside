@@ -1,0 +1,29 @@
+# 中文界面文案。
+# 导航 / 页脚标题见 _data/navigation.yml。
+
+lang_switch:
+  label: "语言"
+
+menu: "菜单"
+
+cta:
+  early_access: "抢先体验"
+  join_beta: "加入 iOS 测试版"
+
+slideshow:
+  group_label: "WatInside 应用预览"
+  link_label: "打开 WatInside 抢先体验"
+  screenshot_alt: "WatInside 应用截图，展示家庭物品清单功能"
+  choose_label: "选择应用预览截图"
+  show_label: "显示截图"
+
+footer:
+  tagline: "让你的实物世界井井有条。"
+  rights: "保留所有权利。"
+  rss: "RSS 订阅"
+
+blog:
+  back_to_all: "返回全部文章"
+  previous: "上一篇"
+  next: "下一篇"
+  recent_stories: "最新文章"

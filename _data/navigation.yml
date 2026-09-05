@@ -24,6 +24,12 @@ en:
       url: /contact/
     - title: "Free Labels"
       url: /free-labels/
+    - title: "QR Code Labels"
+      url: /moving-box-qr-labels/
+    - title: "NFC Labels"
+      url: /nfc-storage-labels/
+    - title: "Handwritten Scanner"
+      url: /handwritten-label-scanner/
     - title: "Privacy"
       url: /privacy/
     - title: "Terms"

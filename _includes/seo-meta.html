@@ -15,8 +15,10 @@
 <meta property="og:image:height" content="630">
 {% elsif site.og_image %}
 <meta property="og:image" content="{{ site.og_image | absolute_url }}">
+{% elsif page.header.overlay_image %}
+<meta property="og:image" content="{{ page.header.overlay_image | absolute_url }}">
 {% else %}
-<meta property="og:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+<meta property="og:image" content="{{ site.logo | default: '/assets/images/logo.webp' | absolute_url }}">
 {% endif %}
 
 <!-- Twitter Card Meta Tags -->
@@ -28,8 +30,10 @@
 <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
 {% elsif site.og_image %}
 <meta name="twitter:image" content="{{ site.og_image | absolute_url }}">
+{% elsif page.header.overlay_image %}
+<meta name="twitter:image" content="{{ page.header.overlay_image | absolute_url }}">
 {% else %}
-<meta name="twitter:image" content="{{ '/assets/images/og-image.jpg' | absolute_url }}">
+<meta name="twitter:image" content="{{ site.logo | default: '/assets/images/logo.webp' | absolute_url }}">
 {% endif %}
 
 <!-- Apple Smart App Banner -->
@@ -64,7 +68,7 @@
       "url": "{{ site.url }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ '/assets/images/logo.png' | absolute_url }}"
+        "url": "{{ site.logo | default: '/assets/images/logo.webp' | absolute_url }}"
       },
       "sameAs": [
         "https://twitter.com/{{ site.twitter_username }}"
@@ -84,13 +88,6 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "50",
-        "bestRating": "5",
-        "worstRating": "1"
       },
       "screenshot": [
         "{{ '/assets/images/screen/Start_Organizing_by.webp' | absolute_url }}",

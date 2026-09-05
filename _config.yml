@@ -23,6 +23,11 @@ logo: /assets/images/logo.webp
 email: support@watinside.app
 app_store_url: https://testflight.apple.com/join/NZveBxzt
 app_store_id: "1625172208"  # For Apple Smart App Banner
+# Real App Store rating only — uncomment once the app is public with genuine
+# ratings. These feed SoftwareApplication.aggregateRating (star snippets).
+# Do NOT set placeholder values: fabricated ratings violate Google policy.
+# app_rating: "4.8"
+# app_rating_count: "137"
 description: >-
   WatInside helps you organize your physical stuff and never forget where they are. Pack, store, and find items instantly.
 baseurl: "" # the subpath of your site, e.g. /blog

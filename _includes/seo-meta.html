@@ -70,11 +70,9 @@
         "@type": "ImageObject",
         "url": "{{ site.logo | default: '/assets/images/logo.webp' | absolute_url }}"
       },
+      {%- comment -%} site.footer.links already includes the Twitter/X profile, so iterate that alone to avoid a duplicate entry {%- endcomment -%}
       "sameAs": [
-        "https://twitter.com/{{ site.twitter_username }}"
-        {% for link in site.footer.links %}
-        ,"{{ link.url }}"
-        {% endfor %}
+        {% for link in site.footer.links %}{% unless forloop.first %},{% endunless %}"{{ link.url }}"{% endfor %}
       ]
     },
     {
@@ -89,18 +87,35 @@
         "price": "0",
         "priceCurrency": "USD"
       },
+      {%- comment -%}
+        Real App Store rating only. Set app_rating + app_rating_count in _config.yml
+        once the app is public and has genuine ratings. Never hard-code placeholder
+        numbers — fabricated review data violates Google's structured-data policy.
+      {%- endcomment -%}
+      {% if site.app_rating and site.app_rating_count -%}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ site.app_rating }}",
+        "ratingCount": "{{ site.app_rating_count }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      {% endif -%}
       "screenshot": [
         "{{ '/assets/images/screen/Start_Organizing_by.webp' | absolute_url }}",
         "{{ '/assets/images/screen/Creating_Label.webp' | absolute_url }}"
       ]
     }
     {% if page.layout == 'single' and page.date %}
+    {%- assign post_image = page.og_image | default: page.header.og_image | default: page.header.overlay_image | default: site.logo -%}
     ,{
       "@type": "BlogPosting",
       "headline": "{{ page.title | escape }}",
       "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
       "datePublished": "{{ page.date | date_to_xmlschema }}",
       "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      {% if post_image %}"image": "{{ post_image | absolute_url }}",
+      {% endif -%}
       "author": {
         "@type": "Person",
         "name": "{{ page.author | default: site.author.name }}"

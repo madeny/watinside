@@ -1,0 +1,12 @@
+{%- comment -%}
+  Local override of minimal-mistakes' _includes/schema.html.
+
+  The gem version emits a homepage-only Person/Organization JSON-LD block built
+  from `site.social.*`. Those keys aren't configured here, so it rendered an
+  invalid `{"@type":"Person","name":null}` block that trips Google's Rich
+  Results test.
+
+  All real structured data (WebSite, Organization, SoftwareApplication,
+  BlogPosting) is emitted from `_includes/seo-meta.html` as a single @graph.
+  This override intentionally outputs nothing.
+{%- endcomment -%}
